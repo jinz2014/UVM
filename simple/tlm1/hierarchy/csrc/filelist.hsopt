@@ -1,0 +1,7 @@
+rmapats_mop.o: rmapats.m
+	@/share/reconfig/synopsys_vcs_mx/linux/bin/cgmop1 -gen_obj rmapats.m rmapats_mop.o
+
+rmapats.o: rmapats.c
+	@$(CC) $(CFLAGS) -c  -o rmapats.o rmapats.c
+
+HSOPT_OBJS=rmapats_mop.o rmapats.o

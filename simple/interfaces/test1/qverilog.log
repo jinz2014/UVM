@@ -1,0 +1,121 @@
+Model Technology ModelSim SE-64 qverilog 10.1 Compiler 2011.12 Dec  5 2011
+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/bin/../linux_x86_64/qverilog +incdir+. interface.sv -R 
+-- Compiling interface pin_if
+** Note: (qverilog-2286) Using implicit +incdir+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/../verilog_src/uvm-1.1/src from import uvm_pkg
+-- Compiling package interface_sv_unit
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1 Built-in)
+-- Importing package user_pkg
+-- Importing package top_pkg
+-- Compiling package top_pkg
+-- Compiling package user_pkg
+-- Compiling module dut
+-- Compiling module clkgen
+-- Compiling module top
+
+Top level modules:
+	top
++ /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/vsim -lib work top -c -do run -all; quit -f -appendlog -l qverilog.log -vopt
+# vsim -appendlog -do {run -all; quit -f} -l qverilog.log -lib work -c -vopt top 
+# ** Note: (vsim-3812) Design is being optimized...
+# //  ModelSim SE-64 10.1 Dec  5 2011 Linux 3.13.0-32-generic
+# //
+# //  Copyright 1991-2011 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading work.top_pkg(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.user_pkg(fast)
+# Loading work.interface_sv_unit(fast)
+# Loading work.top(fast)
+# Loading work.pin_if(fast)
+# Loading work.dut(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/linux_x86_64/uvm_dpi.so
+# run -all 
+# ----------------------------------------------------------------
+# UVM-1.1
+# (C) 2007-2011 Mentor Graphics Corporation
+# (C) 2007-2011 Cadence Design Systems, Inc.
+# (C) 2006-2011 Synopsys, Inc.
+# (C) 2011      Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO interface.sv(209) @ 0: reporter [top] *** resource configuration *** 
+# 
+# === resource pool ===
+# label [/^env\.driver$/] : ?
+# -  
+# pif [/^env\.driver$/] : ?
+# -  
+# runtime [/^env$/] : ?
+# -  
+# size [/^env\.driver$/] : ?
+# -  
+# === end of resource pool ===
+# UVM_INFO @ 0: reporter [RNTST] Running test ...
+# UVM_INFO interface.sv(148) @ 0: env [env] build_phase
+# UVM_INFO interface.sv(170) @ 5: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 5: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 15: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 15: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 25: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 25: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 35: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 35: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 45: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 45: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 55: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 55: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 65: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 65: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 75: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 75: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 85: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 85: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 95: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 95: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 105: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 105: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 115: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 115: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 125: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 125: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 135: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 135: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 145: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 145: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 155: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 155: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 165: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 165: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 175: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 175: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 185: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 185: env.driver [driver] posedge clk
+# UVM_INFO interface.sv(170) @ 195: reporter [dut] posedge clk
+# UVM_INFO interface.sv(125) @ 195: env.driver [driver] posedge clk
+# UVM_INFO verilog_src/uvm-1.1/src/base/uvm_objection.svh(1120) @ 200: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   46
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [driver]    20
+# [dut]    20
+# [env]     1
+# [top]     1
+# ** Note: $finish    : /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/../verilog_src/uvm-1.1/src/base/uvm_root.svh(408)
+#    Time: 200 ns  Iteration: 54  Instance: /top

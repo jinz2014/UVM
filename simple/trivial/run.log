@@ -1,0 +1,33 @@
+Command: ./simv +UVM_NO_RELNOTES -l run.log
+Chronologic VCS simulator copyright 1991-2011
+Contains Synopsys proprietary information.
+Compiler version F-2011.12; Runtime version F-2011.12;  Oct 18 21:11 2012
+----------------------------------------------------------------
+UVM-1.1.VCS
+(C) 2007-2011 Mentor Graphics Corporation
+(C) 2007-2011 Cadence Design Systems, Inc.
+(C) 2006-2011 Synopsys, Inc.
+(C) 2011      Cypress Semiconductor Corp.
+----------------------------------------------------------------
+UVM_INFO @ 0: reporter [RNTST] Running test ...
+UVM_INFO component.sv(37) @ 0: Top [component] run phase()!
+UVM_INFO /share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_objection.svh(1120) @ 0: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO component.sv(43) @ 0: Top [component] extract phase()!
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    4
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[TEST_DONE]     1
+[component]     2
+$finish called from file "/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_root.svh", line 408.
+$finish at simulation time                    0
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 0 ns
+CPU Time:      0.470 seconds;       Data structure size:   0.1Mb
+Thu Oct 18 21:11:03 2012

@@ -1,0 +1,99 @@
+Model Technology ModelSim SE-64 qverilog 10.1 Compiler 2011.12 Dec  5 2011
+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/bin/../linux_x86_64/qverilog +incdir+. top.sv -R 
+** Note: (qverilog-2286) Using implicit +incdir+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/../verilog_src/uvm-1.1/src from import uvm_pkg
+-- Compiling package top_sv_unit
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1 Built-in)
+-- Compiling module top
+
+Top level modules:
+	top
++ /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/vsim -lib work top -c -do run -all; quit -f -appendlog -l qverilog.log -vopt
+# vsim -appendlog -do {run -all; quit -f} -l qverilog.log -lib work -c -vopt top 
+# ** Note: (vsim-3812) Design is being optimized...
+# //  ModelSim SE-64 10.1 Dec  5 2011 Linux 3.13.0-32-generic
+# //
+# //  Copyright 1991-2011 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.top_sv_unit(fast)
+# Loading work.top(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/linux_x86_64/uvm_dpi.so
+# run -all 
+# ----------------------------------------------------------------
+# UVM-1.1
+# (C) 2007-2011 Mentor Graphics Corporation
+# (C) 2007-2011 Cadence Design Systems, Inc.
+# (C) 2006-2011 Synopsys, Inc.
+# (C) 2011      Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO top.sv(23) @ 0: reporter [top] In top initial block
+# UVM_INFO @ 0: reporter [RNTST] Running test ...
+# -------------------------------------------------------
+# Name                 Type                   Size  Value
+# -------------------------------------------------------
+# sequencer            instruction_sequencer  -     @468 
+#   rsp_export         uvm_analysis_export    -     @476 
+#   seq_item_export    uvm_seq_item_pull_imp  -     @582 
+#   arbitration_queue  array                  0     -    
+#   lock_queue         array                  0     -    
+#   num_last_reqs      integral               32    'd1  
+#   num_last_rsps      integral               32    'd1  
+# -------------------------------------------------------
+# UVM_INFO sequence.sv(75) @ 0: sequencer@@fork_join_sequence [test1] random arb
+# 0: Driving Instruction  MUL
+# 10: Driving Instruction  SUB
+# 20: Driving Instruction  MUL
+# 30: Driving Instruction  MUL
+# 40: Driving Instruction  SUB
+# 50: Driving Instruction  SUB
+# 60: Driving Instruction  ADD
+# 70: Driving Instruction  ADD
+# 80: Driving Instruction  ADD
+# UVM_INFO sequence.sv(85) @ 90: sequencer@@fork_join_sequence [test2] fifo arb
+# 90: Driving Instruction  ADD
+# 100: Driving Instruction  SUB
+# 110: Driving Instruction  MUL
+# 120: Driving Instruction  ADD
+# 130: Driving Instruction  SUB
+# 140: Driving Instruction  MUL
+# 150: Driving Instruction  ADD
+# 160: Driving Instruction  SUB
+# 170: Driving Instruction  MUL
+# UVM_INFO sequence.sv(95) @ 180: sequencer@@fork_join_sequence [test3] weighted arb
+# 180: Driving Instruction  ADD
+# 190: Driving Instruction  ADD
+# 200: Driving Instruction  ADD
+# 210: Driving Instruction  SUB
+# 220: Driving Instruction  SUB
+# 230: Driving Instruction  SUB
+# 240: Driving Instruction  MUL
+# 250: Driving Instruction  MUL
+# 260: Driving Instruction  MUL
+# UVM_INFO verilog_src/uvm-1.1/src/base/uvm_objection.svh(1120) @ 270: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    8
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [test1]     1
+# [test2]     1
+# [test3]     1
+# [top]     1
+# ** Note: $finish    : /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/../verilog_src/uvm-1.1/src/base/uvm_root.svh(408)
+#    Time: 270 ns  Iteration: 65  Instance: /top

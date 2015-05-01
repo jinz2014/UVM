@@ -1,0 +1,21 @@
+module dut_dummy (base_bus_if pif);
+  
+  parameter N = 256;
+  
+  logic [31:0] mem [0:N-1];
+  logic [31:0] data;
+  
+  initial begin
+    for (int i = 0; i < N; i++)
+      mem[i] = i;
+  end
+  
+  always @ (*) begin
+    data = mem[pif.addr];
+
+    mem[pif.addr] = data + pif.data;
+    
+    $display("@%0d read data (%h) write data (%h)", pif.addr, data, mem[pif.addr]);
+  end
+  
+endmodule

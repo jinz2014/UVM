@@ -1,0 +1,74 @@
+Model Technology ModelSim SE-64 qverilog 10.1 Compiler 2011.12 Dec  5 2011
+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/bin/../linux_x86_64/qverilog +incdir+. top.sv -R 
+** Note: (qverilog-2286) Using implicit +incdir+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/../verilog_src/uvm-1.1/src from import uvm_pkg
+** Warning: sequence_lib.sv(7): (qverilog-2283) Extra semicolon in $unit (global) scope.
+-- Compiling package top_sv_unit
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1 Built-in)
+-- Compiling module top
+
+Top level modules:
+	top
++ /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/vsim -lib work top -c -do run -all; quit -f -appendlog -l qverilog.log -vopt
+# vsim -appendlog -do {run -all; quit -f} -l qverilog.log -lib work -c -vopt top 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  ModelSim SE-64 10.1 Dec  5 2011 Linux 3.13.0-32-generic
+# //
+# //  Copyright 1991-2011 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.top_sv_unit(fast)
+# Loading work.top(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/linux_x86_64/uvm_dpi.so
+# run -all 
+# ----------------------------------------------------------------
+# UVM-1.1
+# (C) 2007-2011 Mentor Graphics Corporation
+# (C) 2007-2011 Cadence Design Systems, Inc.
+# (C) 2006-2011 Synopsys, Inc.
+# (C) 2011      Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO top.sv(37) @ 0: reporter [top] In top initial block
+# UVM_INFO @ 0: reporter [RNTST] Running test base_test...
+# -------------------------------------------------------
+# Name                 Type                   Size  Value
+# -------------------------------------------------------
+# sequencer            instruction_sequencer  -     @495 
+#   rsp_export         uvm_analysis_export    -     @503 
+#   seq_item_export    uvm_seq_item_pull_imp  -     @609 
+#   arbitration_queue  array                  0     -    
+#   lock_queue         array                  0     -    
+#   num_last_reqs      integral               32    'd1  
+#   num_last_rsps      integral               32    'd1  
+# -------------------------------------------------------
+# UVM_INFO sequence.sv(114) @ 0: sequencer@@seq_body [demo_sequence_body] task pre_start
+# UVM_INFO sequence.sv(126) @ 0: sequencer@@seq_body [demo_sequence_body] task pre_body
+# UVM_INFO sequence.sv(137) @ 0: sequencer@@seq_body [demo_sequence_body] task body
+# 0: Driving Instruction  SUB
+# UVM_INFO sequence.sv(131) @ 10: sequencer@@seq_body [demo_sequence_body] task post_body
+# UVM_INFO sequence.sv(120) @ 10: sequencer@@seq_body [demo_sequence_body] task post_start
+# UVM_INFO verilog_src/uvm-1.1/src/base/uvm_objection.svh(1120) @ 10: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   10
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [demo_sequence_body]     5
+# [top]     1
+# ** Note: $finish    : /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/../verilog_src/uvm-1.1/src/base/uvm_root.svh(408)
+#    Time: 10 ns  Iteration: 60  Instance: /top

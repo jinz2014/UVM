@@ -1,0 +1,658 @@
+# SimVision Command Script (Tue Feb 09 11:01:03 IST 2010)
+#
+# Version 09.20.s011
+#
+# You can restore this configuration with:
+#
+#     simvision -input simvision_lp.svcf
+#
+
+
+#
+# Preferences
+#
+preferences set toolbar-UserTB0-SrcBrowser {
+  usual
+  add UserFrame0
+  position -row 8 -pos 1
+  name {Embedded Software Trace}
+}
+preferences set toolbar-SimControl-WatchList {
+  usual
+  hide vplan
+}
+preferences set toolbar-SimControl-SrcBrowser {
+  usual
+  show step_out
+  hide vplan
+}
+preferences set toolbar-UserTB0-WatchList {
+  usual
+  add action_send_from_design_browser_to_stripechart
+  add action_send_from_design_browser_to_databrowser
+  add action_send_from_design_browser_to_visualization
+  position -row 0 -pos 4 -anchor e
+  name {Send To Specman}
+}
+preferences set toolbar-UserTB2-SrcBrowser {
+  usual
+  add UserFrame0
+  position -row 8 -pos 1
+  name {Embedded Software Trace}
+}
+preferences set toolbar-UserTB1-WaveWindow {
+  usual
+  add action_send_from_waveform_to_stripechart
+  add action_send_from_waveform_to_databrowser
+  position -row 0 -pos 4 -anchor e
+  name {Send To Specman}
+}
+preferences set user-toolbar-list {SrcBrowser {} WaveWindow {} WatchList {}}
+preferences set toolbar-Windows-WaveWindow {
+  usual
+  position -pos 4
+}
+
+#
+# PPE data
+#
+array set dbNames ""
+set dbNames(realName1) [database require waves -search {
+	./waves.shm/waves.trn
+	/vobs/socv/src/soc_verification_lib/uvm_e_ex_lib/apb_subsystem/sve/scripts/tmp/waves.shm/waves.trn
+}]
+
+#
+# Conditions
+#
+set expression simulator::tb_apb_subsystem.i_apb_subsystem.i_power_ctrl_veneer.i_power_ctrl.pwr1_off_smc
+if {[catch {condition new -name  tb_apb_subsystem.i_apb_subsystem.PDsmc_shutoff -expr $expression}] != ""} {
+    condition set -using tb_apb_subsystem.i_apb_subsystem.PDsmc_shutoff -expr $expression
+}
+set expression simulator::tb_apb_subsystem.i_apb_subsystem.i_power_ctrl_veneer.i_power_ctrl.pwr1_off_urt
+if {[catch {condition new -name  tb_apb_subsystem.i_apb_subsystem.PDurt_shutoff -expr $expression}] != ""} {
+    condition set -using tb_apb_subsystem.i_apb_subsystem.PDurt_shutoff -expr $expression
+}
+set expression simulator::tb_apb_subsystem.i_apb_subsystem.i_power_ctrl_veneer.i_power_ctrl.isolate_smc
+if {[catch {condition new -name  tb_apb_subsystem.i_apb_subsystem.iso_smc_hi_isolation_control -expr $expression}] != ""} {
+    condition set -using tb_apb_subsystem.i_apb_subsystem.iso_smc_hi_isolation_control -expr $expression
+}
+set expression simulator::tb_apb_subsystem.i_apb_subsystem.i_power_ctrl_veneer.i_power_ctrl.isolate_smc
+if {[catch {condition new -name  tb_apb_subsystem.i_apb_subsystem.iso_smc_low_isolation_control -expr $expression}] != ""} {
+    condition set -using tb_apb_subsystem.i_apb_subsystem.iso_smc_low_isolation_control -expr $expression
+}
+set expression simulator::tb_apb_subsystem.i_apb_subsystem.i_power_ctrl_veneer.i_power_ctrl.isolate_urt
+if {[catch {condition new -name  tb_apb_subsystem.i_apb_subsystem.iso_urt_hi_isolation_control -expr $expression}] != ""} {
+    condition set -using tb_apb_subsystem.i_apb_subsystem.iso_urt_hi_isolation_control -expr $expression
+}
+set expression simulator::tb_apb_subsystem.i_apb_subsystem.i_power_ctrl_veneer.i_power_ctrl.isolate_urt
+if {[catch {condition new -name  tb_apb_subsystem.i_apb_subsystem.iso_urt_lo_isolation_control -expr $expression}] != ""} {
+    condition set -using tb_apb_subsystem.i_apb_subsystem.iso_urt_lo_isolation_control -expr $expression
+}
+
+#
+# Groups
+#
+catch {group new -name SMC -overlay 0}
+catch {group new -name UART -overlay 0}
+catch {group new -name UART0 -overlay 0}
+catch {group new -name UART1 -overlay 0}
+catch {group new -name tb_apb_subsystem.i_apb_subsystem.PDurt -overlay 0}
+catch {group new -name tb_apb_subsystem.i_apb_subsystem.iso_urt_lo -overlay 0}
+catch {group new -name tb_apb_subsystem.i_apb_subsystem.iso_urt_hi -overlay 0}
+catch {group new -name tb_apb_subsystem.i_apb_subsystem.URT_retn_rule -overlay 0}
+catch {group new -name tb_apb_subsystem.i_apb_subsystem.PDsmc -overlay 0}
+catch {group new -name tb_apb_subsystem.i_apb_subsystem.iso_smc_low -overlay 0}
+catch {group new -name tb_apb_subsystem.i_apb_subsystem.iso_smc_hi -overlay 0}
+catch {group new -name tb_apb_subsystem.i_apb_subsystem.SMC_retn_rule -overlay 0}
+
+group using SMC
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.pclk \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_power_ctrl_veneer.isolate_smc \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_power_ctrl_veneer.pwr1_off_smc \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_power_ctrl_veneer.pwr1_on_smc \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.smc_hready \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.penable \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.config0 \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.config1 \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.config2 \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.config3 \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.config4 \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.config5 \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.config6 \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.config7 \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.paddr \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.prdata \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.psel \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.pwdata \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.pwrite
+
+group using UART
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+
+group using UART0
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.pclk \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.bdiv_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.brg_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.ctrl_cr_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.ctrl_mr_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.ctrl_nb_stop \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.ctrl_par \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.int_csr_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.mo_msr_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.receiver_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.ua_txd \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.ua_rxd \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.ua_int_ctrl1.uart_cisr_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.ua_int_ctrl1.uart_imr_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.ua_int_ctrl1.uart_int_meta \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.ua_rcvr1.timeout_counter \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.ua_tx_fifo1.wr_pointer \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.ua_int \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.ua_ncts \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart0_veneer.i_uart0.ua_nrts
+
+group using UART1
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.pclk \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.pclk_SRPG \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_power_ctrl_veneer.i_power_ctrl.isolate_urt \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_power_ctrl_veneer.i_power_ctrl.pwr1_off_urt \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_power_ctrl_veneer.i_power_ctrl.pwr1_on_urt \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.penable \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.prdata \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.psel \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.pwdata \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.pwrite \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.apb_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.bdiv_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.brg_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.byte_sel \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ctrl_chmode \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ctrl_chrl \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ctrl_cr_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ctrl_mr_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ctrl_nb_stop \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.fdel_trigger \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.flow_del_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.int_cisr_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.int_csr_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.int_imr_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.mo_msr_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.n_p_reset \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.n_p_reset_SRPG \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.paddr \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.transmitter_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.uart_clk
+
+group using tb_apb_subsystem.i_apb_subsystem.PDurt
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    {\tb_apb_subsystem.i_apb_subsystem.PDurt_shutoff } \
+    tb_apb_subsystem.i_apb_subsystem.iso_urt_lo \
+    tb_apb_subsystem.i_apb_subsystem.iso_urt_hi \
+    tb_apb_subsystem.i_apb_subsystem.URT_retn_rule
+
+group using tb_apb_subsystem.i_apb_subsystem.iso_urt_lo
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    {\tb_apb_subsystem.i_apb_subsystem.iso_urt_lo_isolation_control } \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.prdata \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.ua_int \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.ua_uclken
+
+group using tb_apb_subsystem.i_apb_subsystem.iso_urt_hi
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    {\tb_apb_subsystem.i_apb_subsystem.iso_urt_hi_isolation_control } \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.ua_txd \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.ua_nrts \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txd \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_nrts
+
+group using tb_apb_subsystem.i_apb_subsystem.URT_retn_rule
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_tx_fifo1.i \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_tx_fifo1.byte_counter \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_tx_fifo1.rd_pointer \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_tx_fifo1.wr_pointer \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_tx_fifo1.tx_fifo \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rx_fifo1.inc_rfifo_sync \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rx_fifo1.inc_rfifo_meta \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rx_fifo1.fdel_level \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rx_fifo1.trigger_level \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rx_fifo1.byte_counter \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rx_fifo1.rd_pointer \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rx_fifo1.wr_pointer \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rx_fifo1.rx_fifo \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rx_fifo1.i \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rx_fifo1.char_to_fifo \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rcvr1.timeout_counter \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rcvr1.timeout_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rcvr1.data_sent \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rcvr1.rx_data_ready \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rcvr1.shift_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rcvr1.rx_data_state \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rcvr1.start \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rcvr1.count_sample \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rcvr1.sampler \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rcvr1.baud_rx_sync \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rcvr1.rx_timeout \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rcvr1.rx_pare \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rcvr1.rx_frame \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rcvr1.rx_ovre \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_rcvr1.chk_half_stop \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_brg1.baud_tx_rate_neg_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_brg1.baud_tx_rate_pos_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_brg1.baud_rx_rate_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_brg1.baud_sample_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_brg1.baud_tx_count \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_brg1.baud_rx_count \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_brg1.uart_bdiv_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_brg1.uart_brg_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_brg1.brg_count \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_brg1.uart_clk_count \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_mod_ctrl1.uart_cts_meta \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_mod_ctrl1.uart_dsr_meta \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_mod_ctrl1.uart_ri_meta \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_mod_ctrl1.uart_dcd_meta \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_mod_ctrl1.uart_dcts_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_mod_ctrl1.uart_cts_del \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_mod_ctrl1.uart_cts_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_mod_ctrl1.uart_rts_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_mod_ctrl1.uart_fcm_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_mode_sw1.char_to_fifo_meta2 \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_mode_sw1.char_to_fifo_meta1 \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_mode_sw1.ua_nrts \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_mode_sw1.ua_ncts_int \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_mode_sw1.ua_txd \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_mode_sw1.ua_rxd_int \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.load_tx \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.ctrl_txbrk_sync \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.ctrl_txbrk_meta \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.tfifo_empty_sync \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.tfifo_empty_meta \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.mo_cts_sync \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.mo_cts_meta \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.sr_loaded_sync \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.sr_loaded_meta \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.load_enable \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.tx_edge_toggle \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.parity_out \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.brk_count \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.shift_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.tx_state \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.sr_loaded \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.inc_tfifo \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_txmtr1.ua_txd \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_apb_if1.prdata \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.ctrl_txres_n_meta3 \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.ctrl_txres_n_meta2 \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.ctrl_txres_n_meta1 \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.ctrl_rxres_n_meta3 \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.ctrl_rxres_n_meta2 \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.ctrl_rxres_n_meta1 \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.ctrl_rst_to_meta \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.ctrl_rst_to_pclk \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.uart_ctrl_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.uart_mode_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.rst_to \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.txres \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.rxres \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.ctrl_txbrk \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.ctrl_rst_to \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.ctrl_txen \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.ctrl_rxen \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.ctrl_txres_n_pclk \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.ctrl_txres_n \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.ctrl_rxres_n_pclk \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_ctrl1.ctrl_rxres_n \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_int_ctrl1.uart_int_del \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_int_ctrl1.uart_int_meta \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_int_ctrl1.uart_int_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_int_ctrl1.uart_cisr_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_int_ctrl1.uart_imr_reg \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_uart1_veneer.i_uart1.ua_int_ctrl1.uart_interrupts
+
+group using tb_apb_subsystem.i_apb_subsystem.PDsmc
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    {\tb_apb_subsystem.i_apb_subsystem.PDsmc_shutoff } \
+    tb_apb_subsystem.i_apb_subsystem.iso_smc_low \
+    tb_apb_subsystem.i_apb_subsystem.iso_smc_hi \
+    tb_apb_subsystem.i_apb_subsystem.SMC_retn_rule
+
+group using tb_apb_subsystem.i_apb_subsystem.iso_smc_low
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    {\tb_apb_subsystem.i_apb_subsystem.iso_smc_low_isolation_control } \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.prdata \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.smc_hrdata \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.smc_hresp \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.smc_valid \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.smc_addr \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.smc_data \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.smc_addr
+
+group using tb_apb_subsystem.i_apb_subsystem.iso_smc_hi
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    {\tb_apb_subsystem.i_apb_subsystem.iso_smc_hi_isolation_control } \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.smc_hready \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.smc_n_be \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.smc_n_cs \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.smc_n_we \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.smc_n_wr \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.smc_n_rd \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.smc_n_ext_oe \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.smc_busy \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.smc_n_be \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.smc_n_cs
+
+group using tb_apb_subsystem.i_apb_subsystem.SMC_retn_rule
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg7.concat \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg7.bw \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg7.ws \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg7.wele \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg7.wete \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg7.csle \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg7.cste \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg7.oete \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg7.btb \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg7.en \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg6.concat \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg6.bw \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg6.ws \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg6.wele \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg6.wete \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg6.csle \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg6.cste \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg6.oete \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg6.btb \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg6.en \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg5.concat \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg5.bw \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg5.ws \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg5.wele \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg5.wete \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg5.csle \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg5.cste \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg5.oete \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg5.btb \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg5.en \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg4.concat \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg4.bw \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg4.ws \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg4.wele \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg4.wete \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg4.csle \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg4.cste \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg4.oete \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg4.btb \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg4.en \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg3.concat \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg3.bw \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg3.ws \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg3.wele \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg3.wete \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg3.csle \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg3.cste \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg3.oete \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg3.btb \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg3.en \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg2.concat \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg2.bw \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg2.ws \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg2.wele \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg2.wete \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg2.csle \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg2.cste \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg2.oete \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg2.btb \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg2.en \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg1.concat \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg1.bw \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg1.ws \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg1.wele \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg1.wete \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg1.csle \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg1.cste \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg1.oete \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg1.btb \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg1.en \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg0.concat \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg0.bw \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg0.ws \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg0.wele \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg0.wete \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg0.csle \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg0.cste \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg0.oete \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg0.btb \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.i_cfreg0.en \
+    simulator::tb_apb_subsystem.i_apb_subsystem.i_smc_veneer.i_smc.i_apb.selreg
+
+#
+# Cursors
+#
+set time 347328ns
+if {[catch {cursor new -name  TimeA -time $time}] != ""} {
+    cursor set -using TimeA -time $time
+}
+set time 527350000ps
+if {[catch {cursor new -name  TimeY -time $time}] != ""} {
+    cursor set -using TimeY -time $time
+}
+cursor set -using TimeY -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeX -time $time}] != ""} {
+    cursor set -using TimeX -time $time
+}
+cursor set -using TimeX -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeT -time $time}] != ""} {
+    cursor set -using TimeT -time $time
+}
+cursor set -using TimeT -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeS -time $time}] != ""} {
+    cursor set -using TimeS -time $time
+}
+cursor set -using TimeS -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeM -time $time}] != ""} {
+    cursor set -using TimeM -time $time
+}
+cursor set -using TimeM -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeL -time $time}] != ""} {
+    cursor set -using TimeL -time $time
+}
+cursor set -using TimeL -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeK -time $time}] != ""} {
+    cursor set -using TimeK -time $time
+}
+cursor set -using TimeK -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeF -time $time}] != ""} {
+    cursor set -using TimeF -time $time
+}
+cursor set -using TimeF -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeC -time $time}] != ""} {
+    cursor set -using TimeC -time $time
+}
+cursor set -using TimeC -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeB -time $time}] != ""} {
+    cursor set -using TimeB -time $time
+}
+cursor set -using TimeB -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeE -time $time}] != ""} {
+    cursor set -using TimeE -time $time
+}
+cursor set -using TimeE -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeG -time $time}] != ""} {
+    cursor set -using TimeG -time $time
+}
+cursor set -using TimeG -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeH -time $time}] != ""} {
+    cursor set -using TimeH -time $time
+}
+cursor set -using TimeH -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeO -time $time}] != ""} {
+    cursor set -using TimeO -time $time
+}
+cursor set -using TimeO -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeP -time $time}] != ""} {
+    cursor set -using TimeP -time $time
+}
+cursor set -using TimeP -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeQ -time $time}] != ""} {
+    cursor set -using TimeQ -time $time
+}
+cursor set -using TimeQ -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeU -time $time}] != ""} {
+    cursor set -using TimeU -time $time
+}
+cursor set -using TimeU -marching 1
+set time 527350000ps
+if {[catch {cursor new -name  TimeV -time $time}] != ""} {
+    cursor set -using TimeV -time $time
+}
+cursor set -using TimeV -marching 1
+
+#
+# Mnemonic Maps
+#
+mmap new -reuse -name {Boolean as Logic} -radix %x -contents {
+{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}
+}
+mmap new -reuse -name {Example Map} -radix %x -contents {
+{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}
+}
+
+#
+# Design Browser windows
+#
+if {[catch {window new WatchList -name "Design Browser 1" -geometry 750x500+86+69}] != ""} {
+    window geometry "Design Browser 1" 750x500+86+69
+}
+window target "Design Browser 1" on
+browser using {Design Browser 1}
+browser set -scope  waves::tb_apb_subsystem.i_apb_subsystem 
+browser set \
+    -showmodulenames 1 \
+    -showgenerates 0 \
+    -showprocesses 0 \
+    -showunnamedprocesses 0 \
+    -showinouts 0
+browser yview see  waves::tb_apb_subsystem.i_apb_subsystem 
+browser timecontrol set -lock 0
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1280x966+0+0}] != ""} {
+    window geometry "Waveform 1" 1280x966+0+0
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar select designbrowser
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ns \
+    -valuewidth 258
+cursor set -using TimeA -time 347,328ns
+waveform baseline set -time 0
+
+
+set groupId0 [waveform add -groups SMC]
+waveform hierarchy collapse $groupId0
+
+
+set groupId0 [waveform add -groups UART0]
+waveform hierarchy collapse $groupId0
+
+
+set groupId0 [waveform add -groups UART1]
+waveform hierarchy collapse $groupId0
+
+set id [waveform add -signals  {
+	waves::tb_apb_subsystem.i_apb_subsystem.PDcore
+	waves::tb_apb_subsystem.i_apb_subsystem.PDsmc
+} ]
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 3]
+waveform format $id2 -trace analogLinear
+waveform hierarchy collapse $id
+set id [waveform add -signals  {
+	waves::tb_apb_subsystem.i_apb_subsystem.PDurt
+	waves::tb_apb_subsystem.i_apb_subsystem.i_power_ctrl_veneer.i_power_ctrl.mte_pm_smc_uart_to_default_start
+	waves::tb_apb_subsystem.i_apb_subsystem.i_power_ctrl_veneer.i_power_ctrl.mte_smc_uart_start
+} ]
+
+waveform xview limits 328234.6ns 373766.11ns
+
+#
+# Waveform Window Links
+#
+

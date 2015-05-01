@@ -1,0 +1,4 @@
+select_coverage -block -expr -toggle -instance tb_uart.uart_dut...
+set_expr_scoring -all
+set_fsm_scoring -hold_transition
+set_covergroup -per_instance_default_one

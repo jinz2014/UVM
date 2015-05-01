@@ -1,0 +1,38 @@
+Command: ./simv +UVM_NO_RELNOTES -l run.log
+Chronologic VCS simulator copyright 1991-2011
+Contains Synopsys proprietary information.
+Compiler version F-2011.12; Runtime version F-2011.12;  Nov 18 11:25 2012
+----------------------------------------------------------------
+UVM-1.1.VCS
+(C) 2007-2011 Mentor Graphics Corporation
+(C) 2007-2011 Cadence Design Systems, Inc.
+(C) 2006-2011 Synopsys, Inc.
+(C) 2011      Cypress Semiconductor Corp.
+----------------------------------------------------------------
+UVM_INFO my_top.sv(194) @ 0: reporter [top] In top initial block
+UVM_INFO @ 0: reporter [RNTST] Running test my_test...
+UVM_INFO my_top.sv(122) @ 0: uvm_test_top.sqr2@@seq1 [seq] Send tx id=1728771235
+UVM_INFO my_top.sv(68) @ 0: uvm_test_top.drv1 [driver] Get tx id=1728771235
+UVM_ERROR /share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_phase.svh(1203) @ 9200000000000: reporter [PH_TIMEOUT] Default phase timeout of 9200000000000 hit. All processes are waiting, indicating a probable testbench issue. Phase 'run' ready to end
+UVM_WARNING @ 9200000000000: run [OBJTN_CLEAR] Object 'common.run' cleared objection counts for run
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    4
+UVM_WARNING :    1
+UVM_ERROR :    1
+UVM_FATAL :    0
+** Report counts by id
+[OBJTN_CLEAR]     1
+[PH_TIMEOUT]     1
+[RNTST]     1
+[driver]     1
+[seq]     1
+[top]     1
+$finish called from file "/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_root.svh", line 408.
+$finish at simulation time        9200000000000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 9200000000000 ns
+CPU Time:      0.480 seconds;       Data structure size:   0.1Mb
+Sun Nov 18 11:25:25 2012

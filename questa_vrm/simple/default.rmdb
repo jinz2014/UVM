@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<rmdb version="1.0">
+  <runnable name="nightly" type="group">
+    <parameters>
+      <parameter name="mergefile">merge.ucdb</parameter>
+    </parameters>
+    <members>
+      <member>directed</member>
+      <member>random</member>
+    </members>
+    <postScript launch="vsim">
+      <command>vcover attr -name ORIGFILENAME -name TESTSTATUS (%mergefile%)</command>
+    </postScript>
+  </runnable>
+  <!-- ============== -->
+  <!-- DIRECTED TESTS -->
+  <!-- ============== -->
+  <runnable name="directed" type="group">
+    <parameters>
+      <parameter name="ucdbfile">../(%INSTANCE%).ucdb</parameter>
+    </parameters>
+    <members>
+      <member>dirtest1</member>
+      <member>dirtest2</member>
+      <member>dirtest3</member>
+    </members>
+    <execScript>
+      <command>vlib work</command>
+      <command>vlog -sv +define+dirtest=\"(%INSTANCE%)\" (%CONFDIR%)/src/top.sv</command>
+      <command>vsim -c top</command>
+      <command>run -all</command>
+      <command>coverage attribute -name TESTNAME -value (%INSTANCE%)</command>
+      <command>coverage save (%ucdbfile%)</command>
+    </execScript>
+  </runnable>
+  <runnable name="dirtest1" type="task"/>
+  <runnable name="dirtest2" type="task"/>
+  <runnable name="dirtest3" type="task"/>
+  <!-- ============ -->
+  <!-- RANDOM TESTS -->
+  <!-- ============ -->
+  <runnable name="random" type="group">
+    <parameters>
+      <parameter name="ucdbfile">../test(%seed%).ucdb</parameter>
+    </parameters>
+    <members>
+      <member>randtest1</member>
+      <member>randtest2</member>
+      <member>randtest3</member>
+    </members>
+    <preScript>
+      <command>file delete -force work</command>
+      <command>vlib work</command>
+      <command>vlog -sv (%CONFDIR%)/src/top.sv</command>
+    </preScript>
+    <execScript>
+      <command>vsim -lib ../work -sv_seed (%seed%) +SEED=(%seed%) -c top</command>
+      <command>run -all</command>
+      <command>coverage attribute -name TESTNAME -value randtest(%seed%)</command>
+      <command>coverage save (%ucdbfile%)</command>
+    </execScript>
+  </runnable>
+  <runnable name="randtest1" type="task">
+    <parameters>
+      <parameter name="seed">123</parameter>
+    </parameters>
+  </runnable>
+  <runnable name="randtest2" type="task">
+    <parameters>
+      <parameter name="seed">456</parameter>
+    </parameters>
+  </runnable>
+  <runnable name="randtest3" type="task">
+    <parameters>
+      <parameter name="seed">789</parameter>
+    </parameters>
+  </runnable>
+</rmdb>

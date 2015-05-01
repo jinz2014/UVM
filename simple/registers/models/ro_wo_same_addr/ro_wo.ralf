@@ -1,0 +1,33 @@
+register R {
+  field F1 @'h0 {
+    bits 8;
+    reset 'h0;
+    access ro;
+  }
+  field F2 @'h10 {
+    bits 8;
+    reset 'h0;
+    access rc;
+  }
+}
+
+register W {
+  field F1 @'h4 {
+    bits 8;
+    reset 'haa;
+    access wo;
+  }
+  field F2 @'d12 {
+    bits 8;
+    reset 'hcc;
+    access wo;
+  }
+}
+
+block B {
+  
+  bytes 4;
+  register R @'h100;
+  register W @'h100;
+  endian big;
+}

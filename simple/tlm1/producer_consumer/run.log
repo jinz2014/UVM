@@ -1,0 +1,53 @@
+Command: ./simv +UVM_NO_RELNOTES -l run.log
+Chronologic VCS simulator copyright 1991-2011
+Contains Synopsys proprietary information.
+Compiler version F-2011.12; Runtime version F-2011.12;  Sep 16 23:28 2012
+----------------------------------------------------------------
+UVM-1.1.VCS
+(C) 2007-2011 Mentor Graphics Corporation
+(C) 2007-2011 Cadence Design Systems, Inc.
+(C) 2006-2011 Synopsys, Inc.
+(C) 2011      Cypress Semiconductor Corp.
+----------------------------------------------------------------
+fifo put_export: env.fifo
+UVM_INFO @ 0: reporter [RNTST] Running test ...
+UVM_INFO fifo.sv(66) @ 10: env.producer [producer] sending     48
+UVM_INFO fifo.sv(92) @ 10: env.consumer [consumer] receiving   48
+UVM_INFO fifo.sv(66) @ 20: env.producer [producer] sending    -99
+UVM_INFO fifo.sv(92) @ 20: env.consumer [consumer] receiving  -99
+UVM_INFO fifo.sv(66) @ 30: env.producer [producer] sending    -39
+UVM_INFO fifo.sv(92) @ 30: env.consumer [consumer] receiving  -39
+UVM_INFO fifo.sv(66) @ 40: env.producer [producer] sending     -9
+UVM_INFO fifo.sv(92) @ 40: env.consumer [consumer] receiving   -9
+UVM_INFO fifo.sv(66) @ 50: env.producer [producer] sending     57
+UVM_INFO fifo.sv(92) @ 50: env.consumer [consumer] receiving   57
+UVM_INFO fifo.sv(66) @ 60: env.producer [producer] sending     57
+UVM_INFO fifo.sv(92) @ 60: env.consumer [consumer] receiving   57
+UVM_INFO fifo.sv(66) @ 70: env.producer [producer] sending    -71
+UVM_INFO fifo.sv(92) @ 70: env.consumer [consumer] receiving  -71
+UVM_INFO fifo.sv(66) @ 80: env.producer [producer] sending    -14
+UVM_INFO fifo.sv(92) @ 80: env.consumer [consumer] receiving  -14
+UVM_INFO fifo.sv(66) @ 90: env.producer [producer] sending     61
+UVM_INFO fifo.sv(92) @ 90: env.consumer [consumer] receiving   61
+UVM_INFO fifo.sv(66) @ 100: env.producer [producer] sending     29
+UVM_INFO fifo.sv(92) @ 100: env.consumer [consumer] receiving   29
+UVM_INFO /share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_objection.svh(1120) @ 1000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   22
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[TEST_DONE]     1
+[consumer]    10
+[producer]    10
+$finish called from file "/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_root.svh", line 408.
+$finish at simulation time                 1000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1000 ns
+CPU Time:      0.460 seconds;       Data structure size:   0.1Mb
+Sun Sep 16 23:28:07 2012

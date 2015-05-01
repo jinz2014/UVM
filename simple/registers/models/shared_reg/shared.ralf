@@ -1,0 +1,23 @@
+register R {
+  shared;
+  field F @'h0 {
+  bits 8;
+  }
+
+}
+
+block B {
+
+  domain APB {
+    bytes 1;
+    register R=A @'h0;
+    register R=X @'h10;
+  }
+     
+  domain WSH {
+    bytes 1;
+    register R=X @'h0;
+    register R=W @'h10;
+  }
+
+}

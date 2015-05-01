@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<rmdb loadtcl="mytcl" xmlns:xi="http://www.w3.org/2003/XInclude" toprunnables="flow">
+  
+  <!-- ================================================== -->
+  <!-- == INCLUDED RMDB FILES =========================== -->
+  <!-- ================================================== -->
+  <xi:include href="vrm_base.rmdb"/>
+ 
+
+  <!-- ================================================ -->
+  <!-- == Top Level Group Runnable  =================== -->
+  <!-- ================================================ -->
+  <runnable name="flow" type="group" sequential="yes" base="regression_base">
+    
+    <method if="{(%RUN_METHOD:%)} eq {sge}" base="sge"/>
+    <method if="{(%RUN_METHOD:%)} eq {lsf}" base="lsf"/>
+      
+    <members>
+      <member>compile</member>
+      <member>sim_group</member>
+      <member>vm</member>
+    </members>
+    
+  </runnable>
+
+  <!-- ================================================ -->
+  <!-- == Compile group Runnable                     == -->
+  <!-- == This group is sequential. A failure in any == -->
+  <!-- == member of this group will cause the entire == -->
+  <!-- == group and downstream operations to be      == -->
+  <!-- == abandoned. Runnables are being used here   == -->
+  <!-- == for more control over specification of     == -->
+  <!-- == dependencies                               == -->  
+  <!-- ================================================ -->
+  <runnable name="compile" type="group" sequential="yes">
+    <parameters>
+      <parameter name="DUT_SRC"  export="yes" type="file">.. fpu</parameter>
+      <parameter name="TB_SRC"   export="yes" type="file">.. tb</parameter>
+      <parameter name="REF_SRC"  type="file">.. fpu tlm c</parameter>
+    </parameters>
+    <members>
+      <member>compile_init</member>
+      <member>compile_elements</member>
+      <member>optimize</member>
+    </members>
+  </runnable>
+  
+  <!-- create libraries, this will create a modelsim.ini file in the
+  DATADIR area that can be shared by all other runnables -->
+  <runnable name="compile_init" type="task">
+    <execScript launch="vsim">
+      <command>vlib (%WORK_LIB%)</command>
+      <command>vlib (%DUT_LIB%)</command>
+    </execScript>
+  </runnable>
+
+  <!-- DUT and TB do not have dependencies so can be launched in parallel  -->
+  <runnable name="compile_elements" type="group" sequential="no">
+    <members>
+      <member>compile_dut</member>
+      <member>compile_tb</member>
+    </members>
+  </runnable>
+
+ <!-- DUT is compiled but first a symbolic link to %MODELSIM_INI% is made
+      by VRM in this specific task based on localfile element content       -->   
+  <runnable name="compile_dut" type="task">
+    <parameters>
+      <parameter name="VCOM_ARGS">-novopt</parameter>
+      <parameter name="VOPT_ARGS">-bbox +cover sbectf</parameter>
+      <parameter name="FILELIST" type="file">vhdl.f</parameter>
+    </parameters>
+    <execScript launch="vsim">
+      <command>vcom -work (%DUT_LIB%) (%VCOM_ARGS%) -f (%FILELIST%)</command>
+    </execScript>
+  </runnable>
+  
+
+  <!-- This runnable uses the new automated DPI compile flow available in
+       Questa Sim version 10.0c and onwards. vlog is used here to
+       perform the DPI c compilation automatically. Notice that as a result of this flow,
+       the -sv_lib < > option to vsim is also nolonger required  -->
+  <runnable name="compile_tb" type="task">
+    <parameters>
+      <parameter name="VLOG_COMMON_ARGS">-novopt -debugCellOpt -suppress 2181 -Epretty vlog.sv -dpiheader (%DPI_HEADER_FILE%)</parameter>
+      <parameter name="PLUS_ARGS">+define+SVA+SVA_DUT</parameter>
+      <parameter name="PLUS_ARGSbad">(%PLUS_ARGS%)+FPU_TB_BUG</parameter>
+      <parameter name="FILELIST" type="file">vlog.f</parameter>
+    </parameters>
+    <execScript launch="vsim">
+      <command>vlog -work (%WORK_LIB%) (%VLOG_COMMON_ARGS%) (%PLUS_ARGS(%SETUP:%)%) -f (%FILELIST%)</command>
+      <command>vlog -work (%WORK_LIB%) -ccflags "  -I(%DATADIR%) " (%REF_SRC%)/(%REF_MODEL_CPP%)</command>  
+    </execScript>
+  </runnable>
+
+  <runnable name="optimize" type="task">
+    <parameters>
+      <parameter name="VOPT_ARGS">+acc</parameter>
+      <parameter name="VOPT_ARGSinteractive">+acc -debugdb</parameter>
+    </parameters>
+    <execScript launch="vsim">
+      <command>vopt -work (%WORK_LIB%) -L (%DUT_LIB%) (%VOPT_ARGS(%MODE:%):%) top -o optimized </command>
+    </execScript>
+  </runnable>
+
+  <!-- ================================================ -->
+  <!-- == Sim_group group Runnable                   == -->
+  <!-- == This group runnable is used to wrap the    == -->
+  <!-- == tasks and groups that make up the          == -->
+  <!-- == simulation. Since there are no             == -->
+  <!-- == dependencies between simulation tasks they == -->
+  <!-- == can be launched concurrently on the GRID   == -->
+  <!-- == in order to maximize regression throughput == -->
+  <!-- ================================================ -->
+  <runnable name="sim_group" type="group">
+      <members>
+        <member>simulate</member>
+      </members>
+  </runnable> 
+  
+  
+  <runnable name="simulate" type="group" foreach="(%TESTCASE%)">
+    <parameters>
+      <parameter name="seed">random</parameter>
+    </parameters>
+    <members>
+      <member>simulation</member>
+    </members>
+  </runnable>
+
+                   
+  <runnable name="simulation"  type="task" repeat="(%NUM_SIM%)">
+     <localfile type="link" src="scripts/wave.do"/>
+     <localfile type="link" src="scripts/wave_batch.do"/>
+       
+  
+     <parameters>
+       <!-- The definition of parameter named ucdbfile enables automatic pass / fail
+           determination to be based on value of UCDB attribute called TESTSTATUS by VRM 
+           in addition to its primary task of specifying the location of ucdbfile --> 
+        <parameter name="ucdbfile" export="yes">(%simulate.ITERATION%).ucdb</parameter>
+        <parameter name="UCDBFILE"    export="yes">(%ucdbfile%)</parameter>
+        <parameter name="VSIM_DOFILE" type="file">scripts/vsim.do</parameter>
+        <parameter name="VSIM_COMMON_SWITCHES"> -onfinish stop -coverage -suppress 8536 -wlf (%simulate.ITERATION%).wlf -do "source (%VSIM_DOFILE%)" -lib (%WORK_LIB%) -msgmode both -displaymsgmode both</parameter>
+        <parameter name="VSIMARGS">(%VSIM_COMMON_SWITCHES%) -c </parameter>
+        <parameter name="VSIMARGSinteractive">(%VSIM_COMMON_SWITCHES%) -gui -OVMdebug -debugdb -assertdebug</parameter>
+        <parameter name="VOPT_CMDinteractive">vopt -quiet -work (%WORK_LIB%) -L (%DUT_LIB%) +acc -debugdb top -o optimized</parameter>
+	<parameter name="PATTERNSET_FILENAME" type="file">../tb/golden/pattern_set_ultra_small.pat</parameter>
+        <parameter name="PATTERNSET_MAXCOUNT">-1</parameter>
+    </parameters>
+    
+    <execScript launch="vsim"  mintimeout="300">
+       <command>(%VOPT_CMD(%MODE:%):%)</command> 
+       <command>if {[string match (%simulate.ITERATION%) fpu_test_patternset]} {</command> 
+       <command>  if {[file exist (%PATTERNSET_FILENAME%)]} {</command> 	  
+       <command>    file copy -force (%PATTERNSET_FILENAME%) .</command>
+       <command>    vsim (%VSIMARGS(%MODE:%)%) -sv_seed (%seed%)
+       +OVM_TESTNAME=(%simulate.ITERATION%)
+       +OVM_VERBOSITY_LEVEL=(%OVM_VERBOSITY_LEVEL%)
+       +PATTERNSET_FILENAME=(%PATTERNSET_FILENAME%)
+       +PATTERNSET_MAXCOUNT=(%PATTERNSET_MAXCOUNT%) optimized</command>
+       <command>  } else {</command>
+       <command>    echo "Error: Cannot find patternset
+       file:(%PATTERNSET_FILENAME%),  for test:(%simulate.ITERATION%). Aborting
+       simulation for the test!"</command>		  	  
+       <command>  }</command>	  
+       <command>} else {</command>
+       <command>  vsim (%VSIMARGS(%MODE:%)%) -sv_seed (%seed%)
+       +OVM_TESTNAME=(%simulate.ITERATION%)
+       +OVM_VERBOSITY_LEVEL=(%OVM_VERBOSITY_LEVEL%) optimized</command>
+       <command>}</command>
+    </execScript>
+  </runnable>
+
+  <!-- ================================================ -->
+  <!-- == Reporting Runables  ========================= -->
+  <!-- ================================================ -->
+  <runnable name="vm" type="group" sequential="yes">
+    <members>
+      <member>vm_report</member>
+    </members>
+    <!--VRM vrun supports a macro mode which allows the user 
+        to invoke vrun from within a runnable's action script -->               
+    <postScript mintimeout="300">
+      <command>vrun -vrmdata (%DATADIR%) -status -full -html -htmldir (%DATADIR%)/vrun</command>
+    </postScript>
+  </runnable>
+
+  <runnable name="vm_report" type="task">
+    <execScript mintimeout="300">
+      <command>if ([file exists (%mergefile%)]) {vcover report -html (%mergefile%) -htmldir [file join (%DATADIR%) cov_html_summary]}</command>
+      <command>if ([file exists (%triagefile%)]) {triage report -name (%triagefile%) -file [file join (%DATADIR%) RA_summary.rpt]}</command>
+    </execScript>
+  </runnable>
+
+  
+</rmdb>

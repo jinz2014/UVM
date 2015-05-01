@@ -1,0 +1,14 @@
+#
+# This example uses Run Manager to compile and execute six tests, three
+# are directed tests and three are random tests.  The tests are defined
+# in the the Run Manager database (default.rmdb).
+#
+# To run this example from vsim, type:
+#   vrun nightly
+#
+# To run this example from the shell, type:
+#   vrun nightly
+#
+# To clean up the directory after a run, do:
+#   rm -rf VRMDATA transcript
+#

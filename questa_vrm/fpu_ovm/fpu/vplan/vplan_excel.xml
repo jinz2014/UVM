@@ -1,0 +1,472 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Allan Crone</Author>
+  <LastAuthor>Allan Crone Klinck</LastAuthor>
+  <Created>2006-10-02T07:59:43Z</Created>
+  <LastSaved>2007-03-30T09:30:23Z</LastSaved>
+  <Company>Mentor Graphics</Company>
+  <Version>11.8132</Version>
+ </DocumentProperties>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>11280</WindowHeight>
+  <WindowWidth>19155</WindowWidth>
+  <WindowTopX>-15</WindowTopX>
+  <WindowTopY>-15</WindowTopY>
+  <TabRatio>416</TabRatio>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s21">
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s22">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font x:Family="Swiss" ss:Size="14" ss:Bold="1"/>
+   <Interior ss:Color="#99CCFF" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s23">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font x:Family="Swiss" ss:Size="14" ss:Bold="1"/>
+   <Interior ss:Color="#99CCFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s24">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font x:Family="Swiss" ss:Size="14" ss:Bold="1"/>
+   <Interior ss:Color="#99CCFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s27">
+   <Font x:Family="Swiss" ss:Bold="1"/>
+   <Interior ss:Color="#CCFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s29">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font x:Family="Swiss" ss:Bold="1"/>
+   <Interior ss:Color="#CCFFFF" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s30">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font x:Family="Swiss" ss:Bold="1"/>
+   <Interior ss:Color="#CCFFFF" ss:Pattern="Solid"/>
+   <NumberFormat/>
+  </Style>
+  <Style ss:ID="s31">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font x:Family="Swiss" ss:Bold="1"/>
+   <Interior ss:Color="#CCFFFF" ss:Pattern="Solid"/>
+   <NumberFormat/>
+  </Style>
+  <Style ss:ID="s32">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s33">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+   <NumberFormat/>
+  </Style>
+  <Style ss:ID="s34">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
+   <NumberFormat/>
+  </Style>
+  <Style ss:ID="s35">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Interior/>
+   <NumberFormat/>
+  </Style>
+  <Style ss:ID="s36">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Interior/>
+   <NumberFormat/>
+  </Style>
+  <Style ss:ID="s41">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+   <NumberFormat/>
+  </Style>
+  <Style ss:ID="s42">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
+   <NumberFormat/>
+  </Style>
+  <Style ss:ID="s44">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Interior/>
+   <NumberFormat/>
+  </Style>
+  <Style ss:ID="s46">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font x:Family="Swiss" ss:Bold="1"/>
+   <Interior ss:Color="#CCFFFF" ss:Pattern="Solid"/>
+   <NumberFormat/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="FPU Verification Plan">
+  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="20" x:FullColumns="1"
+   x:FullRows="1">
+   <Column ss:StyleID="s21" ss:Width="78"/>
+   <Column ss:AutoFitWidth="0" ss:Width="162.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="292.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="127.5"/>
+   <Column ss:Width="51.75"/>
+   <Column ss:Width="54"/>
+   <Column ss:Width="39"/>
+   <Column ss:AutoFitWidth="0" ss:Width="88.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="71.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="96"/>
+   <Row ss:AutoFitHeight="0" ss:Height="18.75">
+    <Cell ss:StyleID="s22"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">Section</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s24"><Data ss:Type="String">Link</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">Weight</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">Goal</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">Response Checking</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">Priority</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String" x:Ticked="1">Responsible</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="26.25" ss:StyleID="s27">
+    <Cell ss:StyleID="s29"><Data ss:Type="String" x:Ticked="1">3</Data></Cell>
+    <Cell ss:StyleID="s30"><Data ss:Type="String">Core functionality</Data></Cell>
+    <Cell ss:StyleID="s31"/>
+    <Cell ss:StyleID="s30"/>
+    <Cell ss:StyleID="s31"/>
+    <Cell ss:StyleID="s31"/>
+    <Cell ss:StyleID="s31"/>
+    <Cell ss:StyleID="s31"/>
+    <Cell ss:StyleID="s31"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s31"><Data ss:Type="String">MrLead</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5">
+    <Cell ss:StyleID="s32"><Data ss:Type="String">3.2</Data></Cell>
+    <Cell ss:StyleID="s33"><Data ss:Type="String">Exception </Data></Cell>
+    <Cell ss:StyleID="s34"/>
+    <Cell ss:StyleID="s35"/>
+    <Cell ss:StyleID="s34"/>
+    <Cell ss:StyleID="s36"/>
+    <Cell ss:StyleID="s34"/>
+    <Cell ss:StyleID="s36"/>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">JoeR</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="26.25">
+    <Cell ss:StyleID="s32"><Data ss:Type="String">3.2.0</Data></Cell>
+    <Cell ss:StyleID="s33"><Data ss:Type="String">Exception Signals</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String">Verify that all exceptions are operating</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">fcoverage:exception;</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String">CoverPoint</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String" x:Ticked="1">Reference model&#10;</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">JoeR</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="51.75">
+    <Cell ss:StyleID="s32"><Data ss:Type="String">3.2.1</Data></Cell>
+    <Cell ss:StyleID="s33"><Data ss:Type="String" x:Ticked="1">Invalid Operation &#10;</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String" x:Ticked="1">Verify that results of every invalid operation are a QNaN string with a QNaN or SNaN exception&#10;</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">fcoverage:nanXop; &#10;fcoverage:add_subXinf; &#10;fcoverage:mul_Xinf; &#10;fcoverage:divXinf_zero;</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String">Cross</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String" x:Ticked="1">Reference model&#10;</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">JoeR</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="39">
+    <Cell ss:StyleID="s32"><Data ss:Type="String">3.2.2</Data></Cell>
+    <Cell ss:StyleID="s41"><Data ss:Type="String" x:Ticked="1">NaN1&#10;</Data></Cell>
+    <Cell ss:StyleID="s42"><Data ss:Type="String" x:Ticked="1">Verify that the SNaN string can never be the result of any operation.&#10;</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">fcoverage:nanXop;</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String">Cross</Data></Cell>
+    <Cell ss:StyleID="s44"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s42"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String" x:Ticked="1">Reference model&#10;</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">JoeR</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="51.75">
+    <Cell ss:StyleID="s32"><Data ss:Type="String">3.2.3</Data></Cell>
+    <Cell ss:StyleID="s33"><Data ss:Type="String" x:Ticked="1">Division by Zero&#10;</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String" x:Ticked="1">Verify that division of any number by zero other than zero itself gives infinity as a result. And verify that a divide-by-zero exception is created.&#10;</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">fcoverage:divXexc;</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String">Cross</Data></Cell>
+    <Cell ss:StyleID="s44"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s42"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">JoeR</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5">
+    <Cell ss:StyleID="s32"><Data ss:Type="String">3.3</Data></Cell>
+    <Cell ss:StyleID="s33"><Data ss:Type="String" x:Ticked="1">Rounding Modes</Data></Cell>
+    <Cell ss:StyleID="s34"/>
+    <Cell ss:StyleID="s35"/>
+    <Cell ss:StyleID="s34"/>
+    <Cell ss:StyleID="s44"/>
+    <Cell ss:StyleID="s42"/>
+    <Cell ss:StyleID="s36"/>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">JohnL</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5">
+    <Cell ss:StyleID="s32"><Data ss:Type="String">3.3.0</Data></Cell>
+    <Cell ss:StyleID="s33"><Data ss:Type="String">Rounding bits</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String" x:Ticked="1">Verify that the rounding bit are working as defined</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">fcoverage:nanXop;</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String">Cross</Data></Cell>
+    <Cell ss:StyleID="s44"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s42"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s36"/>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">JohnL</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="39">
+    <Cell ss:StyleID="s32"><Data ss:Type="String">3.3.1</Data></Cell>
+    <Cell ss:StyleID="s33"><Data ss:Type="String" x:Ticked="1">Round to nearest even </Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String" x:Ticked="1">Verify that the If the result value is exactly halfway between two infinitely precise results, it is rounded up to the nearest infinitely precise even. </Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">fcoverage:round;</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String">CoverPoint</Data></Cell>
+    <Cell ss:StyleID="s44"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s42"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s36"/>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">JohnL</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5">
+    <Cell ss:StyleID="s32"><Data ss:Type="String">3.3.2</Data></Cell>
+    <Cell ss:StyleID="s33"><Data ss:Type="String" x:Ticked="1">Round-to-Zero </Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String" x:Ticked="1">Verify that the excess bits will simply get truncated</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">fcoverage:round;</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String">CoverPoint</Data></Cell>
+    <Cell ss:StyleID="s44"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s42"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s36"/>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">JohnL</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5">
+    <Cell ss:StyleID="s32"><Data ss:Type="String">3.3.3</Data></Cell>
+    <Cell ss:StyleID="s33"><Data ss:Type="String" x:Ticked="1">Round-Up </Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String" x:Ticked="1">Verify that the number will be rounded up towards +</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">fcoverage:round;</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String">CoverPoint</Data></Cell>
+    <Cell ss:StyleID="s44"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s42"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s36"/>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">JohnL</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5">
+    <Cell ss:StyleID="s32"><Data ss:Type="String">3.3.4</Data></Cell>
+    <Cell ss:StyleID="s33"><Data ss:Type="String" x:Ticked="1">Round-Down</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String" x:Ticked="1">Verify that the opposite of round-up, the number will be rounded</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">fcoverage:round;</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String">CoverPoint</Data></Cell>
+    <Cell ss:StyleID="s44"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s42"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s36"/>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">JohnL</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="77.25">
+    <Cell ss:StyleID="s32"><Data ss:Type="String" x:Ticked="1">3.4</Data></Cell>
+    <Cell ss:StyleID="s33"><Data ss:Type="String" x:Ticked="1">Operations on floating point numbers </Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String" x:Ticked="1">Verify the operations supported&#10;Add &#10;Subtract &#10;Multiply &#10;Divide &#10;Square Root </Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String" x:Ticked="1">fcoverage:operation;</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String">CoverPoint</Data></Cell>
+    <Cell ss:StyleID="s44"/>
+    <Cell ss:StyleID="s42"/>
+    <Cell ss:StyleID="s36"/>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">USelf</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5">
+    <Cell ss:StyleID="s32"><Data ss:Type="String" x:Ticked="1">3.5</Data></Cell>
+    <Cell ss:StyleID="s33"><Data ss:Type="String" x:Ticked="1">Operations followed by a Operations</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String" x:Ticked="1">Verify that an operation can be followed with all others</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">fcoverage:N2N_operations;</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String">Cross</Data></Cell>
+    <Cell ss:StyleID="s44"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s42"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s36"/>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">USelf</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5" ss:StyleID="s27">
+    <Cell ss:StyleID="s29"><Data ss:Type="String" x:Ticked="1">4</Data></Cell>
+    <Cell ss:StyleID="s30"><Data ss:Type="String">Pipeline</Data></Cell>
+    <Cell ss:StyleID="s31"/>
+    <Cell ss:StyleID="s30"/>
+    <Cell ss:StyleID="s31"/>
+    <Cell ss:StyleID="s46"/>
+    <Cell ss:StyleID="s46"/>
+    <Cell ss:StyleID="s31"/>
+    <Cell ss:StyleID="s31"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s31"><Data ss:Type="String">ChuckS</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="90">
+    <Cell ss:StyleID="s32"><Data ss:Type="String" x:Ticked="1">4.1</Data></Cell>
+    <Cell ss:StyleID="s33"><Data ss:Type="String">Operation delay</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String" x:Ticked="1">&quot;Verify the pipelined spec:&#10;Addition, 7 clks&#10;Subtraction, 7 clks&#10;Multiplication, 12 clks&#10;Division, 35 clks&#10;Square-root, 35 clks  hardware, page 16&quot;&#10;</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">covered_*_delay</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String">Directive</Data></Cell>
+    <Cell ss:StyleID="s44"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s42"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String" x:Ticked="1">Assertions on pin interfaces&#10;</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">ChuckS</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="13.5" ss:StyleID="s27">
+    <Cell ss:StyleID="s29"><Data ss:Type="String" x:Ticked="1">5</Data></Cell>
+    <Cell ss:StyleID="s30"><Data ss:Type="String" x:Ticked="1">Pin interface</Data></Cell>
+    <Cell ss:StyleID="s31"/>
+    <Cell ss:StyleID="s30"/>
+    <Cell ss:StyleID="s31"/>
+    <Cell ss:StyleID="s46"/>
+    <Cell ss:StyleID="s46"/>
+    <Cell ss:StyleID="s31"/>
+    <Cell ss:StyleID="s31"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s31"><Data ss:Type="String">USelf</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="39">
+    <Cell ss:StyleID="s32"><Data ss:Type="String" x:Ticked="1">5.1</Data></Cell>
+    <Cell ss:StyleID="s33"><Data ss:Type="String" x:Ticked="1">Valid opcode on pins</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String" x:Ticked="1">&quot;Verify the pin if:&#10;fpu_op_i always have legal values x0 -&gt; x4 hardware, page 17&quot;&#10;</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">covered_opcode</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String">Directive</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s42"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String" x:Ticked="1">Assertions on pin interfaces&#10;</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">USelf</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="51.75">
+    <Cell ss:StyleID="s32"><Data ss:Type="String" x:Ticked="1">6</Data></Cell>
+    <Cell ss:StyleID="s33"><Data ss:Type="String" x:Ticked="1">Code Coverage</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String" x:Ticked="1">&quot;Ensure that all design units have &#10;100% statement coverage&#10;100% branch coverage&quot;&#10;</Data></Cell>
+    <Cell ss:StyleID="s35"><Data ss:Type="String">/top/fpu_dut/*</Data></Cell>
+    <Cell ss:StyleID="s34"><Data ss:Type="String" x:Ticked="1">Instance&#10;</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s42"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s36"/>
+    <Cell ss:StyleID="s36"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s36"><Data ss:Type="String">USelf</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
+   <LeftColumnVisible>3</LeftColumnVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>3</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

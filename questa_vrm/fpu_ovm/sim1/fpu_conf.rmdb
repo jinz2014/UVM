@@ -1,0 +1,309 @@
+<?xml version="1.0"?>
+<rmdb loadtcl="mytcl" >
+
+  <!-- ================================================ -->
+  <!-- == Top Level Group Runnable  =================== -->
+  <!-- ================================================ -->
+  <runnable name="flow" type="group" sequential="yes" >
+    <parameters>
+      <parameter name="NUM_SIM" ask="Enter number of simulation repeats : " accept="num(1,500)">2</parameter>
+      <parameter name="TESTCASE">fpu_test_patternset fpu_test_sequence_fair fpu_test_neg_sqr_sequence fpu_test_random_sequence fpu_test_simple_sanity</parameter>
+      <parameter name="OVM_VERBOSITY_LEVEL">OVM_FULL</parameter>
+      <parameter name="DPI_HEADER_FILE"    type="file">(%DATADIR%) dpiheader.h</parameter>
+      <parameter name="REF_MODEL_CPP"  >fpu_tlm_dpi_c.cpp</parameter>
+      
+      <!-- If ucdbfile parameter is defined and mergefile parameter is defined, VRM will perform
+           automatic merging of ucdb filed defined in ucdbfile into mergefile for passing
+           tests. The user can specify mergeoptions optional parameter and mergescript action script
+           but this is usually not necessary                                                        -->
+      <parameter name="mergefile"           >fpu_trackr.ucdb</parameter>
+      <!-- If ucdbfile parameter is defined and triagefile parameter is defined, VRM will perform
+           automatic triage database creation of failing tests. It uses ucdbfile to locate the WLF
+           file that it uses.
+           The user can specify triageoptions optional parameter which can be useful if message    
+           transformation is desired                                                             -->
+      <parameter name="triagefile"          >fpu_triage.tdb</parameter>
+      <parameter name="triageoptions"       >-severityAll -teststatusAll -r (%RMDBDIR%)/transformrule.txt</parameter>
+      <!-- If ucdbfile, mergefile and tplanfile parameters are defined VRM will perform
+           automatic testplan import and merging into mergefile as the first action of 
+           running a regression. The user can specify optional tplanoptions parameter for control
+           of the testplan import process                                                        -->
+      <parameter name="tplanfile"          type="file">.. fpu vplan vplan_excel.xml</parameter>
+      <parameter name="tplanoptions"        >-format Excel -startstoring 3</parameter>
+
+      <parameter name="QUESTA_HOME" type="tcl">[file join $::env(MODEL_TECH) ..]</parameter>
+      <parameter name="QUESTA_OS"   type="tcl" >[file tail $::env(MODEL_TECH)]</parameter>
+
+      <parameter name="OVM_VERSION">ovm-2.1.1</parameter>
+
+      <parameter name="VLIB"      type="file">(%QUESTA_HOME%) (%QUESTA_OS%) vlib</parameter>
+      <parameter name="VMAP"      type="file">(%QUESTA_HOME%) (%QUESTA_OS%) vmap</parameter>
+      <parameter name="VCOM"      type="file">(%QUESTA_HOME%) (%QUESTA_OS%) vcom</parameter>
+      <parameter name="VLOG"      type="file">(%QUESTA_HOME%) (%QUESTA_OS%) vlog</parameter>
+      <parameter name="VOPT"      type="file">(%QUESTA_HOME%) (%QUESTA_OS%) vopt</parameter>
+      <parameter name="VSIM"      type="file">(%QUESTA_HOME%) (%QUESTA_OS%) vsim</parameter>
+      <parameter name="XML2UCDB"  type="file">(%QUESTA_HOME%) (%QUESTA_OS%) xml2ucdb</parameter>
+      <parameter name="VCOVER"    type="file">(%QUESTA_HOME%) (%QUESTA_OS%) vcover</parameter>
+
+      <parameter name="DUT_LIB"   type="file">(%DATADIR%) dut_lib</parameter>
+      <parameter name="WORK_LIB"  type="file">(%DATADIR%) work</parameter>
+      <parameter name="OVM_LIB"   type="file">(%QUESTA_HOME%) (%OVM_VERSION%)</parameter>
+    </parameters>
+    <members>
+      <member>compile</member>
+      <member>sim_group</member>
+      <member>vm</member>
+    </members>
+    <method name="grid" gridtype="sge" mintimeout="600" if="{(%MODE:%)} eq {grid}">
+      <command>qsub -V -cwd -b yes -e /dev/null -o /dev/null -N (%INSTANCE%) (%WRAPPER%)</command>
+    </method>
+  </runnable>
+
+  <!-- ================================================ -->
+  <!-- == Compile group Runnable                     == -->
+  <!-- == This group is sequential. A failure in any == -->
+  <!-- == member of this group will cause the entire == -->
+  <!-- == group and downstream operations to be      == -->
+  <!-- == abandoned. Runnables are being used here   == -->
+  <!-- == for more control over specification of     == -->
+  <!-- == dependencies                               == -->  
+  <!-- ================================================ -->
+  <runnable name="compile" type="group" sequential="yes">
+    <parameters>
+      <parameter name="DUT_SRC"  export="yes" type="file">.. fpu</parameter>
+      <parameter name="TB_SRC"   export="yes" type="file">.. tb</parameter>
+      <parameter name="REF_SRC"  type="file">.. fpu tlm c</parameter>
+      <parameter name="OVM_HOME" export="yes" type="file">(%QUESTA_HOME%) verilog_src (%OVM_VERSION%)</parameter>
+    </parameters>
+    <members>
+      <member>compile_init</member>
+      <member>compile_elements</member>
+      <member>optimize</member>
+    </members>
+  </runnable>
+  
+  <!-- create libraries, this will create a modelsim.ini file in the
+  DATADIR area that can be shared by all other runnables -->
+  <runnable name="compile_init" type="task">
+    <execScript launch="vsim">
+      <command>(%VLIB%) (%WORK_LIB%)</command>
+      <command>(%VLIB%) (%DUT_LIB%)</command>
+      <command>set ::env(MODELSIM) (%DATADIR%)/modelsim.ini</command> -->
+      <command>(%VMAP%) mtiOvm (%OVM_LIB%)</command>
+    </execScript>
+  </runnable>
+
+  <!-- DUT and TB do not have dependencies so can be launched in parallel  -->
+  <runnable name="compile_elements" type="group" sequential="no">
+    <members>
+      <member>compile_dut</member>
+      <member>compile_tb</member>
+    </members>
+  </runnable>
+
+ <!-- DUT is compiled but first a symbolic link to %MODELSIM_INI% is made
+      by VRM in this specific task based on localfile element content       -->   
+  <runnable name="compile_dut" type="task">
+    <parameters>
+      <parameter name="VCOM_ARGS">-novopt -cover sbectf</parameter>
+      <parameter name="VOPT_ARGS">-bbox +cover</parameter>
+      <parameter name="FILELIST" type="file">vhdl.f</parameter>
+    </parameters>
+    <localfile type="link" src="(%DATADIR%)/modelsim.ini" />
+    <execScript launch="vsim">
+      <command>(%VCOM%) -work (%DUT_LIB%) (%VCOM_ARGS%) -f (%FILELIST%)</command>
+      <command>(%VOPT%) -work (%DUT_LIB%) (%VOPT_ARGS%) fpu -o bbox </command>
+    </execScript>
+  </runnable>
+  
+  <!-- TB System compilation group including compilation of DPI c code -->
+  <runnable name="compile_tb" type="group" sequential="yes">
+    <parameters>
+      <parameter name="DO_COMPILE_OVM">0</parameter>
+    </parameters>
+    <members>
+      <member>compile_ovm_pkg</member>
+      <member>compile_ovm_tb</member>
+    </members>
+  </runnable>
+
+  <!-- This is an example of a conditional runnable. Use this to 
+       conditionally enable an action/task in a regression.
+       OVM will be compiled into the work library if parameter DO_COMPILE_OVM is set to 1 
+       otherwise the precompiled closed kit OVM in Questa is used                    -->
+  <runnable name="compile_ovm_pkg" type="task" if="(%DO_COMPILE_OVM%)==1">
+    <parameters>
+      <parameter name="FILELIST" type="file">(%OVM_VERSION%).f</parameter>
+    </parameters>
+    <localfile type="link" src="(%DATADIR%)/modelsim.ini" />
+    <execScript launch="vsim">
+      <command>(%VLOG%) -work (%WORK_LIB%) (%VLOG_ARGS%) -f (%FILELIST%)</command>   
+    </execScript>
+  </runnable>
+
+  <!-- This runnable uses the new automated DPI compile flow available in
+       Questa Sim version 10.0c and onwards. vlog is used here to
+       perform the DPI c compilation automatically. Notice that as a result of this flow,
+       the -sv_lib < > option to vsim is also nolonger required  -->
+  <runnable name="compile_ovm_tb" type="task">
+    <parameters>
+      <parameter name="VLOG_ARGS">-novopt -debugCellOpt -suppress 2181 -Epretty vlog.sv -dpiheader (%DPI_HEADER_FILE%)</parameter>
+      <parameter name="PLUS_ARGS">+define+SVA+SVA_DUT</parameter>
+      <parameter name="PLUS_ARGSbad">(%PLUS_ARGS%)+FPU_TB_BUG</parameter>
+      <parameter name="FILELIST" type="file">vlog.f</parameter>
+    </parameters>
+    <localfile type="link" src="(%DATADIR%)/modelsim.ini" />
+    <execScript launch="vsim">
+      <command>(%VLOG%) -work (%WORK_LIB%) (%VLOG_ARGS%) (%PLUS_ARGS(%SETUP:%)%) -f (%FILELIST%)</command>
+      <command>(%VLOG%) -work (%WORK_LIB%) -ccflags "  -I(%DATADIR%) " (%REF_SRC%)/(%REF_MODEL_CPP%)</command>
+      
+    </execScript>
+  </runnable>
+
+  <runnable name="optimize" type="task">
+    <parameters>
+      <parameter name="VOPT_ARGS">+acc</parameter>
+    </parameters>
+    <localfile type="link" src="(%DATADIR%)/modelsim.ini" />
+    <execScript launch="vsim">
+      <command>(%VOPT%) -work (%WORK_LIB%) -L (%DUT_LIB%) (%VOPT_ARGS%) top -o optimized </command>
+    </execScript>
+  </runnable>
+
+  <!-- ================================================ -->
+  <!-- == Sim_group group Runnable                   == -->
+  <!-- == This group runnable is used to wrap the    == -->
+  <!-- == tasks and groups that make up the          == -->
+  <!-- == simulation. Since there are no             == -->
+  <!-- == dependencies between simulation tasks they == -->
+  <!-- == can be launched concurrently on the GRID   == -->
+  <!-- == in order to maximize regression throughput == -->
+  <!-- ================================================ -->
+  <runnable name="sim_group" type="group">
+      <members>
+        <member>simulate</member>
+      </members>
+  </runnable> 
+  
+  <!-- An example of a repeat runnable. Simulate group will be repeated
+       %NUM_SIM% times with different random seeds in this example   -->
+  <runnable name="simulate" type="group" repeat="(%NUM_SIM%)">
+    <parameters>
+      <!--The parameter named seed has special behavior in VRM 
+          When a re-run is requested by the user, VRM will automatically
+          replace the seed value "random" with the actual seed 
+          used in the first regression run                           --> 
+      <parameter name="seed">random</parameter>
+    </parameters>
+    <members>
+      <member>simulation</member>
+    </members>
+  </runnable>
+
+  <!-- An example of a foreach runnable task. The simulation task will Iterate 
+       over the a list of test cases. In this example, these testcases are 
+       different tests derived from ovm_test                          -->
+  <runnable name="simulation"  type="task" foreach="(%TESTCASE%)">
+    <parameters>
+      <!-- The definition of parameter named ucdbfile enables automatic pass / fail
+           determination to be based on value of UCDB attribute called TESTSTATUS by VRM 
+           in addition to its primary task of specifying the location of ucdbfile --> 
+      <parameter name="ucdbfile">(%ITERATION%).ucdb</parameter>
+      <parameter name="UCDBFILE"    export="yes">(%ucdbfile%)</parameter>
+      <parameter name="VSIM_DOFILE" type="file">scripts/vsim.do</parameter>
+      <parameter name="VSIMSWITCHES"> -onfinish stop -suppress 8536 -wlf (%ITERATION%).wlf -assertdebug -coverage -msgmode both -displaymsgmode both</parameter>
+      <parameter name="VSIMARGS">(%VSIMSWITCHES%) -do "source (%VSIM_DOFILE%)" -lib (%WORK_LIB%)</parameter>
+	  <parameter name="PATTERNSET_FILENAME" type="file">../tb/golden/pattern_set_ultra_small.pat</parameter>
+          <parameter name="PATTERNSET_MAXCOUNT">-1</parameter>
+    </parameters>
+    <localfile type="copy" src="scripts/wave.do"/>
+    <localfile type="copy" src="scripts/wave_batch.do"/>
+    <localfile type="link" src="(%DATADIR%)/modelsim.ini" />
+    <execScript launch="vsim"  mintimeout="300">
+       <command>if {[string match (%ITERATION%) fpu_test_patternset]} {</command> 
+       <command>  if {[file exist (%PATTERNSET_FILENAME%)]} {</command> 	  
+       <command>    file copy -force (%PATTERNSET_FILENAME%) .</command>
+       <command>    (%VSIM%) -c (%VSIMARGS%) -sv_seed (%seed%)
+       +OVM_TESTNAME=(%ITERATION%)
+       +OVM_VERBOSITY_LEVEL=(%OVM_VERBOSITY_LEVEL%)
+       +PATTERNSET_FILENAME=(%PATTERNSET_FILENAME%)
+       +PATTERNSET_MAXCOUNT=(%PATTERNSET_MAXCOUNT%) optimized</command>
+       <command>  } else {</command>
+       <command>    echo "Error: Cannot find patternset
+       file:(%PATTERNSET_FILENAME%),  for test:(%ITERATION%). Aborting
+       simulation for the test!"</command>		  	  
+       <command>  }</command>	  
+       <command>} else {</command>
+       <command>  (%VSIM%) -c (%VSIMARGS%) -sv_seed (%seed%)
+       +OVM_TESTNAME=(%ITERATION%)
+       +OVM_VERBOSITY_LEVEL=(%OVM_VERBOSITY_LEVEL%) optimized</command>
+       <command>}</command>
+    </execScript>
+  </runnable>
+
+  <!-- ================================================ -->
+  <!-- == Reporting Runables  ========================= -->
+  <!-- ================================================ -->
+  <runnable name="vm" type="group" sequential="yes">
+    <members>
+      <member>vm_report</member>
+    </members>
+    <!--VRM vrun supports a macro mode which allows the user 
+        to invoke vrun from within a runnable's action script -->               
+    <postScript >
+      <command>vrun -vrmdata (%DATADIR%) -status -full -html -htmldir (%DATADIR%)/vrun</command>
+    </postScript>
+  </runnable>
+
+  <runnable name="vm_report" type="task">
+    <execScript >
+      <command>if ([file exists (%mergefile%)]) {vcover report -html (%mergefile%) -htmldir [file join (%DATADIR%) cov_html_summary]}</command>
+      <command>if ([file exists (%triagefile%)]) {triage report -name (%triagefile%) -file [file join (%DATADIR%) RA_summary.rpt]}</command>
+    </execScript>
+  </runnable>
+
+  <!-- ================================================ -->
+  <!-- == Over-ride TCL built-in                     == -->
+  <!-- == Advanced VRM capabilities                  == -->
+  <!-- == The underlying default behaviour of VRM    == -->
+  <!-- == can be modified using the exposed TCL API  == -->
+  <!-- == Usually these defined TCL methods do       == -->
+  <!-- == by default. These methods can be           == -->
+  <!-- == overriden within the usertcl element of    == -->
+  <!-- == RMDB. In addition the user can define TCL  == -->
+  <!-- == procedures that they wish to call in       == -->
+  <!-- == action scripts here also.                  == -->
+  <!-- ================================================ -->
+  <usertcl name="mytcl">
+   <!-- An example of overriding the VRM procedure StopRunning 
+        In this case, VRM will stop if 100 errors are generated 
+        during execution of a regression                   -->
+   proc StopRunning {userdata} {
+     upvar $userdata data
+     set result [expr {$data(fail) == 100}]
+     return $result
+   }
+
+   <!-- An example of overriding the VRM procedure OkToMerge
+        This example changes the default behavior such that all 
+        ucdbfiles of both passes and failures are merged. 
+        By default only passing ucdbfiles are merged        --> 
+   <!--proc OkToMerge {userdata} {
+     upvar $userdata data
+     return 1 ; approve merge.
+   }-->
+   
+   <!-- An example of overriding the VRM procedure OkToTriage
+        This example changes the default behavior such that all 
+        ucdbfiles of both passes and failures are used to create 
+        the triage database. 
+        By default only failing ucdbfiles are used to create the 
+        triagedb file 
+        This example is for illustration purposes only and
+        not recommended for real projects    -->
+   proc OkToTriage {userdata} {
+     upvar $userdata data
+     return 1 ; approve triage.
+   }
+ </usertcl>
+</rmdb>

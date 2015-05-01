@@ -1,0 +1,94 @@
+Model Technology ModelSim SE-64 qverilog 10.1 Compiler 2011.12 Dec  5 2011
+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/bin/../linux_x86_64/qverilog +incdir+. my_env_pkg.sv top.sv 
+-- Compiling package my_env_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1 Built-in)
+** Note: (qverilog-2286) Using implicit +incdir+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/../verilog_src/uvm-1.1/src from import uvm_pkg
+-- Compiling module top
+-- Importing package my_env_pkg
+
+Top level modules:
+	top
++ /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/vsim -lib work top -c -do run -all; quit -f -appendlog -l qverilog.log -vopt
+# vsim -appendlog -do {run -all; quit -f} -l qverilog.log -lib work -c -vopt top 
+# ** Note: (vsim-3812) Design is being optimized...
+# //  ModelSim SE-64 10.1 Dec  5 2011 Linux 3.13.0-32-generic
+# //
+# //  Copyright 1991-2011 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.my_env_pkg(fast)
+# Loading work.top(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/linux_x86_64/uvm_dpi.so
+# run -all 
+# ----------------------------------------------------------------
+# UVM-1.1
+# (C) 2007-2011 Mentor Graphics Corporation
+# (C) 2007-2011 Cadence Design Systems, Inc.
+# (C) 2006-2011 Synopsys, Inc.
+# (C) 2011      Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test ...
+# topenv: In Build: debug = 0
+# topenv.inst1: In Build: debug = 0
+# topenv.inst1.u1: In Build: v = 30  s = 16
+# topenv.inst1.u2: In Build: v = 5  s = 16
+# topenv.inst2: In Build: debug = 0
+# topenv.inst2.u1: In Build: v = 10  s = 0
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# -------------------------------------------------
+# Name              Type               Size  Value 
+# -------------------------------------------------
+# topenv            my_env             -     @479  
+#   inst1           A                  -     @497  
+#     u1            C                  -     @515  
+#       v           integral           32    'h1e  
+#       s           integral           32    'h10  
+#       myaa        aa(string,string)  3     -     
+#         [bar]     string             3     bye   
+#         [foo]     string             3     boo   
+#         [foobar]  string             6     boobah
+#     u2            C                  -     @522  
+#       v           integral           32    'h5   
+#       s           integral           32    'h10  
+#       myaa        aa(string,string)  3     -     
+#         [bar]     string             3     bye   
+#         [foo]     string             2     hi    
+#         [foobar]  string             5     howdy 
+#     debug         integral           1     'h0   
+#   inst2           B                  -     @504  
+#     u1            C                  -     @541  
+#       v           integral           32    'ha   
+#       s           integral           32    'h0   
+#       myaa        aa(string,string)  3     -     
+#         [bar]     string             3     bye   
+#         [foo]     string             2     hi    
+#         [foobar]  string             5     howdy 
+#     debug         integral           1     'h0   
+#   debug           integral           1     'h0   
+# -------------------------------------------------
+# 
+# UVM_INFO verilog_src/uvm-1.1/src/base/uvm_objection.svh(1120) @ 10: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    5
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# ** Note: $finish    : /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/../verilog_src/uvm-1.1/src/base/uvm_root.svh(408)
+#    Time: 10 ns  Iteration: 54  Instance: /top

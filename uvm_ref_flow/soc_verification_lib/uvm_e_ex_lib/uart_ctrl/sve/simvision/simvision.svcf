@@ -1,0 +1,165 @@
+# SimVision Command Script (Thu Mar 10 11:39:26 AM IST 2011)
+#
+# Version 10.20.s013
+#
+
+if {[file exists "$UVM_REF_HOME/soc_verification_lib/uvm_e_ex_lib/uart_ctrl/sve/scripts/simvision.tcl.ecom"]} { console submit -using Specman "@$UVM_REF_HOME/soc_verification_lib/uvm_e_ex_lib/uart_ctrl/sve/scripts/simvision.tcl.ecom" }
+
+#
+# Preferences
+#
+preferences set toolbar-Standard-WatchWindow {
+  usual
+  shown 0
+}
+preferences set toolbar-SimControl-WatchList {
+  usual
+  hide set_break
+  hide vplan
+}
+preferences set toolbar-SimControl-SrcBrowser {
+  usual
+  show step_out
+}
+preferences set toolbar-UserTB0-WatchList {
+  usual
+  add action_send_from_design_browser_to_stripechart
+  add action_send_from_design_browser_to_databrowser
+  add action_send_from_design_browser_to_visualization
+  shown 1
+  position -row 0 -pos 3 -anchor e
+  name {Send To Specman}
+}
+preferences set toolbar-Windows-WatchWindow {
+  usual
+  shown 0
+}
+preferences set toolbar-UserTB1-WaveWindow {
+  usual
+  add action_send_from_waveform_to_stripechart
+  add action_send_from_waveform_to_databrowser
+  shown 1
+  position -row 0 -pos 5 -anchor e
+  name {Send To Specman}
+}
+preferences set user-toolbar-list {WatchList {} WaveWindow {}}
+preferences set toolbar-OperatingMode-WaveWindow {
+  usual
+  position -pos 3
+  name OperatingMode
+}
+preferences set plugin-enable-svdatabrowser 0
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set toolbar-SimControl-WatchWindow {
+  usual
+  hide set_break
+  shown 0
+}
+preferences set toolbar-Windows-WaveWindow {
+  usual
+  position -pos 4
+}
+preferences set toolbar-Windows-WatchList {
+  usual
+  position -pos 2
+}
+preferences set toolbar-Edit-WatchWindow {
+  usual
+  shown 0
+}
+preferences set toolbar-TimeSearch-WatchWindow {
+  usual
+  shown 0
+}
+
+#
+# Simulator
+#
+database require simulator -hints {
+	simulator "irun -verbose +nowarnENUMERR +define+UART_ABV_ON +define+LITLE_ENDIAN +define+full_modem_support -nclibdirpath . -sncompargs -enable_DAC -errormax 1 -sntimescale 1ns/1ps -covfile $UVM_REF_HOME/soc_verification_lib/uvm_e_ex_lib/uart_ctrl/sve/scripts/covfile.cf -coverage functional -covtest data_poll.e -covdut tb_uart -covoverwrite -F $UVM_REF_HOME/designs/socv/rtl/rtl_lpw/opencores/oc_uart.irunargs -F $UVM_REF_HOME/soc_verification_lib/uvm_e_ex_lib/uart_ctrl/sve/uart_ctrl.irunargs -snset @./igen_pre_run.ecom -snprerun @./sn_pre_run.ecom +gui -input $UVM_REF_HOME/soc_verification_lib/uvm_e_ex_lib/uart_ctrl/sve/scripts/nc_waves.tcl -nosncomp -top tb_uart +mpssession+SPECMAN8805 -input simvision.tcl"
+}
+
+#
+# Cursors
+#
+set time 44920000000fs
+if {[catch {cursor new -name  TimeA -time $time}] != ""} {
+    cursor set -using TimeA -time $time
+}
+
+#
+# Mnemonic Maps
+#
+mmap new -reuse -name {Boolean as Logic} -radix %b -contents {
+{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}
+}
+mmap new -reuse -name {Example Map} -radix %x -contents {
+{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}
+}
+
+#
+# Design Browser windows
+#
+if {[catch {window new WatchList -name "Design Browser 1" -geometry 1020x753+220+0}] != ""} {
+    window geometry "Design Browser 1" 1020x753+220+0
+}
+window target "Design Browser 1" on
+browser using {Design Browser 1}
+browser set -scope [subst  {simulator::[format {tb_uart}]} ]
+browser set \
+    -showassertions 0 \
+    -showfibers 0
+browser yview see [subst  {simulator::[format {tb_uart}]} ]
+browser timecontrol set -lock 0
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1010x600+64+147}] != ""} {
+    window geometry "Waveform 1" 1010x600+64+147
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar visibility partial
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ps \
+    -valuewidth 75
+cursor set -using TimeA -time 44,920,000,000fs
+waveform baseline set -time 52,360,000,000fs
+
+set id [waveform add -signals [subst  {
+	{simulator::[format {tb_uart.apb_addr[6:0]}]}
+	{simulator::[format {tb_uart.apb_enable}]}
+	{simulator::[format {tb_uart.apb_rdata[31:0]}]}
+	{simulator::[format {tb_uart.apb_rwd}]}
+	{simulator::[format {tb_uart.apb_sel}]}
+	{simulator::[format {tb_uart.apb_wdata[31:0]}]}
+	{simulator::[format {tb_uart.specman_hclk}]}
+	{simulator::[format {tb_uart.txd}]}
+	{simulator::[format {tb_uart.rxd}]}
+	{simulator::[format {tb_uart.hresetn}]}
+	{simulator::[format {tb_uart.wb_sel[3:0]}]}
+	{simulator::[format {tb_uart.rts_n}]}
+	{simulator::[format {tb_uart.cts_n}]}
+	} ]]
+
+waveform xview limits 0 277733817.127ps
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 750x350+0+0
+

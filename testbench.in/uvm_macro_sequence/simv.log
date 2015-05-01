@@ -1,0 +1,82 @@
+Command: ./simv -l simv.log
+Chronologic VCS simulator copyright 1991-2011
+Contains Synopsys proprietary information.
+Compiler version F-2011.12; Runtime version F-2011.12;  Nov 23 10:28 2012
+----------------------------------------------------------------
+UVM-1.1.VCS
+(C) 2007-2011 Mentor Graphics Corporation
+(C) 2007-2011 Cadence Design Systems, Inc.
+(C) 2006-2011 Synopsys, Inc.
+(C) 2011      Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.accellera.org/activities/vip/release_notes_11a for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.accellera.org/activities/vip/mantis3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO top.sv(23) @ 0: reporter [top] In top initial block
+UVM_INFO @ 0: reporter [RNTST] Running test ...
+-------------------------------------------------------
+Name                 Type                   Size  Value
+-------------------------------------------------------
+sequencer            instruction_sequencer  -     @466 
+  rsp_export         uvm_analysis_export    -     @474 
+  seq_item_export    uvm_seq_item_pull_imp  -     @580 
+  arbitration_queue  array                  0     -    
+  lock_queue         array                  0     -    
+  num_last_reqs      integral               32    'd1  
+  num_last_rsps      integral               32    'd1  
+-------------------------------------------------------
+UVM_INFO sequence.sv(40) @ 0: sequencer@@macro_sequence [sequencer.macro_sequence] test1 
+UVM_INFO sequence.sv(21) @ 0: sequencer@@macro_sequence [demo_uvm_do] task pre_do
+UVM_INFO sequence.sv(25) @ 0: sequencer@@macro_sequence [demo_uvm_do] function mid_do
+0: Driving Instruction  DIV
+UVM_INFO sequence.sv(29) @ 10: sequencer@@macro_sequence [demo_uvm_do] function post_do
+UVM_INFO sequence.sv(42) @ 10: sequencer@@macro_sequence [sequencer.macro_sequence] test1 
+UVM_INFO sequence.sv(46) @ 10: sequencer@@macro_sequence [sequencer.macro_sequence] test2 
+UVM_INFO sequence.sv(21) @ 10: sequencer@@macro_sequence [demo_uvm_do] task pre_do
+UVM_INFO sequence.sv(25) @ 10: sequencer@@macro_sequence [demo_uvm_do] function mid_do
+10: Driving Instruction  ADD
+UVM_INFO sequence.sv(29) @ 20: sequencer@@macro_sequence [demo_uvm_do] function post_do
+UVM_INFO sequence.sv(48) @ 20: sequencer@@macro_sequence [sequencer.macro_sequence] test2 
+UVM_INFO sequence.sv(52) @ 20: sequencer@@macro_sequence [sequencer.macro_sequence] test3 
+UVM_INFO sequence.sv(21) @ 20: sequencer@@macro_sequence [demo_uvm_do] task pre_do
+UVM_INFO sequence.sv(25) @ 20: sequencer@@macro_sequence [demo_uvm_do] function mid_do
+20: Driving Instruction  PUSH_B
+UVM_INFO sequence.sv(29) @ 30: sequencer@@macro_sequence [demo_uvm_do] function post_do
+UVM_INFO sequence.sv(56) @ 30: sequencer@@macro_sequence [sequencer.macro_sequence] test3 
+UVM_INFO sequence.sv(60) @ 30: sequencer@@macro_sequence [sequencer.macro_sequence] test4 
+UVM_INFO sequence.sv(21) @ 30: sequencer@@macro_sequence [demo_uvm_do] task pre_do
+UVM_INFO sequence.sv(25) @ 30: sequencer@@macro_sequence [demo_uvm_do] function mid_do
+30: Driving Instruction  ADD
+UVM_INFO sequence.sv(29) @ 40: sequencer@@macro_sequence [demo_uvm_do] function post_do
+UVM_INFO sequence.sv(63) @ 40: sequencer@@macro_sequence [sequencer.macro_sequence] test4 
+UVM_INFO /share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_objection.svh(1120) @ 40: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   23
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[TEST_DONE]     1
+[demo_uvm_do]    12
+[sequencer.macro_sequence]     8
+[top]     1
+$finish called from file "/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_root.svh", line 408.
+$finish at simulation time                   40
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 40 ns
+CPU Time:      0.480 seconds;       Data structure size:   0.1Mb
+Fri Nov 23 10:28:37 2012

@@ -1,0 +1,3 @@
+Model Technology ModelSim SE-64 qverilog 10.1 Compiler 2011.12 Dec  5 2011
+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/bin/../linux_x86_64/qverilog +incdir+. test.sv -R 
+** Error: env.sv(3): near "A": syntax error, unexpected IDENTIFIER

@@ -1,0 +1,105 @@
+
+Chronologic VCS simulator copyright 1991-2011
+Contains Synopsys proprietary information.
+Compiler version F-2011.12; Runtime version F-2011.12;  Nov  5 19:23 2012
+----------------------------------------------------------------
+UVM-1.1.VCS
+(C) 2007-2011 Mentor Graphics Corporation
+(C) 2007-2011 Cadence Design Systems, Inc.
+(C) 2006-2011 Synopsys, Inc.
+(C) 2011      Cypress Semiconductor Corp.
+----------------------------------------------------------------
+  ***********       IMPORTANT RELEASE NOTES         ************
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.accellera.org/activities/vip/release_notes_11a for more details.
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.accellera.org/activities/vip/mantis3770 for more details.
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+VCD+ Writer F-2011.12 Copyright (c) 1991-2011 by Synopsys Inc.
+The file '/share/jinz/Synopsys_Tutorial/vcsmx_example/testbench/sv/uvm/simple/registers/models/reg_without_field/inter.vpd' was opened successfully.
+Stop point #1 @ 0 ns;  
+UVM_INFO @ 0: reporter [RNTST] Running test ...
+uvm_reg.svh, 2320 :    XatomicX(1);
+uvm_reg.svh, 2321 :    XreadX(status, value, path, map, parent, prior, extension, fname, lineno);
+uvm_reg.svh, 2340 :    rw = uvm_reg_item::type_id::create("read_item",,get_full_name());
+uvm_reg.svh, 1542 :    if (m_regfile_parent != null)
+uvm_reg.svh, 2340 :    rw = uvm_reg_item::type_id::create("read_item",,get_full_name());
+uvm_reg.svh, 2341 :    rw.element      = this;
+uvm_reg.svh, 2342 :    rw.element_kind = UVM_REG;
+uvm_reg.svh, 2343 :    rw.kind         = UVM_READ;
+uvm_reg.svh, 2344 :    rw.value[0]     = 0;
+uvm_reg.svh, 2345 :    rw.path         = path;
+uvm_reg.svh, 2346 :    rw.map          = map;
+uvm_reg.svh, 2347 :    rw.parent       = parent;
+uvm_reg.svh, 2348 :    rw.prior        = prior;
+uvm_reg.svh, 2349 :    rw.extension    = extension;
+uvm_reg.svh, 2350 :    rw.fname        = fname;
+uvm_reg.svh, 2351 :    rw.lineno       = lineno;
+uvm_reg.svh, 2353 :    do_read(rw);
+uvm_reg.svh, 2365 :    uvm_reg_cb_iter  cbs = new(this);
+uvm_reg.svh, 2369 :    m_fname   = rw.fname;
+uvm_reg.svh, 2370 :    m_lineno  = rw.lineno;
+uvm_reg.svh, 2372 :    if (!Xcheck_accessX(rw,map_info,"read()"))
+uvm_reg.svh, 2375 :    m_read_in_progress = 1'b1;
+uvm_reg.svh, 2377 :    rw.status = UVM_IS_OK;
+uvm_reg.svh, 2380 :    foreach (m_fields[i]) begin
+uvm_reg.svh, 2381 :       uvm_reg_field_cb_iter cbs = new(m_fields[i]);
+uvm_reg.svh, 2382 :       uvm_reg_field f = m_fields[i];
+uvm_reg.svh, 2383 :       rw.element = f;
+uvm_reg.svh, 2384 :       rw.element_kind = UVM_FIELD;
+uvm_reg.svh, 2385 :       m_fields[i].pre_read(rw);
+uvm_reg.svh, 2386 :       for (uvm_reg_cbs cb=cbs.first(); cb!=null; cb=cbs.next())
+uvm_reg.svh, 2390 :    rw.element = this;
+uvm_reg.svh, 2391 :    rw.element_kind = UVM_REG;
+uvm_reg.svh, 2394 :    pre_read(rw);
+uvm_reg.svh, 2395 :    for (uvm_reg_cbs cb=cbs.first(); cb!=null; cb=cbs.next())
+uvm_reg.svh, 2398 :    if (rw.status != UVM_IS_OK) begin
+uvm_reg.svh, 2405 :    case (rw.path)
+uvm_reg.svh, 2469 :          uvm_reg_map system_map = rw.local_map.get_root_map();
+uvm_reg.svh, 2471 :          m_is_busy = 1;
+uvm_reg.svh, 2474 :          if (map_info.frontdoor != null) begin
+uvm_reg.svh, 2475 :             uvm_reg_frontdoor fd = map_info.frontdoor;
+uvm_reg.svh, 2476 :             fd.rw_info = rw;
+uvm_reg.svh, 2477 :             if (fd.sequencer == null)
+uvm_reg.svh, 2478 :               fd.sequencer = system_map.get_sequencer();
+uvm_reg.svh, 2479 :             fd.start(fd.sequencer, rw.parent);
+uvm_sequence_base.svh, 288 :         m_sequence_process = process::self();
+uvm_sequence_base.svh, 290 :         m_sequence_state = PRE_START;
+uvm_sequence_base.svh, 291 :         #0;
+uvm_sequence_base.svh, 292 :         pre_start();
+uvm_sequence_base.svh, 294 :         if (call_pre_post == 1) begin
+uvm_sequence_base.svh, 295 :           m_sequence_state = PRE_BODY;
+uvm_sequence_base.svh, 296 :           #0;
+uvm_sequence_base.svh, 297 :           pre_body();
+uvm_sequence_base.svh, 300 :         if (parent_sequence != null) begin
+uvm_sequence_base.svh, 305 :         m_sequence_state = BODY;
+uvm_sequence_base.svh, 306 :         #0;
+uvm_sequence_base.svh, 307 :         body();
+uvm_sequence_base.svh, 309 :         m_sequence_state = ENDED;
+uvm_sequence_base.svh, 310 :         #0;
+uvm_sequence_base.svh, 312 :         if (parent_sequence != null) begin
+uvm_sequence_base.svh, 316 :         if (call_pre_post == 1) begin
+uvm_sequence_base.svh, 317 :           m_sequence_state = POST_BODY;
+uvm_sequence_base.svh, 318 :           #0;
+uvm_sequence_base.svh, 319 :           post_body();
+uvm_sequence_base.svh, 322 :         m_sequence_state = POST_START;
+uvm_sequence_base.svh, 323 :         #0;
+uvm_sequence_base.svh, 324 :         post_start();
+uvm_sequence_base.svh, 326 :         m_sequence_state = FINISHED;
+uvm_sequence_base.svh, 327 :         #0;
+uvm_sequence_base.svh, 332 :     if (m_sequencer != null) begin      
+uvm_sequence_base.svh, 338 :     if (m_sequence_state != STOPPED) begin
+uvm_sequence_base.svh, 339 :       if (m_sequencer != null)
+uvm_sequence_base.svh, 343 :     #0; // allow stopped and finish waiters to resume
+uvm_reg.svh, 2487 :          m_is_busy = 0;
+uvm_reg.svh, 2489 :          if (system_map.get_auto_predict()) begin
+uvm_reg.svh, 2490 :             if (rw.status != UVM_NOT_OK) begin
+uvm_reg.svh, 2491 :                sample(rw.value[0], -1, 1, rw.map);
+uvm_reg.svh, 2353 :    do_read(rw);
+uvm_reg.svh, 2355 :    status = rw.status;
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 0 ns
+CPU Time:      2.740 seconds;       Data structure size:   0.3Mb
+Mon Nov  5 19:32:39 2012

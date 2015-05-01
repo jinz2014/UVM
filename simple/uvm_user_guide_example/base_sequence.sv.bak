@@ -1,0 +1,21 @@
+class base_seq_do extends uvm_sequence #(base_item);
+
+  rand int count;
+  base_item req;
+
+  constraint count_c { count >0; count <50; }
+
+  `uvm_sequence_utils_begin(base_seq_do, uvm_sequencer)
+    `uvm_field_int(count, UVM_ALL_ON)
+    `uvm_field_object(req, UVM_ALL_ON)
+  `uvm_sequence_utils_end
+
+  function new (string name = "base_seq_do");
+    super.new(name);
+  endfunction : new
+
+  virtual task body();
+    repeat(count) `uvm_do(req)
+  endtask : body
+
+endclass : base_seq_do 

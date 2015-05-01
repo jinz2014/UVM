@@ -1,0 +1,165 @@
+Model Technology ModelSim SE-64 qverilog 10.1 Compiler 2011.12 Dec  5 2011
+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/bin/../linux_x86_64/qverilog +incdir+. top.sv -R +UVM_TESTNAME=test_factory 
+** Note: (qverilog-2286) Using implicit +incdir+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/../verilog_src/uvm-1.1/src from import uvm_pkg
+** Warning: driver.sv(10): (qverilog-2181) Use of a parameterized class uvm_driver as a type creates a default specialization.
+-- Compiling package top_sv_unit
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1 Built-in)
+** Warning: driver.sv(10): (qverilog-2181) Use of a parameterized class uvm_driver as a type creates a default specialization.
+-- Compiling module top
+** Warning: driver.sv(10): (qverilog-2181) Use of a parameterized class uvm_driver as a type creates a default specialization.
+
+Top level modules:
+	top
++ /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/vsim -lib work +UVM_TESTNAME=test_factory top -c -do run -all; quit -f -appendlog -l qverilog.log -vopt
+# vsim +UVM_TESTNAME=test_factory -appendlog -do {run -all; quit -f} -l qverilog.log -lib work -c -vopt top 
+# ** Note: (vsim-3812) Design is being optimized...
+# //  ModelSim SE-64 10.1 Dec  5 2011 Linux 3.13.0-32-generic
+# //
+# //  Copyright 1991-2011 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.top_sv_unit(fast)
+# Loading work.top(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/linux_x86_64/uvm_dpi.so
+# run -all 
+# ----------------------------------------------------------------
+# UVM-1.1
+# (C) 2007-2011 Mentor Graphics Corporation
+# (C) 2007-2011 Cadence Design Systems, Inc.
+# (C) 2006-2011 Synopsys, Inc.
+# (C) 2011      Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# 
+#### Factory Configuration (*)
+# 
+# No instance overrides are registered with this factory
+# 
+# Type Overrides:
+# 
+#   Requested Type  Override Type
+#   --------------  -------------
+#   driver          driver_2
+#   monitor         monitor_2
+# 
+# All types registered with the factory: 45 total
+# (types without type names will not be printed)
+# 
+#   Type Name
+#   ---------
+#   agent
+#   driver
+#   driver_2
+#   env
+#   monitor
+#   monitor_2
+#   questa_uvm_recorder
+#   test1
+#   test_factory
+# (*) Types with no associated type name will be printed as <unknown>
+# 
+####
+# 
+# UVM_INFO @ 0: reporter [RNTST] Running test test_factory...
+# UVM_INFO @ 0: uvm_test_top.t_env [uvm_test_top.t_env] Build
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1 [uvm_test_top.t_env.ag1] Build
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1.drv [uvm_test_top.t_env.ag1.drv] Build
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1.mon [uvm_test_top.t_env.ag1.mon] Build
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2 [uvm_test_top.t_env.ag2] Build
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2.drv [uvm_test_top.t_env.ag2.drv] Build
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2.mon [uvm_test_top.t_env.ag2.mon] Build
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1.drv [uvm_test_top.t_env.ag1.drv] Connect
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1.mon [uvm_test_top.t_env.ag1.mon] Connect
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1 [uvm_test_top.t_env.ag1] Connect
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2.drv [uvm_test_top.t_env.ag2.drv] Connect
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2.mon [uvm_test_top.t_env.ag2.mon] Connect
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2 [uvm_test_top.t_env.ag2] Connect
+# UVM_INFO @ 0: uvm_test_top.t_env [uvm_test_top.t_env] Connect
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1.drv [uvm_test_top.t_env.ag1.drv] End_of_elaboration
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1.mon [uvm_test_top.t_env.ag1.mon] End_of_elaboration
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1 [uvm_test_top.t_env.ag1] End_of_elaboration
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2.drv [uvm_test_top.t_env.ag2.drv] End_of_elaboration
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2.mon [uvm_test_top.t_env.ag2.mon] End_of_elaboration
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2 [uvm_test_top.t_env.ag2] End_of_elaboration
+# UVM_INFO @ 0: uvm_test_top.t_env [uvm_test_top.t_env] End_of_elaboration
+# UVM_INFO @ 0: uvm_test_top [uvm_test_top] End_of_elaboration
+# ----------------------------------------------------------
+# Name                   Type                    Size  Value
+# ----------------------------------------------------------
+# uvm_test_top           test_factory            -     @456 
+#   t_env                env                     -     @464 
+#     ag1                agent                   -     @474 
+#       drv              driver_2                -     @498 
+#         rsp_port       uvm_analysis_port       -     @515 
+#         sqr_pull_port  uvm_seq_item_pull_port  -     @506 
+#       mon              monitor_2               -     @490 
+#     ag2                agent                   -     @482 
+#       drv              driver_2                -     @535 
+#         rsp_port       uvm_analysis_port       -     @552 
+#         sqr_pull_port  uvm_seq_item_pull_port  -     @543 
+#       mon              monitor_2               -     @527 
+# ----------------------------------------------------------
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1.drv [uvm_test_top.t_env.ag1.drv] Start_of_simulation
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1.mon [uvm_test_top.t_env.ag1.mon] Start_of_simulation
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1 [uvm_test_top.t_env.ag1] Start_of_simulation
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2.drv [uvm_test_top.t_env.ag2.drv] Start_of_simulation
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2.mon [uvm_test_top.t_env.ag2.mon] Start_of_simulation
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2 [uvm_test_top.t_env.ag2] Start_of_simulation
+# UVM_INFO @ 0: uvm_test_top.t_env [uvm_test_top.t_env] Start_of_simulation
+# UVM_INFO @ 0: uvm_test_top.t_env [uvm_test_top.t_env] Run
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2 [uvm_test_top.t_env.ag2] Run
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2.mon [uvm_test_top.t_env.ag2.mon] Run
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2.drv [uvm_test_top.t_env.ag2.drv] Run
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1 [uvm_test_top.t_env.ag1] Run
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1.mon [uvm_test_top.t_env.ag1.mon] Run
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1.drv [uvm_test_top.t_env.ag1.drv] Run
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1.drv [uvm_test_top.t_env.ag1.drv] Extract
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1.mon [uvm_test_top.t_env.ag1.mon] Extract
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1 [uvm_test_top.t_env.ag1] Extract
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2.drv [uvm_test_top.t_env.ag2.drv] Extract
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2.mon [uvm_test_top.t_env.ag2.mon] Extract
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2 [uvm_test_top.t_env.ag2] Extract
+# UVM_INFO @ 0: uvm_test_top.t_env [uvm_test_top.t_env] Extract
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1.drv [uvm_test_top.t_env.ag1.drv] Check
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1.mon [uvm_test_top.t_env.ag1.mon] Check
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1 [uvm_test_top.t_env.ag1] Check
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2.drv [uvm_test_top.t_env.ag2.drv] Check
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2.mon [uvm_test_top.t_env.ag2.mon] Check
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2 [uvm_test_top.t_env.ag2] Check
+# UVM_INFO @ 0: uvm_test_top.t_env [uvm_test_top.t_env] Check
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1.drv [uvm_test_top.t_env.ag1.drv] Report
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1.mon [uvm_test_top.t_env.ag1.mon] Report
+# UVM_INFO @ 0: uvm_test_top.t_env.ag1 [uvm_test_top.t_env.ag1] Report
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2.drv [uvm_test_top.t_env.ag2.drv] Report
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2.mon [uvm_test_top.t_env.ag2.mon] Report
+# UVM_INFO @ 0: uvm_test_top.t_env.ag2 [uvm_test_top.t_env.ag2] Report
+# UVM_INFO @ 0: uvm_test_top.t_env [uvm_test_top.t_env] Report
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   60
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [uvm_test_top]     1
+# [uvm_test_top.t_env]     8
+# [uvm_test_top.t_env.ag1]     8
+# [uvm_test_top.t_env.ag1.drv]     8
+# [uvm_test_top.t_env.ag1.mon]     8
+# [uvm_test_top.t_env.ag2]     8
+# [uvm_test_top.t_env.ag2.drv]     8
+# [uvm_test_top.t_env.ag2.mon]     8
+# ** Note: $finish    : /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/../verilog_src/uvm-1.1/src/base/uvm_root.svh(408)
+#    Time: 0 ns  Iteration: 224  Instance: /top

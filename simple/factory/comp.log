@@ -1,0 +1,12 @@
+Command: vcs -sverilog -timescale=1ns/1ns +incdir+. packet_pkg.sv gen_pkg.sv env_pkg.sv \
+test.sv -ntb_opts uvm-1.1 -l comp.log
+                         Chronologic VCS (TM)
+            Version F-2011.12 -- Sun Oct 28 12:17:00 2012
+               Copyright (c) 1991-2011 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+CPU time: .040 seconds to compile

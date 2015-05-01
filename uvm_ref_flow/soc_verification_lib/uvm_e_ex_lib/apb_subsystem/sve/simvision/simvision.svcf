@@ -1,0 +1,340 @@
+# SimVision Command Script (Thu Mar 10 01:36:05 PM IST 2011)
+#
+# Version 10.20.s013
+#
+if {[file exists "$UVM_REF_HOME/soc_verification_lib/uvm_e_ex_lib/apb_subsystem/sve/simvision/simvision.svcf.ecom"]} { console submit -using Specman "@$UVM_REF_HOME/soc_verification_lib/uvm_e_ex_lib/apb_subsystem/sve/simvision/simvision.svcf.ecom" }
+
+#
+# Preferences
+#
+preferences set toolbar-Standard-WatchWindow {
+  usual
+  shown 0
+}
+preferences set toolbar-SimControl-WatchList {
+  usual
+  hide set_break
+  hide vplan
+}
+preferences set toolbar-SimControl-SrcBrowser {
+  usual
+  show step_out
+}
+preferences set toolbar-UserTB0-WatchList {
+  usual
+  add action_send_from_design_browser_to_stripechart
+  add action_send_from_design_browser_to_databrowser
+  add action_send_from_design_browser_to_visualization
+  shown 1
+  position -row 0 -pos 3 -anchor e
+  name {Send To Specman}
+}
+preferences set toolbar-Windows-WatchWindow {
+  usual
+  shown 0
+}
+preferences set toolbar-UserTB1-WaveWindow {
+  usual
+  add action_send_from_waveform_to_stripechart
+  add action_send_from_waveform_to_databrowser
+  shown 1
+  position -row 0 -pos 5 -anchor e
+  name {Send To Specman}
+}
+preferences set user-toolbar-list {WaveWindow {} WatchList {}}
+preferences set toolbar-OperatingMode-WaveWindow {
+  usual
+  position -pos 3
+  name OperatingMode
+}
+preferences set plugin-enable-svdatabrowser 0
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set toolbar-SimControl-WatchWindow {
+  usual
+  hide set_break
+  shown 0
+}
+preferences set toolbar-Windows-WaveWindow {
+  usual
+  position -pos 4
+}
+preferences set toolbar-Windows-WatchList {
+  usual
+  position -pos 2
+}
+preferences set toolbar-Edit-WatchWindow {
+  usual
+  shown 0
+}
+preferences set toolbar-TimeSearch-WatchWindow {
+  usual
+  shown 0
+}
+
+#
+# Simulator
+#
+database require simulator -hints {
+	simulator "irun -verbose +define+LITLE_ENDIAN +nowarnENUMERR -nclibdirpath . -sncomparg -enable_DAC -errormax 1 -sntimescale 1ns/1ps -F $UVM_REF_HOME/designs/socv/rtl/rtl_lpw/apb_subsystem/rtl/apb_subsystem.irunargs -F $UVM_REF_HOME/soc_verification_lib/uvm_e_ex_lib/apb_subsystem/sve/apb_subsystem.irunargs -covoverwrite -snset @./igen_pre_run.ecom -snprerun @./sn_pre_run.ecom +gui -input $UVM_REF_HOME/soc_verification_lib/uvm_e_ex_lib/apb_subsystem/sve/scripts/nc_waves.tcl -simvisargs {-input $UVM_REF_HOME/soc_verification_lib/uvm_e_ex_lib/apb_subsystem/sve/simvision/simvision.svcf} -nosncomp -top tb_apb_subsystem +mpssession+SPECMAN23721 -input simvision.svcf"
+}
+
+#
+# Groups
+#
+catch {group new -name {AHB Bus} -overlay 0}
+catch {group new -name {UART Control} -overlay 0}
+catch {group new -name {UART 0} -overlay 0}
+catch {group new -name {UART 1} -overlay 0}
+
+group using {AHB Bus}
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.hclk}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.haddr[31:0]}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.htrans[1:0]}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.hwrite}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.hburst[2:0]}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.hsize[2:0]}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.hresp[1:0]}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.hrdata[31:0]}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.hready}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.hready_in}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.hwdata[31:0]}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.n_hreset}]} ]
+
+group using {UART Control}
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+
+group using {UART 0}
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.ua_rxd}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.ua_txd}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.ua_ncts}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.ua_nrts}]} ] \
+    {UART 1}
+
+group using {UART 1}
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.ua_rxd1}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.ua_txd1}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.ua_ncts1}]} ] \
+    [subst  {simulator::[format {tb_apb_subsystem.i_apb_subsystem.ua_nrts1}]} ]
+
+#
+# Cursors
+#
+set time 627640000ps
+if {[catch {cursor new -name  TimeM -time $time}] != ""} {
+    cursor set -using TimeM -time $time
+}
+cursor set -using TimeM -marching 1
+set time 223894492ps
+if {[catch {cursor new -name  TimeA -time $time}] != ""} {
+    cursor set -using TimeA -time $time
+}
+set time 627640000ps
+if {[catch {cursor new -name  TimeK -time $time}] != ""} {
+    cursor set -using TimeK -time $time
+}
+cursor set -using TimeK -marching 1
+set time 627640000ps
+if {[catch {cursor new -name  TimeJ -time $time}] != ""} {
+    cursor set -using TimeJ -time $time
+}
+cursor set -using TimeJ -marching 1
+set time 627640000ps
+if {[catch {cursor new -name  TimeG -time $time}] != ""} {
+    cursor set -using TimeG -time $time
+}
+cursor set -using TimeG -marching 1
+set time 627640000ps
+if {[catch {cursor new -name  TimeF -time $time}] != ""} {
+    cursor set -using TimeF -time $time
+}
+cursor set -using TimeF -marching 1
+set time 627640000ps
+if {[catch {cursor new -name  TimeD -time $time}] != ""} {
+    cursor set -using TimeD -time $time
+}
+cursor set -using TimeD -marching 1
+set time 627640000ps
+if {[catch {cursor new -name  TimeB -time $time}] != ""} {
+    cursor set -using TimeB -time $time
+}
+cursor set -using TimeB -marching 1
+set time 627640000ps
+if {[catch {cursor new -name  TimeE -time $time}] != ""} {
+    cursor set -using TimeE -time $time
+}
+cursor set -using TimeE -marching 1
+set time 627640000ps
+if {[catch {cursor new -name  TimeI -time $time}] != ""} {
+    cursor set -using TimeI -time $time
+}
+cursor set -using TimeI -marching 1
+set time 627640000ps
+if {[catch {cursor new -name  TimeN -time $time}] != ""} {
+    cursor set -using TimeN -time $time
+}
+cursor set -using TimeN -marching 1
+
+#
+# Mnemonic Maps
+#
+mmap new -reuse -name {Boolean as Logic} -radix %x -contents {
+{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}
+}
+mmap new -reuse -name {Example Map} -radix %x -contents {
+{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}
+}
+mmap new -reuse -name htrans -radix %x -contents {
+{%b=00 -font -*-courier-medium-i-normal--12-* -label idle -linecolor #0099ff -shape EVENT -textcolor #000000}
+{%b=01 -font -*-courier-medium-i-normal--12-* -label busy -linecolor #ff0099 -shape bus -textcolor #ff0099}
+{%b=10 -bgcolor #000000 -font -*-courier-medium-i-normal--12-* -label seq -linecolor #ffff00 -shape bus -textcolor #ffff00}
+{%b=11 -bgcolor #000000 -font -*-courier-medium-i-normal--12-* -label nonseq -linecolor #ff9900 -shape bus -textcolor #ff9900}
+%b=
+}
+mmap new -reuse -name hburst -radix %x -contents {
+{%b=000 -bgcolor #000000 -font -*-courier-medium-i-normal--12-* -label single -shape bus -textcolor #999999}
+}
+mmap new -reuse -name hsize -radix %x -contents {
+{%b=000 -font -*-courier-medium-i-normal--12-* -label byte -shape bus -textcolor #999999}
+{%b=001 -font -*-courier-medium-i-normal--12-* -label hword -shape bus -textcolor #999999}
+{%b=010 -font -*-courier-medium-i-normal--12-* -label word -shape bus -textcolor #999999}
+{%b=011 -font -*-courier-medium-i-normal--12-* -label dword -shape bus -textcolor #999999}
+%b=100
+}
+mmap new -reuse -name hwrite -radix %x -contents {
+{%b=0 -font -*-courier-medium-i-normal--12-* -label read -shape low -textcolor #999999}
+{%b=1 -font -*-courier-medium-i-normal--12-* -label write -shape high -textcolor #999999}
+}
+mmap new -reuse -name hresp -radix %x -contents {
+{%b=00 -font -*-courier-medium-i-normal--12-* -icon greenCheck -label ok -shape bus -textcolor #00ff00}
+{%b=01 -font -*-courier-medium-i-normal--12-* -icon errorSign -label error -shape bus -textcolor #ff0000}
+{%b=10 -font -*-courier-medium-i-normal--12-* -icon exclaimSign -label retry -shape bus -textcolor #ffff00}
+{%b=11 -font -*-courier-medium-i-normal--12-* -icon infoSign -label split -shape bus -textcolor #0000ff}
+}
+mmap new -reuse -name {UART Regs} -radix %x -contents {
+{%x=00810000 -font -*-courier-medium-i-normal--12-* -label reg_UA_CR -shape bus}
+{%x=00810004 -font -*-courier-medium-i-normal--12-* -label reg_UA_MR -shape bus}
+{%x=00810008 -font -*-courier-medium-i-normal--12-* -label reg_UA_IER -shape bus}
+{%x=0081000c -font -*-courier-medium-i-normal--12-* -label reg_UA_IDR -shape bus}
+{%x=00810010 -font -*-courier-medium-i-normal--12-* -label reg_UA_IMR -shape bus}
+{%x=00810014 -font -*-courier-medium-i-normal--12-* -label reg_UA_CISR -shape bus}
+{%x=00810018 -font -*-courier-medium-i-normal--12-* -label reg_UA_BRGR -shape bus}
+{%x=0081001c -font -*-courier-medium-i-normal--12-* -label reg_UA_RTOR -shape bus}
+{%x=00810020 -font -*-courier-medium-i-normal--12-* -label reg_UA_RTRIG -shape bus}
+{%x=00810024 -font -*-courier-medium-i-normal--12-* -label reg_UA_MCR -shape bus}
+{%x=00810028 -font -*-courier-medium-i-normal--12-* -label reg_UA_MSR -shape bus}
+{%x=0081002c -font -*-courier-medium-i-normal--12-* -label reg_UA_CSR -shape bus}
+{%x=00810030 -font -*-courier-medium-i-normal--12-* -label reg_UA_FIFO -shape bus}
+{%x=00810034 -font -*-courier-medium-i-normal--12-* -label reg_UA_BDIV -shape bus}
+{%x=00810038 -font -*-courier-medium-i-normal--12-* -label reg_UA_FDEL -shape bus}
+{%x=0081003c -font -*-courier-medium-i-normal--12-* -label reg_UA_PMIN -shape bus}
+{%x=00810040 -font -*-courier-medium-i-normal--12-* -label reg_UA_PWID -shape bus}
+{%x=00810044 -font -*-courier-medium-i-normal--12-* -label reg_UA_TTRIG -shape bus}
+%x=
+}
+mmap new -reuse -name Htrans -radix %x -contents {
+{%b=0 -bgcolor #000000 -font -*-courier-medium-i-normal--12-* -label IDLE -linecolor #00ff99 -shape bus -textcolor #999999}
+{%x=1 -bgcolor #000000 -font -*-courier-medium-i-normal--12-* -label BUSY -linecolor white -shape bus -textcolor #999999}
+{%x=2 -bgcolor #000000 -font -*-courier-medium-i-normal--12-* -label NONSEQ -linecolor #00ff99 -shape bus -textcolor #999999}
+{%x=3 -bgcolor #000000 -font -*-courier-medium-i-normal--12-* -label SEQ -linecolor gray -shape bus -textcolor #999999}
+}
+mmap new -reuse -name SINGLE -radix %x -contents {
+{%b=0 -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}
+}
+mmap new -reuse -name {New map} -radix %x -contents {
+{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}
+}
+
+#
+# Design Browser windows
+#
+if {[catch {window new WatchList -name "Design Browser 1" -geometry 1028x682+49+0}] != ""} {
+    window geometry "Design Browser 1" 1028x682+49+0
+}
+window target "Design Browser 1" on
+browser using {Design Browser 1}
+browser set -scope [subst  {simulator::[format {tb_apb_subsystem}]} ]
+browser set \
+    -showgenerates 0 \
+    -showprocesses 0 \
+    -showunnamedprocesses 0
+browser yview see [subst  {simulator::[format {tb_apb_subsystem}]} ]
+browser timecontrol set -lock 0
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1103x813+25+37}] != ""} {
+    window geometry "Waveform 1" 1103x813+25+37
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar visibility partial
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ps \
+    -valuewidth 109
+cursor set -using TimeA -time 223,894,492ps
+waveform baseline set -time 621,320,000ps
+
+set id [waveform add -signals [subst  {
+	{simulator::[format {tb_apb_subsystem.haddr[31:0]}]}
+	{simulator::[format {tb_apb_subsystem.hwdata[31:0]}]}
+	{simulator::[format {tb_apb_subsystem.hrdata[31:0]}]}
+	{simulator::[format {tb_apb_subsystem.hsel0}]}
+	{simulator::[format {tb_apb_subsystem.i_apb_subsystem.hmastlock}]}
+	{simulator::[format {tb_apb_subsystem.hready}]}
+	{simulator::[format {tb_apb_subsystem.hresetn}]}
+	{simulator::[format {tb_apb_subsystem.hsize[2:0]}]}
+	{simulator::[format {tb_apb_subsystem.htrans[1:0]}]}
+	{simulator::[format {tb_apb_subsystem.hwrite}]}
+	} ]]
+
+set groupId0 [waveform add -groups {{UART 0}}]
+
+set groupId1 [waveform find -name {UART 1}]
+
+
+
+waveform xview limits 0 627640000ps
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 750x350+0+0
+

@@ -1,0 +1,39 @@
+Error notes:
+
+class av_mm_env_config extends uvm_object;
+  `uvm_object_utils(av_mm_agent_config )   // error
+
+avmm_env_cfg = av_mm_env_config::type_id::create( "avmm_env_cfg" );
+
+error: Illegal assignment to class work.av_mm_pkg::av_mm_env_config from class work.av_mm_pkg::av_mm_agent_config
+
+
+// no return value (i.e. void)
+function void build_phase(uvm_phase phase);
+
+
+//
+Must implement new function for a class (scoreboard) even 
+If a class is not actually used (due to the configuration settings), it should have a new function and/or analysis port/export
+
+
+// The object name must not be the same as the class name
+
+class avmm_agent extends uvm_agent;
+endclass
+
+class av_mm_env extends uvm_env;
+   avmm_agent         avmm_agent;  // error
+endclass
+
+
+set_auto_predict = 0
+in this mode, you connect a <uvm_reg_predictor> instance to the bus
+monitor. 
+1 The predictor takes observed bus transactions from the bus monitor (thru analysis port of the monitor and agent ), 
+2 looks up the associated <uvm_reg> register given the address (thru bus2reg and reg_map), 
+3 then calls that register's <uvm_reg::predict> method.
+
+While more complex, this mode will capture all register read/write
+activity, including that not directly descendant from calls to
+<uvm_reg::write> and <uvm_reg::read>.

@@ -1,0 +1,95 @@
+Command: ./simv -l run.log
+Chronologic VCS simulator copyright 1991-2011
+Contains Synopsys proprietary information.
+Compiler version G-2012.09-A (ENG); Runtime version G-2012.09-A (ENG);  Oct 24 22:04 2011
+----------------------------------------------------------------
+UVM-1.1.VCS
+(C) 2007-2011 Mentor Graphics Corporation
+(C) 2007-2011 Cadence Design Systems, Inc.
+(C) 2006-2011 Synopsys, Inc.
+(C) 2011      Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.accellera.org/activities/vip/release_notes_11a for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.accellera.org/activities/vip/mantis3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test test...
+UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+-------------------------------------------------------------------------
+Name                              Type                        Size  Value
+-------------------------------------------------------------------------
+env                               tb_env                      -     @454 
+  initiator0                      initiator                   -     @472 
+    initiator_socket              uvm_tlm_b_initiator_socket  -     @480 
+  target1                         target                      -     @489 
+    target_socket                 uvm_tlm_b_target_socket     -     @497 
+port0::SC_Proxy_Subscriber        uvm_component               -     @520 
+  analysis_imp                    uvm_analysis_imp            -     @528 
+port0::SC_Proxy_Target            uvm_component               -     @512 
+port0::SC_Proxy_Target_socket     uvm_tlm_b_target_socket     -     @537 
+port1::SC_Proxy_Initiator_Socket  uvm_tlm_b_initiator_socket  -     @572 
+port1::SC_Proxy_Subscriber        uvm_component               -     @555 
+  analysis_imp                    uvm_analysis_imp            -     @563 
+port1::SC_Proxy_Target            uvm_component               -     @547 
+uvm_test_top                      test                        -     @462 
+-------------------------------------------------------------------------
+
+SV Initiator Sends Transaction...
+Addr:        400 , Data:        100 
+SV Initiator Sends Transaction...
+Addr:        401 , Data:        101 
+SV Initiator Sends Transaction...
+Addr:        402 , Data:        102 
+SV Target Executed Transaction...
+Addr:         10 , Data:          0 
+SV Initiator Sends Transaction...
+Addr:        403 , Data:        103 
+SV Initiator Sends Transaction...
+Addr:        404 , Data:        104 
+SV --> SC transactions sucessful
+SV Target Executed Transaction...
+Addr:         11 , Data:          1 
+SV Target Executed Transaction...
+Addr:         12 , Data:          2 
+SV Target Executed Transaction...
+Addr:         13 , Data:          3 
+SV Target Executed Transaction...
+Addr:         14 , Data:          4 
+UVM_INFO /remote/vtgimages/SAFE/linux_RH4_AMD64_TD_32_Engineer/release-structure/vcs-mx/etc/uvm/base/uvm_objection.svh(1120) @ 100000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    8
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    3
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[TEST_DONE]     1
+[UVMTOP]     1
+$finish called from file "/remote/vtgimages/SAFE/linux_RH4_AMD64_TD_32_Engineer/release-structure/vcs-mx/etc/uvm/base/uvm_root.svh", line 408.
+$finish at simulation time               100000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 100000 ps
+CPU Time:      0.410 seconds;       Data structure size:   0.2Mb
+Mon Oct 24 22:04:16 2011

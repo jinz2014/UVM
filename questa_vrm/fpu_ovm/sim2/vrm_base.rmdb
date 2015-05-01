@@ -1,0 +1,93 @@
+<rmdb loadtcl="mytcl">
+
+	<!--========================== -->
+	<!-- Base Methods Of Execution  -->
+	<!--========================== -->
+	<method name="sge" gridtype="sge">
+	      <command>qsub -l arch=lx* -V -cwd -b yes -e (%TASKDIR%)/sgegrid.e -o (%TASKDIR%)/sgegrid.o (%WRAPPER%)</command>
+	</method>
+
+	<method name="lsf" gridtype="lsf">
+	      <command>bsub -cwd -e (%TASKDIR%)/lsfgrid.e -o (%TASKDIR%)/lsfgrid.o (%WRAPPER%)</command>
+	</method>
+
+	<!-- ============================================ -->
+	<!-- Base Runnable Holding Commons parameters     -->
+	<!-- ============================================ -->
+	<runnable name="regression_base" type="base">
+           <parameters> 
+              <parameter name="NUM_SIM">3</parameter>
+
+              <!-- Parameter showing the different testcases of the FPU-->
+              <parameter name="TESTCASE">fpu_test_patternset fpu_test_sequence_fair fpu_test_neg_sqr_sequence fpu_test_random_sequence fpu_test_simple_sanity</parameter>
+ 
+              <!-- Parameter for controlling OVM verbosity -->
+      	      <parameter name="OVM_VERBOSITY_LEVEL">OVM_FULL</parameter>
+ 
+              <!-- FPU reference model is written in C and is compiled and loaded as a DPI shared object  --> 
+              <parameter name="DPI_HEADER_FILE"    type="file">(%DATADIR%) dpiheader.h</parameter>
+              <parameter name="REF_MODEL_CPP"  >fpu_tlm_dpi_c.cpp</parameter>
+      
+      	       <!-- Parameter that enables auto merging in VRM     -->
+      	       <parameter name="mergefile"           >fpu_trackr.ucdb</parameter>
+
+      	       <!-- Parameter that enables auto triage database creation in VRM for Results Analysis -->
+               <parameter name="triagefile"          >fpu_triage.tdb</parameter>
+               <parameter name="triageoptions"       >-severityAll -teststatusAll -r (%RMDBDIR%)/transformrule.txt</parameter>
+
+       	       <!-- Parameter that enables auto test plan importation into the auto merged UCDB -->
+               <parameter name="tplanfile"          type="file">.. fpu vplan vplan_excel.xml</parameter>
+               <parameter name="tplanoptions"        >-format Excel -startstoring 3</parameter>
+
+               <!-- Parameters for specifying the DUT/TB compile libraries -->
+               <parameter name="DUT_LIB"   type="file">(%DATADIR%) dut_lib</parameter>
+               <parameter name="WORK_LIB"  type="file">(%DATADIR%) work</parameter>
+               
+    	  </parameters>
+ 	</runnable>
+       	<!-- ================================================ -->
+  	<!-- == Over-ride TCL built-in                     == -->
+  	<!-- == Advanced VRM capabilities                  == -->
+  	<!-- == The underlying default behaviour of VRM    == -->
+  	<!-- == can be modified using the exposed TCL API  == -->
+  	<!-- == Usually these defined TCL methods do       == -->
+  	<!-- == by default. These methods can be           == -->
+  	<!-- == overriden within the usertcl element of    == -->
+  	<!-- == RMDB. In addition the user can define TCL  == -->
+  	<!-- == procedures that they wish to call in       == -->
+  	<!-- == action scripts here also.                  == -->
+  	<!-- ================================================ -->
+  	<usertcl name="mytcl">
+ 
+   	 <!-- An example of overriding the VRM procedure StopRunning 
+         In this case, VRM will stop if 100 errors are generated 
+         during execution of a regression                   -->
+      	 proc StopRunning {userdata} {
+             upvar $userdata data
+             set result [expr {$data(fail) == 100}]
+         return $result
+   	 }
+
+   	 <!-- An example of overriding the VRM procedure OkToMerge
+         This example changes the default behavior such that all 
+         ucdbfiles of both passes and failures are merged. 
+         By default only passing ucdbfiles are merged        --> 
+   	 <!--proc OkToMerge {userdata} {
+     	    upvar $userdata data
+     	    return 1 ; approve merge.
+   	  }-->
+   
+   	 <!-- An example of overriding the VRM procedure OkToTriage
+         This example changes the default behavior such that all 
+         ucdbfiles of both passes and failures are used to create 
+         the triage database. 
+         By default only failing ucdbfiles are used to create the 
+         triagedb file 
+         This example is for illustration purposes only and
+         not recommended for real projects    -->
+   	 proc OkToTriage {userdata} {
+          upvar $userdata data
+          return 1 ; approve triage.
+         }
+    	</usertcl>
+</rmdb>

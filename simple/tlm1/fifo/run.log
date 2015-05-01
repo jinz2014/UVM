@@ -1,0 +1,87 @@
+Command: ./simv +UVM_NO_RELNOTES -l run.log
+Chronologic VCS simulator copyright 1991-2011
+Contains Synopsys proprietary information.
+Compiler version F-2011.12; Runtime version F-2011.12;  Sep 17 20:39 2012
+----------------------------------------------------------------
+UVM-1.1.VCS
+(C) 2007-2011 Mentor Graphics Corporation
+(C) 2007-2011 Cadence Design Systems, Inc.
+(C) 2006-2011 Synopsys, Inc.
+(C) 2011      Cypress Semiconductor Corp.
+----------------------------------------------------------------
+UVM_INFO @ 0: reporter [RNTST] Running test test...
+0:   FIFO level 0 of 10
+1: put data 0
+10:   FIFO level 1 of 10
+11: put data 1
+20:   FIFO level 2 of 10
+21: put data 2
+30:   FIFO level 3 of 10
+31: put data 3
+40:   FIFO level 4 of 10
+41: put data 4
+50:   FIFO level 5 of 10
+51: put data 5
+60:   FIFO level 6 of 10
+61: put data 6
+70:   FIFO level 7 of 10
+71: put data 7
+80:   FIFO level 8 of 10
+81: put data 8
+90:   FIFO level 9 of 10
+91: put data 9
+100: getting one
+100: recieved data 0
+100:   FIFO level 9 of 10
+101: put data 10
+110:   FIFO level 10 of 10
+try_put status return: 11
+111: do a blocking put
+120:   FIFO level 10 of 10
+130:   FIFO level 10 of 10
+140:   FIFO level 10 of 10
+150:   FIFO level 10 of 10
+160:   FIFO level 10 of 10
+170:   FIFO level 10 of 10
+180:   FIFO level 10 of 10
+190:   FIFO level 10 of 10
+200: recieved data 1
+200:   FIFO level 10 of 10
+200: blocking put succeeded
+210: recieved data 2
+210:   FIFO level 9 of 10
+220: recieved data 3
+220:   FIFO level 8 of 10
+230: recieved data 4
+230:   FIFO level 7 of 10
+240: recieved data 5
+240:   FIFO level 6 of 10
+250: recieved data 6
+250:   FIFO level 5 of 10
+260: recieved data 7
+260:   FIFO level 4 of 10
+270: recieved data 8
+270:   FIFO level 3 of 10
+280: recieved data 9
+280:   FIFO level 2 of 10
+290: recieved data 10
+290:   FIFO level 1 of 10
+300: recieved data 11
+UVM_INFO /share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_objection.svh(1120) @ 5000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    2
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[TEST_DONE]     1
+$finish called from file "/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_root.svh", line 408.
+$finish at simulation time                 5000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 5000 ns
+CPU Time:      0.470 seconds;       Data structure size:   0.1Mb
+Mon Sep 17 20:39:37 2012

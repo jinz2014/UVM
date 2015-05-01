@@ -1,0 +1,25 @@
+
+Chronologic VCS simulator copyright 1991-2011
+Contains Synopsys proprietary information.
+Compiler version F-2011.12; Runtime version F-2011.12;  Nov  3 09:11 2012
+----------------------------------------------------------------
+UVM-1.1.VCS
+(C) 2007-2011 Mentor Graphics Corporation
+(C) 2007-2011 Cadence Design Systems, Inc.
+(C) 2006-2011 Synopsys, Inc.
+(C) 2011      Cypress Semiconductor Corp.
+----------------------------------------------------------------
+  ***********       IMPORTANT RELEASE NOTES         ************
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.accellera.org/activities/vip/release_notes_11a for more details.
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.accellera.org/activities/vip/mantis3770 for more details.
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+VCD+ Writer F-2011.12 Copyright (c) 1991-2011 by Synopsys Inc.
+The file '/share/jinz/Synopsys_Tutorial/vcsmx_example/testbench/sv/uvm/testbench.in/uvm_callback_2/inter.vpd' was opened successfully.
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 0 ns
+CPU Time:      0.500 seconds;       Data structure size:   0.3Mb
+Sat Nov  3 09:12:14 2012

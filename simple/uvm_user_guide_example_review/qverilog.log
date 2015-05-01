@@ -1,0 +1,324 @@
+Model Technology ModelSim SE-64 qverilog 10.1 Compiler 2011.12 Dec  5 2011
+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/bin/../linux_x86_64/qverilog +incdir+. top.sv -R +UVM_TESTNAME=word_aligned_error_test 
+** Note: (qverilog-2286) Using implicit +incdir+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/../verilog_src/uvm-1.1/src from import uvm_pkg
+-- Compiling interface dut_if
+-- Compiling package top_sv_unit
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1 Built-in)
+-- Compiling interface dut_if
+-- Compiling module dut_dummy
+-- Compiling module top
+
+Top level modules:
+	top
++ /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/vsim -lib work +UVM_TESTNAME=word_aligned_error_test top -c -do run -all; quit -f -appendlog -l qverilog.log -vopt
+# vsim +UVM_TESTNAME=word_aligned_error_test -appendlog -do {run -all; quit -f} -l qverilog.log -lib work -c -vopt top 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  ModelSim SE-64 10.1 Dec  5 2011 Linux 2.6.32-431.5.1.el6.x86_64
+# //
+# //  Copyright 1991-2011 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.top_sv_unit(fast)
+# Loading work.top(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/linux_x86_64/uvm_dpi.so
+# run -all 
+# ----------------------------------------------------------------
+# UVM-1.1
+# (C) 2007-2011 Mentor Graphics Corporation
+# (C) 2007-2011 Cadence Design Systems, Inc.
+# (C) 2006-2011 Synopsys, Inc.
+# (C) 2011      Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test word_aligned_error_test...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# ------------------------------------------------------------------------
+# Name                           Type                     Size  Value     
+# ------------------------------------------------------------------------
+# uvm_test_top                   word_aligned_error_test  -     @461      
+#   base_tb0                     base_tb                  -     @473      
+#     bus0                       base_env                 -     @490      
+#       masters[0]               base_agent               -     @509      
+#         driver                 base_driver              -     @665      
+#           rsp_port             uvm_analysis_port        -     @682      
+#           sqr_pull_port        uvm_seq_item_pull_port   -     @673      
+#         monitor                base_monitor             -     @521      
+#           item_collected_port  uvm_analysis_port        -     @533      
+#           checks_enable        integral                 1     'h1       
+#           coverage_enable      integral                 1     'h1       
+#         sequencer              uvm_sequencer            -     @542      
+#           rsp_export           uvm_analysis_export      -     @550      
+#           seq_item_export      uvm_seq_item_pull_imp    -     @656      
+#           arbitration_queue    array                    0     -         
+#           lock_queue           array                    0     -         
+#           num_last_reqs        integral                 32    'd1       
+#           num_last_rsps        integral                 32    'd1       
+#         is_active              uvm_active_passive_enum  1     UVM_ACTIVE
+#       num_masters              integral                 32    'h1       
+#     scoreboard0                base_scoreboard          -     @498      
+#       item_collected_export    uvm_analysis_imp         -     @740      
+# ------------------------------------------------------------------------
+# 
+#                    0  DUT: addr=x rd_en=x wr_en=x data_in=x data_out=x read_delay=x
+# ----------------------------------------------------------------------------------------------------------------------
+# Name                           Type                     Size  Value                                                   
+# ----------------------------------------------------------------------------------------------------------------------
+# req                            word_aligned_error_item  -     @754                                                    
+#   addr                         integral                 32    'h8c                                                    
+#   data_in                      integral                 32    'hcfaab36f                                              
+#   data_out                     integral                 32    'hb765b140                                              
+#   delay                        integral                 32    'h0                                                     
+#   rd_en                        integral                 1     'h0                                                     
+#   wr_en                        integral                 1     'h0                                                     
+#   control_kind                 base_item_control_e      32    WRITE                                                   
+#   delay_kind                   base_item_delay_e        32    ZERO                                                    
+#   begin_time                   time                     64    0                                                       
+#   end_time                     time                     64    5                                                       
+#   depth                        int                      32    'd2                                                     
+#   parent sequence (name)       string                   8     sequence                                                
+#   parent sequence (full name)  string                   56    uvm_test_top.base_tb0.bus0.masters[0].sequencer.sequence
+#   sequencer                    string                   47    uvm_test_top.base_tb0.bus0.masters[0].sequencer         
+# ----------------------------------------------------------------------------------------------------------------------
+#                    5  DUT: addr=8c rd_en=0 wr_en=1 data_in=3484070767 data_out=x read_delay=0
+# UVM_ERROR base_monitor.sv(93) @ 15: uvm_test_top.base_tb0.bus0.masters[0].monitor [base_monitor] readonly region write !
+# ----------------------------------------------------------------------------------------------------------------------
+# Name                           Type                     Size  Value                                                   
+# ----------------------------------------------------------------------------------------------------------------------
+# req                            word_aligned_error_item  -     @783                                                    
+#   addr                         integral                 32    'h8d                                                    
+#   data_in                      integral                 32    'h8221dfa                                               
+#   data_out                     integral                 32    'h706d011a                                              
+#   delay                        integral                 32    'h50                                                    
+#   rd_en                        integral                 1     'h0                                                     
+#   wr_en                        integral                 1     'h0                                                     
+#   control_kind                 base_item_control_e      32    WRITE                                                   
+#   delay_kind                   base_item_delay_e        32    MEDIUM                                                  
+#   begin_time                   time                     64    5                                                       
+#   end_time                     time                     64    15                                                      
+#   depth                        int                      32    'd2                                                     
+#   parent sequence (name)       string                   8     sequence                                                
+#   parent sequence (full name)  string                   56    uvm_test_top.base_tb0.bus0.masters[0].sequencer.sequence
+#   sequencer                    string                   47    uvm_test_top.base_tb0.bus0.masters[0].sequencer         
+# ----------------------------------------------------------------------------------------------------------------------
+# ** Error: Assertion error.
+#    Time: 15 ns Started: 15 ns  Scope: top.dut.ap_ro_wr File: dut.sv Line: 29
+#                   15  DUT: addr=8d rd_en=0 wr_en=1 data_in=136453626 data_out=x read_delay=80
+# UVM_ERROR base_monitor.sv(93) @ 25: uvm_test_top.base_tb0.bus0.masters[0].monitor [base_monitor] readonly region write !
+# ----------------------------------------------------------------------------------------------------------------------
+# Name                           Type                     Size  Value                                                   
+# ----------------------------------------------------------------------------------------------------------------------
+# req                            word_aligned_error_item  -     @787                                                    
+#   addr                         integral                 32    'h83                                                    
+#   data_in                      integral                 32    'h4f137fbc                                              
+#   data_out                     integral                 32    'h8446a50                                               
+#   delay                        integral                 32    'h3                                                     
+#   rd_en                        integral                 1     'h0                                                     
+#   wr_en                        integral                 1     'h0                                                     
+#   control_kind                 base_item_control_e      32    WRITE                                                   
+#   delay_kind                   base_item_delay_e        32    SHORT                                                   
+#   begin_time                   time                     64    15                                                      
+#   end_time                     time                     64    25                                                      
+#   depth                        int                      32    'd2                                                     
+#   parent sequence (name)       string                   8     sequence                                                
+#   parent sequence (full name)  string                   56    uvm_test_top.base_tb0.bus0.masters[0].sequencer.sequence
+#   sequencer                    string                   47    uvm_test_top.base_tb0.bus0.masters[0].sequencer         
+# ----------------------------------------------------------------------------------------------------------------------
+# ** Error: Assertion error.
+#    Time: 25 ns Started: 25 ns  Scope: top.dut.ap_ro_wr File: dut.sv Line: 29
+#                   25  DUT: addr=83 rd_en=0 wr_en=1 data_in=1326677948 data_out=x read_delay=3
+# UVM_ERROR base_monitor.sv(93) @ 35: uvm_test_top.base_tb0.bus0.masters[0].monitor [base_monitor] readonly region write !
+# ----------------------------------------------------------------------------------------------------------------------
+# Name                           Type                     Size  Value                                                   
+# ----------------------------------------------------------------------------------------------------------------------
+# req                            word_aligned_error_item  -     @791                                                    
+#   addr                         integral                 32    'hb3                                                    
+#   data_in                      integral                 32    'he0fea4e5                                              
+#   data_out                     integral                 32    'hf029bb39                                              
+#   delay                        integral                 32    'h262                                                   
+#   rd_en                        integral                 1     'h0                                                     
+#   wr_en                        integral                 1     'h0                                                     
+#   control_kind                 base_item_control_e      32    WRITE                                                   
+#   delay_kind                   base_item_delay_e        32    LARGE                                                   
+#   begin_time                   time                     64    25                                                      
+#   end_time                     time                     64    35                                                      
+#   depth                        int                      32    'd2                                                     
+#   parent sequence (name)       string                   8     sequence                                                
+#   parent sequence (full name)  string                   56    uvm_test_top.base_tb0.bus0.masters[0].sequencer.sequence
+#   sequencer                    string                   47    uvm_test_top.base_tb0.bus0.masters[0].sequencer         
+# ----------------------------------------------------------------------------------------------------------------------
+# ** Error: Assertion error.
+#    Time: 35 ns Started: 35 ns  Scope: top.dut.ap_ro_wr File: dut.sv Line: 29
+#                   35  DUT: addr=b3 rd_en=0 wr_en=1 data_in=3774784741 data_out=x read_delay=610
+# UVM_ERROR base_monitor.sv(93) @ 45: uvm_test_top.base_tb0.bus0.masters[0].monitor [base_monitor] readonly region write !
+# ----------------------------------------------------------------------------------------------------------------------
+# Name                           Type                     Size  Value                                                   
+# ----------------------------------------------------------------------------------------------------------------------
+# req                            word_aligned_error_item  -     @795                                                    
+#   addr                         integral                 32    'hd3                                                    
+#   data_in                      integral                 32    'h2084f710                                              
+#   data_out                     integral                 32    'hb9cbf42b                                              
+#   delay                        integral                 32    'h333                                                   
+#   rd_en                        integral                 1     'h0                                                     
+#   wr_en                        integral                 1     'h0                                                     
+#   control_kind                 base_item_control_e      32    WRITE                                                   
+#   delay_kind                   base_item_delay_e        32    LARGE                                                   
+#   begin_time                   time                     64    35                                                      
+#   end_time                     time                     64    45                                                      
+#   depth                        int                      32    'd2                                                     
+#   parent sequence (name)       string                   8     sequence                                                
+#   parent sequence (full name)  string                   56    uvm_test_top.base_tb0.bus0.masters[0].sequencer.sequence
+#   sequencer                    string                   47    uvm_test_top.base_tb0.bus0.masters[0].sequencer         
+# ----------------------------------------------------------------------------------------------------------------------
+# ** Error: Assertion error.
+#    Time: 45 ns Started: 45 ns  Scope: top.dut.ap_ro_wr File: dut.sv Line: 29
+#                   45  DUT: addr=d3 rd_en=0 wr_en=1 data_in=545584912 data_out=x read_delay=819
+# UVM_ERROR base_monitor.sv(93) @ 55: uvm_test_top.base_tb0.bus0.masters[0].monitor [base_monitor] readonly region write !
+# ----------------------------------------------------------------------------------------------------------------------
+# Name                           Type                     Size  Value                                                   
+# ----------------------------------------------------------------------------------------------------------------------
+# req                            word_aligned_error_item  -     @799                                                    
+#   addr                         integral                 32    'hb8                                                    
+#   data_in                      integral                 32    'h69b6ab02                                              
+#   data_out                     integral                 32    'h79719a76                                              
+#   delay                        integral                 32    'h1a4                                                   
+#   rd_en                        integral                 1     'h0                                                     
+#   wr_en                        integral                 1     'h0                                                     
+#   control_kind                 base_item_control_e      32    WRITE                                                   
+#   delay_kind                   base_item_delay_e        32    LARGE                                                   
+#   begin_time                   time                     64    45                                                      
+#   end_time                     time                     64    55                                                      
+#   depth                        int                      32    'd2                                                     
+#   parent sequence (name)       string                   8     sequence                                                
+#   parent sequence (full name)  string                   56    uvm_test_top.base_tb0.bus0.masters[0].sequencer.sequence
+#   sequencer                    string                   47    uvm_test_top.base_tb0.bus0.masters[0].sequencer         
+# ----------------------------------------------------------------------------------------------------------------------
+# ** Error: Assertion error.
+#    Time: 55 ns Started: 55 ns  Scope: top.dut.ap_ro_wr File: dut.sv Line: 29
+#                   55  DUT: addr=b8 rd_en=0 wr_en=1 data_in=1773579010 data_out=x read_delay=420
+# UVM_ERROR base_monitor.sv(93) @ 65: uvm_test_top.base_tb0.bus0.masters[0].monitor [base_monitor] readonly region write !
+# ----------------------------------------------------------------------------------------------------------------------
+# Name                           Type                     Size  Value                                                   
+# ----------------------------------------------------------------------------------------------------------------------
+# req                            word_aligned_error_item  -     @803                                                    
+#   addr                         integral                 32    'hfa                                                    
+#   data_in                      integral                 32    'h8ee8a595                                              
+#   data_out                     integral                 32    'hde3f8c9a                                              
+#   delay                        integral                 32    'h0                                                     
+#   rd_en                        integral                 1     'h0                                                     
+#   wr_en                        integral                 1     'h0                                                     
+#   control_kind                 base_item_control_e      32    WRITE                                                   
+#   delay_kind                   base_item_delay_e        32    ZERO                                                    
+#   begin_time                   time                     64    55                                                      
+#   end_time                     time                     64    65                                                      
+#   depth                        int                      32    'd2                                                     
+#   parent sequence (name)       string                   8     sequence                                                
+#   parent sequence (full name)  string                   56    uvm_test_top.base_tb0.bus0.masters[0].sequencer.sequence
+#   sequencer                    string                   47    uvm_test_top.base_tb0.bus0.masters[0].sequencer         
+# ----------------------------------------------------------------------------------------------------------------------
+# ** Error: Assertion error.
+#    Time: 65 ns Started: 65 ns  Scope: top.dut.ap_ro_wr File: dut.sv Line: 29
+#                   65  DUT: addr=fa rd_en=0 wr_en=1 data_in=2397611413 data_out=x read_delay=0
+# UVM_ERROR base_monitor.sv(93) @ 75: uvm_test_top.base_tb0.bus0.masters[0].monitor [base_monitor] readonly region write !
+# ----------------------------------------------------------------------------------------------------------------------
+# Name                           Type                     Size  Value                                                   
+# ----------------------------------------------------------------------------------------------------------------------
+# req                            word_aligned_error_item  -     @807                                                    
+#   addr                         integral                 32    'hd2                                                    
+#   data_in                      integral                 32    'hcfbf9392                                              
+#   data_out                     integral                 32    'h96f08d25                                              
+#   delay                        integral                 32    'h3e8                                                   
+#   rd_en                        integral                 1     'h0                                                     
+#   wr_en                        integral                 1     'h0                                                     
+#   control_kind                 base_item_control_e      32    WRITE                                                   
+#   delay_kind                   base_item_delay_e        32    MAX                                                     
+#   begin_time                   time                     64    65                                                      
+#   end_time                     time                     64    75                                                      
+#   depth                        int                      32    'd2                                                     
+#   parent sequence (name)       string                   8     sequence                                                
+#   parent sequence (full name)  string                   56    uvm_test_top.base_tb0.bus0.masters[0].sequencer.sequence
+#   sequencer                    string                   47    uvm_test_top.base_tb0.bus0.masters[0].sequencer         
+# ----------------------------------------------------------------------------------------------------------------------
+# ** Error: Assertion error.
+#    Time: 75 ns Started: 75 ns  Scope: top.dut.ap_ro_wr File: dut.sv Line: 29
+#                   75  DUT: addr=d2 rd_en=0 wr_en=1 data_in=3485438866 data_out=x read_delay=1000
+# UVM_ERROR base_monitor.sv(93) @ 85: uvm_test_top.base_tb0.bus0.masters[0].monitor [base_monitor] readonly region write !
+# ----------------------------------------------------------------------------------------------------------------------
+# Name                           Type                     Size  Value                                                   
+# ----------------------------------------------------------------------------------------------------------------------
+# req                            word_aligned_error_item  -     @811                                                    
+#   addr                         integral                 32    'h8d                                                    
+#   data_in                      integral                 32    'h10fca028                                              
+#   data_out                     integral                 32    'h48339221                                              
+#   delay                        integral                 32    'h3e8                                                   
+#   rd_en                        integral                 1     'h0                                                     
+#   wr_en                        integral                 1     'h0                                                     
+#   control_kind                 base_item_control_e      32    WRITE                                                   
+#   delay_kind                   base_item_delay_e        32    MAX                                                     
+#   begin_time                   time                     64    75                                                      
+#   end_time                     time                     64    85                                                      
+#   depth                        int                      32    'd2                                                     
+#   parent sequence (name)       string                   8     sequence                                                
+#   parent sequence (full name)  string                   56    uvm_test_top.base_tb0.bus0.masters[0].sequencer.sequence
+#   sequencer                    string                   47    uvm_test_top.base_tb0.bus0.masters[0].sequencer         
+# ----------------------------------------------------------------------------------------------------------------------
+# ** Error: Assertion error.
+#    Time: 85 ns Started: 85 ns  Scope: top.dut.ap_ro_wr File: dut.sv Line: 29
+#                   85  DUT: addr=8d rd_en=0 wr_en=1 data_in=284991528 data_out=x read_delay=1000
+# UVM_ERROR base_monitor.sv(93) @ 95: uvm_test_top.base_tb0.bus0.masters[0].monitor [base_monitor] readonly region write !
+# ----------------------------------------------------------------------------------------------------------------------
+# Name                           Type                     Size  Value                                                   
+# ----------------------------------------------------------------------------------------------------------------------
+# req                            word_aligned_error_item  -     @815                                                    
+#   addr                         integral                 32    'hb7                                                    
+#   data_in                      integral                 32    'h515257c5                                              
+#   data_out                     integral                 32    'h91d22c3                                               
+#   delay                        integral                 32    'h47                                                    
+#   rd_en                        integral                 1     'h0                                                     
+#   wr_en                        integral                 1     'h0                                                     
+#   control_kind                 base_item_control_e      32    WRITE                                                   
+#   delay_kind                   base_item_delay_e        32    MEDIUM                                                  
+#   begin_time                   time                     64    85                                                      
+#   end_time                     time                     64    95                                                      
+#   depth                        int                      32    'd2                                                     
+#   parent sequence (name)       string                   8     sequence                                                
+#   parent sequence (full name)  string                   56    uvm_test_top.base_tb0.bus0.masters[0].sequencer.sequence
+#   sequencer                    string                   47    uvm_test_top.base_tb0.bus0.masters[0].sequencer         
+# ----------------------------------------------------------------------------------------------------------------------
+# ** Error: Assertion error.
+#    Time: 95 ns Started: 95 ns  Scope: top.dut.ap_ro_wr File: dut.sv Line: 29
+#                   95  DUT: addr=b7 rd_en=0 wr_en=1 data_in=1364350917 data_out=x read_delay=71
+# UVM_INFO verilog_src/uvm-1.1/src/base/uvm_objection.svh(1120) @ 105: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_ERROR base_monitor.sv(93) @ 105: uvm_test_top.base_tb0.bus0.masters[0].monitor [base_monitor] readonly region write !
+# UVM_INFO base_scoreboard.sv(24) @ 105: uvm_test_top.base_tb0.scoreboard0 [base_scoreboard] Reporting scoreboard information...
+# ----------------------------------------------------------------------------------------------------------------------
+# Name                           Type                     Size  Value                                                   
+# ----------------------------------------------------------------------------------------------------------------------
+# scoreboard0                    base_scoreboard          -     @498                                                    
+#   item_collected_export        uvm_analysis_imp         -     @740                                                    
+# ----------------------------------------------------------------------------------------------------------------------
+# 
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    6
+# UVM_WARNING :    0
+# UVM_ERROR :   10
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# [base_monitor]    10
+# [base_scoreboard]     1
+# ** Note: $finish    : /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/../verilog_src/uvm-1.1/src/base/uvm_root.svh(408)
+#    Time: 105 ns  Iteration: 53  Instance: /top

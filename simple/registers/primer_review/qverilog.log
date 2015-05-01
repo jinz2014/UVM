@@ -1,0 +1,7 @@
+Model Technology ModelSim SE-64 qverilog 10.1 Compiler 2011.12 Dec  5 2011
+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/bin/../linux_x86_64/qverilog +incdir+../../../integrated/apb test.sv -R +UVM_TESTNAME=cmdline_test +UVM_REG_SEQ=user_test_seq 
+** Note: (qverilog-2286) Using implicit +incdir+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/../verilog_src/uvm-1.1/src from import uvm_pkg
+** Warning: dut_reset_seq.sv(1): (qverilog-2181) Use of a parameterized class uvm_sequence as a type creates a default specialization.
+** Warning: user_test_seq.sv(24): (qverilog-2181) Use of a parameterized class uvm_reg_sequence as a type creates a default specialization.
+** Warning: cmdline_test.sv(55): (qverilog-2181) Use of a parameterized class uvm_reg_sequence as a type creates a default specialization.
+** Error: ../../../integrated/apb/apb_agent.sv(31): Typedef 'apb_agent' multiply defined.

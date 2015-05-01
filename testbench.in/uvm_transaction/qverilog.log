@@ -1,0 +1,130 @@
+Model Technology ModelSim SE-64 qverilog 10.1 Compiler 2011.12 Dec  5 2011
+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/bin/../linux_x86_64/qverilog +incdir+. Packet.sv -R 
+** Note: (qverilog-2286) Using implicit +incdir+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/../verilog_src/uvm-1.1/src from import uvm_pkg
+-- Compiling package Packet_sv_unit
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1 Built-in)
+-- Compiling module test
+** Warning: Packet.sv(118): (qverilog-2240) Treating stand-alone use of function 'unpack_bytes' as an implicit VOID cast.
+
+Top level modules:
+	test
++ /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/vsim -lib work test -c -do run -all; quit -f -appendlog -l qverilog.log -vopt
+# vsim -appendlog -do {run -all; quit -f} -l qverilog.log -lib work -c -vopt test 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: Packet.sv(118): (vopt-2240) Treating stand-alone use of function 'unpack_bytes' as an implicit VOID cast.
+# //  ModelSim SE-64 10.1 Dec  5 2011 Linux 3.13.0-32-generic
+# //
+# //  Copyright 1991-2011 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.Packet_sv_unit(fast)
+# Loading work.test(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/linux_x86_64/uvm_dpi.so
+# run -all 
+# ----------------------------------------------------------------
+# UVM-1.1
+# (C) 2007-2011 Mentor Graphics Corporation
+# (C) 2007-2011 Cadence Design Systems, Inc.
+# (C) 2006-2011 Synopsys, Inc.
+# (C) 2011      Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+#  Randomization Sucessesfull.
+# -----------------------------------
+# Name      Type          Size  Value
+# -----------------------------------
+# pkt1      Packet        -     @338 
+#   da      integral      8     'ha9 
+#   sa      integral      8     'h45 
+#   length  integral      8     'h6  
+#   data    da(integral)  6     -    
+#     [0]   integral      8     'hb3 
+#     [1]   integral      8     'haa 
+#     [2]   integral      8     'h2a 
+#     [3]   integral      8     'hf2 
+#     [4]   integral      8     'h63 
+#     [5]   integral      8     'hd  
+#   fcs     integral      8     'h44 
+# -----------------------------------
+# Size of pkd bits          10
+# -----------------------------------
+# Name      Type          Size  Value
+# -----------------------------------
+# pkt2      Packet        -     @342 
+#   da      integral      8     'ha9 
+#   sa      integral      8     'h45 
+#   length  integral      8     'h6  
+#   data    da(integral)  0     -    
+#   fcs     integral      8     'hb3 
+# -----------------------------------
+# UVM_INFO @ 0: reporter [MISCMP] Miscompare for pkt2.data: 
+# UVM_INFO @ 0: reporter [MISCMP] 1 Miscompare(s) for object pkt1@338 vs. pkt2@342
+#  *** Something went wrong in Packing or Unpacking or compare *** 
+#  
+# 
+#  Randomization Sucessesfull.
+# -----------------------------------
+# Name      Type          Size  Value
+# -----------------------------------
+# pkt1      Packet        -     @338 
+#   da      integral      8     'h61 
+#   sa      integral      8     'h64 
+#   length  integral      8     'h1  
+#   data    da(integral)  1     -    
+#     [0]   integral      8     'h86 
+#   fcs     integral      8     'h83 
+# -----------------------------------
+# Size of pkd bits           5
+# -----------------------------------
+# Name      Type          Size  Value
+# -----------------------------------
+# pkt2      Packet        -     @342 
+#   da      integral      8     'h61 
+#   sa      integral      8     'h64 
+#   length  integral      8     'h1  
+#   data    da(integral)  0     -    
+#   fcs     integral      8     'h86 
+# -----------------------------------
+# UVM_INFO @ 0: reporter [MISCMP] Miscompare for pkt2.data: 
+# UVM_INFO @ 0: reporter [MISCMP] 1 Miscompare(s) for object pkt1@338 vs. pkt2@342
+#  *** Something went wrong in Packing or Unpacking or compare *** 
+#  
+# 
+#  Randomization Sucessesfull.
+# -----------------------------------
+# Name      Type          Size  Value
+# -----------------------------------
+# pkt1      Packet        -     @338 
+#   da      integral      8     'h6e 
+#   sa      integral      8     'h87 
+#   length  integral      8     'h2  
+#   data    da(integral)  2     -    
+#     [0]   integral      8     'h6e 
+#     [1]   integral      8     'ha5 
+#   fcs     integral      8     'h20 
+# -----------------------------------
+# Size of pkd bits           6
+# -----------------------------------
+# Name      Type          Size  Value
+# -----------------------------------
+# pkt2      Packet        -     @342 
+#   da      integral      8     'h6e 
+#   sa      integral      8     'h87 
+#   length  integral      8     'h2  
+#   data    da(integral)  0     -    
+#   fcs     integral      8     'h6e 
+# -----------------------------------
+# UVM_INFO @ 0: reporter [MISCMP] Miscompare for pkt2.data: 
+# UVM_INFO @ 0: reporter [MISCMP] 1 Miscompare(s) for object pkt1@338 vs. pkt2@342
+#  *** Something went wrong in Packing or Unpacking or compare *** 
+#  
+# 
+#  quit -f 

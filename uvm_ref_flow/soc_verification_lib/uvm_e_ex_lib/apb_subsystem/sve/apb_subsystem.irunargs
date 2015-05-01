@@ -1,0 +1,47 @@
+/*-------------------------------------------------------------------------
+File name   : apb_subsystem.irunargs
+Title       : APB Subsystem Verification Environment
+Project     :
+Created     : November 2010
+Description : List of Files for simulation
+
+Notes       : 
+-------------------------------------------------------------------------*/
+//   Copyright 1999-2010 Cadence Design Systems, Inc.
+//   All Rights Reserved Worldwide
+//
+//   Licensed under the Apache License, Version 2.0 (the
+//   "License"); you may not use this file except in
+//   compliance with the License.  You may obtain a copy of
+//   the License at
+//
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+//   Unless required by applicable law or agreed to in
+//   writing, software distributed under the License is
+//   distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+//   CONDITIONS OF ANY KIND, either express or implied.  See
+//   the License for the specific language governing
+//   permissions and limitations under the License.
+//----------------------------------------------------------------------
+
+
+./testbench/master_mux.v
+./testbench/slave_mux.v
+./testbench/tb_apb_subsystem.v
+
+$UVM_REF_HOME/soc_verification_lib/uvm_e_ex_lib/apb_subsystem/sve/e/apb_subsystem_sve.e
+
+-access +rw -snvlog
+
+-timescale 1ns/10ps
+
+-input $UVM_REF_HOME/soc_verification_lib/uvm_e_ex_lib/apb_subsystem/sve/scripts/sim_code.tcl
+
+-covfile $UVM_REF_HOME/soc_verification_lib/uvm_e_ex_lib/apb_subsystem/sve/scripts/covfile.cf
+
+# Added PSL Assertions
+-propfile_vlog $UVM_REF_HOME/designs/socv/rtl/rtl_lpw/opencores/uart16550/assertions/receiver_vunit.psl
+-propfile_vlog $UVM_REF_HOME/designs/socv/rtl/rtl_lpw/opencores/uart16550/assertions/rx_fifo_vunit.psl
+-propfile_vlog $UVM_REF_HOME/designs/socv/rtl/rtl_lpw/opencores/uart16550/assertions/transmitter_vunit.psl
+-propfile_vlog $UVM_REF_HOME/designs/socv/rtl/rtl_lpw/opencores/uart16550/assertions/tx_fifo_vunit.psl

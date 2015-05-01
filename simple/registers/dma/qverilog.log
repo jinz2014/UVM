@@ -1,0 +1,88 @@
+Model Technology ModelSim SE-64 qverilog 10.1 Compiler 2011.12 Dec  5 2011
+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/bin/../linux_x86_64/qverilog +incdir+. lab1.sv -R +UVM_TESTNAME=av_mm_reg_test 
+** Note: (qverilog-2286) Using implicit +incdir+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/../verilog_src/uvm-1.1/src from import uvm_pkg
+-- Compiling interface avmm_if
+-- Compiling package av_mm_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1 Built-in)
+** Warning: lab1.sv(313): (qverilog-2181) Use of a parameterized class uvm_reg_sequence as a type creates a default specialization.
+** Warning: lab1.sv(307): (qverilog-2240) Treating stand-alone use of function 'randomize' as an implicit VOID cast.
+-- Compiling module dut
+-- Importing package av_mm_pkg
+-- Compiling module top
+
+Top level modules:
+	top
++ /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/vsim -lib work +UVM_TESTNAME=av_mm_reg_test top -c -do run -all; quit -f -appendlog -l qverilog.log -vopt
+# vsim +UVM_TESTNAME=av_mm_reg_test -appendlog -do {run -all; quit -f} -l qverilog.log -lib work -c -vopt top 
+# //  ModelSim SE-64 10.1 Dec  5 2011 Linux 2.6.32-431.5.1.el6.x86_64
+# //
+# //  Copyright 1991-2011 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.top(fast)
+# Loading work.avmm_if(fast)
+# Loading work.av_mm_pkg(fast)
+# Loading work.dut(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/linux_x86_64/uvm_dpi.so
+# run -all 
+# ----------------------------------------------------------------
+# UVM-1.1
+# (C) 2007-2011 Mentor Graphics Corporation
+# (C) 2007-2011 Cadence Design Systems, Inc.
+# (C) 2006-2011 Synopsys, Inc.
+# (C) 2011      Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test av_mm_reg_test...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# --------------------------------------------------------------
+# Name                       Type                    Size  Value
+# --------------------------------------------------------------
+# uvm_test_top               av_mm_reg_test          -     @463 
+#   avmm_env                 av_mm_env               -     @493 
+#     avmm_agent             av_mm_agent             -     @508 
+#       avmm_ap              uvm_analysis_port       -     @547 
+#       avmm_drvr            av_mm_driver            -     @679 
+#         rsp_port           uvm_analysis_port       -     @696 
+#         sqr_pull_port      uvm_seq_item_pull_port  -     @687 
+#       avmm_mon             av_mm_monitor           -     @705 
+#         avmm_ap            uvm_analysis_port       -     @729 
+#       avmm_seqr            uvm_sequencer           -     @556 
+#         rsp_export         uvm_analysis_export     -     @564 
+#         seq_item_export    uvm_seq_item_pull_imp   -     @670 
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#     avmm_reg_predictor     uvm_component           -     @516 
+#       bus_in               uvm_analysis_imp        -     @524 
+#       reg_ap               uvm_analysis_port       -     @533 
+# --------------------------------------------------------------
+# 
+# r_sz.get() = 0000000000000000
+# r_sz.get() = 0000000000000000
+# value = 0000000000000000 r_sz.get() = 0000000000000040
+# get r_ha = 0000000080000000
+# get r_da = 0000000008000000
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    4
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [UVMTOP]     1
+# ** Note: $finish    : /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/../verilog_src/uvm-1.1/src/base/uvm_root.svh(408)
+#    Time: 300 ns  Iteration: 96  Instance: /top

@@ -1,0 +1,225 @@
+# vsim +UVM_TESTNAME=jelly_bean_reg_test top 
+# ** Note: (vsim-3812) Design is being optimized...
+# //  ModelSim SE-64 10.1 Dec  5 2011 Linux 3.13.0-32-generic
+# //
+# //  Copyright 1991-2011 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.top(fast)
+# Loading work.jelly_bean_if(fast)
+# Loading work.jelly_bean_pkg(fast)
+# Loading work.jelly_bean_taster(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/linux_x86_64/uvm_dpi.so
+#  
+run 1sec
+# ----------------------------------------------------------------
+# UVM-1.1
+# (C) 2007-2011 Mentor Graphics Corporation
+# (C) 2007-2011 Cadence Design Systems, Inc.
+# (C) 2006-2011 Synopsys, Inc.
+# (C) 2011      Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test jelly_bean_reg_test...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# ----------------------------------------------------------------
+# Name                       Type                      Size  Value
+# ----------------------------------------------------------------
+# uvm_test_top               jelly_bean_reg_test       -     @463 
+#   jb_env                   jelly_bean_env            -     @493 
+#     jb_agent               jelly_bean_agent          -     @508 
+#       jb_ap                uvm_analysis_port         -     @572 
+#       jb_drvr              jelly_bean_driver         -     @704 
+#         rsp_port           uvm_analysis_port         -     @721 
+#         sqr_pull_port      uvm_seq_item_pull_port    -     @712 
+#       jb_mon               jelly_bean_monitor        -     @730 
+#         jb_ap              uvm_analysis_port         -     @754 
+#       jb_seqr              uvm_sequencer             -     @581 
+#         rsp_export         uvm_analysis_export       -     @589 
+#         seq_item_export    uvm_seq_item_pull_imp     -     @695 
+#         arbitration_queue  array                     0     -    
+#         lock_queue         array                     0     -    
+#         num_last_reqs      integral                  32    'd1  
+#         num_last_rsps      integral                  32    'd1  
+#     jb_fc_sub              jelly_bean_fc_subscriber  -     @550 
+#       analysis_imp         uvm_analysis_imp          -     @558 
+#     jb_reg_predictor       uvm_component             -     @516 
+#       bus_in               uvm_analysis_imp          -     @524 
+#       reg_ap               uvm_analysis_port         -     @533 
+#     jb_sb                  jelly_bean_scoreboard     -     @542 
+#       jb_analysis_export   uvm_analysis_export       -     @825 
+#       jb_sb_sub            jelly_bean_sb_subscriber  -     @834 
+#         analysis_imp       uvm_analysis_imp          -     @842 
+# ----------------------------------------------------------------
+# 
+# UVM_INFO ../src/tutorial_9.sv(652) @ 30: uvm_test_top.jb_env.jb_sb [jelly_bean_scoreboard] You have a good sense of taste.
+# ---------------------------------------------------------
+# Name          Type                         Size  Value   
+# ---------------------------------------------------------
+# jb_tx         jelly_bean_transaction       -     @897    
+#   flavor      jelly_bean_types::flavor_e   3     APPLE   
+#   color       jelly_bean_types::color_e    2     GREEN   
+#   sugar_free  integral                     1     'h0     
+#   sour        integral                     1     'h1     
+#   command     jelly_bean_types::command_e  2     WRITE   
+#   taste       jelly_bean_types::taste_e    2     NO_TASTE
+# ---------------------------------------------------------
+# 
+# UVM_INFO ../src/tutorial_9.sv(652) @ 60: uvm_test_top.jb_env.jb_sb [jelly_bean_scoreboard] You have a good sense of taste.
+# ----------------------------------------------------------
+# Name          Type                         Size  Value    
+# ----------------------------------------------------------
+# jb_tx         jelly_bean_transaction       -     @905     
+#   flavor      jelly_bean_types::flavor_e   3     NO_FLAVOR
+#   color       jelly_bean_types::color_e    2     NO_COLOR 
+#   sugar_free  integral                     1     'h0      
+#   sour        integral                     1     'h0      
+#   command     jelly_bean_types::command_e  2     READ     
+#   taste       jelly_bean_types::taste_e    2     YUMMY    
+# ----------------------------------------------------------
+# 
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    6
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [UVMTOP]     1
+# [jelly_bean_scoreboard]     2
+# ** Note: $finish    : /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/../verilog_src/uvm-1.1/src/base/uvm_root.svh(408)
+#    Time: 140 ns  Iteration: 96  Instance: /top
+# vsim +UVM_TESTNAME=jelly_bean_reg_test top 
+# //  ModelSim SE-64 10.1 Dec  5 2011 Linux 2.6.32-431.5.1.el6.x86_64
+# //
+# //  Copyright 1991-2011 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.top(fast)
+# Loading work.jelly_bean_if(fast)
+# Loading work.jelly_bean_pkg(fast)
+# Loading work.jelly_bean_taster(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/linux_x86_64/uvm_dpi.so
+#  
+run 1sec
+# ----------------------------------------------------------------
+# UVM-1.1
+# (C) 2007-2011 Mentor Graphics Corporation
+# (C) 2007-2011 Cadence Design Systems, Inc.
+# (C) 2006-2011 Synopsys, Inc.
+# (C) 2011      Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test jelly_bean_reg_test...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# ----------------------------------------------------------------
+# Name                       Type                      Size  Value
+# ----------------------------------------------------------------
+# uvm_test_top               jelly_bean_reg_test       -     @463 
+#   jb_env                   jelly_bean_env            -     @493 
+#     jb_agent               jelly_bean_agent          -     @508 
+#       jb_ap                uvm_analysis_port         -     @572 
+#       jb_drvr              jelly_bean_driver         -     @704 
+#         rsp_port           uvm_analysis_port         -     @721 
+#         sqr_pull_port      uvm_seq_item_pull_port    -     @712 
+#       jb_mon               jelly_bean_monitor        -     @730 
+#         jb_ap              uvm_analysis_port         -     @754 
+#       jb_seqr              uvm_sequencer             -     @581 
+#         rsp_export         uvm_analysis_export       -     @589 
+#         seq_item_export    uvm_seq_item_pull_imp     -     @695 
+#         arbitration_queue  array                     0     -    
+#         lock_queue         array                     0     -    
+#         num_last_reqs      integral                  32    'd1  
+#         num_last_rsps      integral                  32    'd1  
+#     jb_fc_sub              jelly_bean_fc_subscriber  -     @550 
+#       analysis_imp         uvm_analysis_imp          -     @558 
+#     jb_reg_predictor       uvm_component             -     @516 
+#       bus_in               uvm_analysis_imp          -     @524 
+#       reg_ap               uvm_analysis_port         -     @533 
+#     jb_sb                  jelly_bean_scoreboard     -     @542 
+#       jb_analysis_export   uvm_analysis_export       -     @825 
+#       jb_sb_sub            jelly_bean_sb_subscriber  -     @834 
+#         analysis_imp       uvm_analysis_imp          -     @842 
+# ----------------------------------------------------------------
+# 
+# UVM_INFO ../src/tutorial_9.sv(652) @ 30: uvm_test_top.jb_env.jb_sb [jelly_bean_scoreboard] You have a good sense of taste.
+# ---------------------------------------------------------
+# Name          Type                         Size  Value   
+# ---------------------------------------------------------
+# jb_tx         jelly_bean_transaction       -     @897    
+#   flavor      jelly_bean_types::flavor_e   3     APPLE   
+#   color       jelly_bean_types::color_e    2     GREEN   
+#   sugar_free  integral                     1     'h0     
+#   sour        integral                     1     'h1     
+#   command     jelly_bean_types::command_e  2     WRITE   
+#   taste       jelly_bean_types::taste_e    2     NO_TASTE
+# ---------------------------------------------------------
+# 
+# UVM_INFO ../src/tutorial_9.sv(652) @ 60: uvm_test_top.jb_env.jb_sb [jelly_bean_scoreboard] You have a good sense of taste.
+# ----------------------------------------------------------
+# Name          Type                         Size  Value    
+# ----------------------------------------------------------
+# jb_tx         jelly_bean_transaction       -     @905     
+#   flavor      jelly_bean_types::flavor_e   3     NO_FLAVOR
+#   color       jelly_bean_types::color_e    2     NO_COLOR 
+#   sugar_free  integral                     1     'h0      
+#   sour        integral                     1     'h0      
+#   command     jelly_bean_types::command_e  2     READ     
+#   taste       jelly_bean_types::taste_e    2     YUMMY    
+# ----------------------------------------------------------
+# 
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    6
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [UVMTOP]     1
+# [jelly_bean_scoreboard]     2
+# ** Note: $finish    : /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/../verilog_src/uvm-1.1/src/base/uvm_root.svh(408)
+#    Time: 140 ns  Iteration: 96  Instance: /top
+# //  ModelSim SE-64 10.1 Dec  5 2011 Linux 2.6.32-431.5.1.el6.x86_64
+# //
+# //  Copyright 1991-2011 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# vsim +UVM_TESTNAME=jelly_bean_reg_test top 
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.top(fast)
+# Loading work.jelly_bean_if(fast)
+# Loading work.jelly_bean_pkg(fast)
+# Loading work.jelly_bean_taster(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/linux_x86_64/uvm_dpi.so
+#  
+quit

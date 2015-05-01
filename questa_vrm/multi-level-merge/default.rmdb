@@ -1,0 +1,116 @@
+<?xml version="1.0" ?>
+<rmdb version="1.0">
+  <!--
+    Second-level merge: top-level Runnable and strip/install
+    -->
+  <runnable name="nightly" type="group">
+    <parameters>
+      <parameter name="blksrc">(%CONFDIR%)/src/mlm_par.sv</parameter>
+      <parameter name="ucdbfile">(%group%).ucdb</parameter>
+      <parameter name="mergefile">(%DATADIR%)/nightly/merge.ucdb</parameter>
+    </parameters>
+    <members>
+      <member>unittest</member>
+      <member>systemtest</member>
+    </members>
+    <postScript>
+      <command>coverage open merge.ucdb</command>
+      <command>coverage attribute -test * -name TESTNAME -name TESTSTATUS</command>
+    </postScript>
+  </runnable>
+  <runnable name="unittest" type="group" sequential="yes">
+    <parameters>
+      <parameter name="group">unittest</parameter>
+    </parameters>
+    <members>
+      <member>unittest_run</member>
+      <member>unittest_merge</member>
+    </members>
+  </runnable>
+  <runnable name="unittest_merge" type="task">
+    <execScript>
+      <command>file copy ../(%group%)_run/(%ucdbfile%) (%ucdbfile%)</command>
+    </execScript>
+  </runnable>
+  <runnable name="systemtest" type="group" sequential="yes">
+    <parameters>
+      <parameter name="group">systemtest</parameter>
+    </parameters>
+    <members>
+      <member>systemtest_run</member>
+      <member>systemtest_merge</member>
+    </members>
+  </runnable>
+  <runnable name="systemtest_merge" type="task">
+    <execScript>
+      <command>vcover merge -strip 3 -install /mlm_uni (%ucdbfile%) ../(%group%)_run/(%ucdbfile%)</command>
+    </execScript>
+  </runnable>
+  <!--
+    First-level merge: unittest and systemtest hierarchies
+    -->
+  <runnable name="firstlevel" type="base">
+    <parameters>
+      <!-- this must be hard-coded because parameters are expanded from the POV of the Action -->
+      <parameter name="workpath">(%DATADIR%)/nightly/(%group%)/(%group%)_run</parameter>
+      <parameter name="testname">(%group%)_(%pattern%)</parameter>
+      <parameter name="ucdbfile">(%testname%).ucdb</parameter>
+      <parameter name="mergefile">(%workpath%)/(%group%).ucdb</parameter>
+    </parameters>
+    <preScript>
+      <command>file delete -force work</command>
+      <command>file delete -force (%mergefile%)</command>
+      <command>vlib work</command>
+      <!-- forego coverage on testbenches in order to avoid merge warnings -->
+      <command>vlog (%tbsrc%)</command>
+      <command>vlog -coverAll (%blksrc%)</command>
+      <command>vopt -quiet (%top%) -o (%top%)_opt</command>
+    </preScript>
+    <execScript>
+      <command>vsim -c -coverage -lib (%workpath%)/work +(%pattern%) (%top%)</command>
+      <command>run -all</command>
+      <command>coverage attribute -name TESTNAME -value (%testname%)</command>
+      <command>coverage save (%ucdbfile%)</command>
+    </execScript>
+    <postScript mintimeout="60">
+      <command>coverage open (%mergefile%)</command>
+      <command>coverage attribute -test * -name TESTNAME -name TESTSTATUS</command>
+    </postScript>
+  </runnable>
+  <runnable name="unittest_run" type="group" base="firstlevel">
+    <parameters>
+      <parameter name="top">mlm_uni</parameter>
+      <parameter name="tbsrc">(%CONFDIR%)/src/mlm_uni.sv</parameter>
+    </parameters>
+    <members>
+      <member>test1</member>
+      <member>test2</member>
+    </members>
+  </runnable>
+  <runnable name="systemtest_run" type="group" base="firstlevel">
+    <parameters>
+      <parameter name="top">mlm_sys</parameter>
+      <parameter name="tbsrc">(%CONFDIR%)/src/mlm_sys.sv</parameter>
+    </parameters>
+    <members>
+      <member>test1</member>
+      <member>test2</member>
+      <member>test3</member>
+    </members>
+  </runnable>
+  <runnable name="test1" type="task">
+    <parameters>
+      <parameter name="pattern">short</parameter>
+    </parameters>
+  </runnable>
+  <runnable name="test2" type="task">
+    <parameters>
+      <parameter name="pattern">broad</parameter>
+    </parameters>
+  </runnable>
+  <runnable name="test3" type="task">
+    <parameters>
+      <parameter name="pattern">shift</parameter>
+    </parameters>
+  </runnable>
+</rmdb>

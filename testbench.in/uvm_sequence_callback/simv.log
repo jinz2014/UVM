@@ -1,0 +1,71 @@
+Command: ./simv -l simv.log
+Chronologic VCS simulator copyright 1991-2011
+Contains Synopsys proprietary information.
+Compiler version F-2011.12; Runtime version F-2011.12;  Nov 22 12:22 2012
+----------------------------------------------------------------
+UVM-1.1.VCS
+(C) 2007-2011 Mentor Graphics Corporation
+(C) 2007-2011 Cadence Design Systems, Inc.
+(C) 2006-2011 Synopsys, Inc.
+(C) 2011      Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.accellera.org/activities/vip/release_notes_11a for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.accellera.org/activities/vip/mantis3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO top.sv(37) @ 0: reporter [top] In top initial block
+UVM_INFO @ 0: reporter [RNTST] Running test base_test...
+-------------------------------------------------------
+Name                 Type                   Size  Value
+-------------------------------------------------------
+sequencer            instruction_sequencer  -     @493 
+  rsp_export         uvm_analysis_export    -     @501 
+  seq_item_export    uvm_seq_item_pull_imp  -     @607 
+  arbitration_queue  array                  0     -    
+  lock_queue         array                  0     -    
+  num_last_reqs      integral               32    'd1  
+  num_last_rsps      integral               32    'd1  
+-------------------------------------------------------
+UVM_INFO /share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_sequence_library.svh(698) @ 0: sequencer@@sequence_library [SEQLIB/START] Starting sequence library sequence_lib in unknown phase: 5 iterations in mode UVM_SEQ_LIB_RANDC
+UVM_INFO sequence.sv(124) @ 0: sequencer@@sequence_library.demo_sequence_body:1 [demo_sequence_body] task body
+0: Driving Instruction  PUSH_B
+UVM_INFO sequence.sv(124) @ 10: sequencer@@sequence_library.demo_sequence_body:2 [demo_sequence_body] task body
+10: Driving Instruction  MUL
+UVM_INFO sequence.sv(124) @ 20: sequencer@@sequence_library.demo_sequence_body:3 [demo_sequence_body] task body
+20: Driving Instruction  PUSH_A
+UVM_INFO sequence.sv(124) @ 30: sequencer@@sequence_library.demo_sequence_body:4 [demo_sequence_body] task body
+30: Driving Instruction  PUSH_B
+UVM_INFO sequence.sv(124) @ 40: sequencer@@sequence_library.demo_sequence_body:5 [demo_sequence_body] task body
+40: Driving Instruction  DIV
+UVM_INFO /share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_sequence_library.svh(772) @ 50: sequencer@@sequence_library [SEQLIB/END] Ending sequence library in phase unknown
+UVM_INFO /share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_objection.svh(1120) @ 50: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   10
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[SEQLIB/END]     1
+[SEQLIB/START]     1
+[TEST_DONE]     1
+[demo_sequence_body]     5
+[top]     1
+$finish called from file "/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_root.svh", line 408.
+$finish at simulation time                   50
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 50 ns
+CPU Time:      0.480 seconds;       Data structure size:   0.2Mb
+Thu Nov 22 12:22:04 2012

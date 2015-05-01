@@ -1,0 +1,93 @@
+Command: ./simv +UVM_NO_RELNOTES -l run.log
+Chronologic VCS simulator copyright 1991-2011
+Contains Synopsys proprietary information.
+Compiler version F-2011.12; Runtime version F-2011.12;  Sep 17 21:59 2012
+----------------------------------------------------------------
+UVM-1.1.VCS
+(C) 2007-2011 Mentor Graphics Corporation
+(C) 2007-2011 Cadence Design Systems, Inc.
+(C) 2006-2011 Synopsys, Inc.
+(C) 2011      Cypress Semiconductor Corp.
+----------------------------------------------------------------
+UVM_INFO @ 0: reporter [RNTST] Running test ...
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = 10bb499d, data = 5aa08ea0 ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = a1d0b5b5, data = c9c0e379 ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = c7ad3af4, data = e09e2087 ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = 10bb499d, data = 5aa08ea0 ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = a1d0b5b5, data = c9c0e379 ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = c7ad3af4, data = e09e2087 ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = 10bb499d, data = 5aa08ea0 ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = a1d0b5b5, data = c9c0e379 ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = c7ad3af4, data = e09e2087 ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = dc106f50, data = f1ed7b71 ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = 5716bf08, data = edc53024 ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = dc106f50, data = f1ed7b71 ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = 5716bf08, data = edc53024 ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = 5fa91cea, data = f624481c ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = c8211925, data = 88ab91c1 ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = 583650d5, data = 1dc7f56c ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = dc106f50, data = f1ed7b71 ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = 5716bf08, data = edc53024 ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = 5fa91cea, data = f624481c ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = c8211925, data = 88ab91c1 ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = 583650d5, data = 1dc7f56c ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = 5fa91cea, data = f624481c ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = c8211925, data = 88ab91c1 ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = 583650d5, data = 1dc7f56c ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = c69f00da, data = 3390b477 ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = 8de115e9, data = ba0d68ad ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = c69f00da, data = 3390b477 ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = 8de115e9, data = ba0d68ad ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = cc85ddea, data = 12b3c2c7 ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = 8d2c9afb, data = 19653db8 ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = 54a9f71a, data = e8f2323f ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = c69f00da, data = 3390b477 ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = 8de115e9, data = ba0d68ad ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = cc85ddea, data = 12b3c2c7 ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = 8d2c9afb, data = 19653db8 ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = 54a9f71a, data = e8f2323f ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = cc85ddea, data = 12b3c2c7 ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = 8d2c9afb, data = 19653db8 ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = 54a9f71a, data = e8f2323f ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = 71bb006c, data = 176dd30e ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = 0949910d, data = e10fc938 ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = 71bb006c, data = 176dd30e ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = 0949910d, data = e10fc938 ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = 207758d1, data = f56882aa ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = 507cf595, data = f468b4d8 ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = 76778d62, data = 233aaf71 ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = 71bb006c, data = 176dd30e ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = 0949910d, data = e10fc938 ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = 207758d1, data = f56882aa ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = 507cf595, data = f468b4d8 ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = 76778d62, data = 233aaf71 ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = 207758d1, data = f56882aa ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = 507cf595, data = f468b4d8 ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = 76778d62, data = 233aaf71 ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = 9a5ca13e, data = 5f318e54 ]
+UVM_INFO hierarchy.sv(106) @ 0: e.top.producer.gen [gen] sending  : [ addr = c1dd62af, data = 97098849 ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = 9a5ca13e, data = 5f318e54 ]
+UVM_INFO hierarchy.sv(171) @ 0: e.top.listener [e.top.listener] Received: [ addr = c1dd62af, data = 97098849 ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = 9a5ca13e, data = 5f318e54 ]
+UVM_INFO hierarchy.sv(159) @ 0: e.top.consumer.bfm [bfm] receiving: [ addr = c1dd62af, data = 97098849 ]
+UVM_INFO /share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_objection.svh(1120) @ 1000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   62
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[TEST_DONE]     1
+[bfm]    20
+[e.top.listener]    20
+[gen]    20
+$finish called from file "/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_root.svh", line 408.
+$finish at simulation time                 1000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1000 ns
+CPU Time:      0.480 seconds;       Data structure size:   0.1Mb
+Mon Sep 17 21:59:14 2012

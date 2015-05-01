@@ -1,0 +1,300 @@
+Command: vcs -sverilog -timescale=1ns/1ns +incdir+. test.sv -ntb_opts uvm-1.1 -l \
+comp.log
+                         Chronologic VCS (TM)
+            Version F-2011.12 -- Tue Nov 26 14:37:57 2013
+               Copyright (c) 1991-2011 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+Parsing design file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_pkg.sv'
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_macros.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/macros/uvm_version_defines.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_macros.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/macros/uvm_message_defines.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_macros.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/macros/uvm_phase_defines.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_macros.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/macros/uvm_object_defines.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_macros.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/macros/uvm_printer_defines.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_macros.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/macros/uvm_tlm_defines.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm_imps.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/macros/uvm_tlm_defines.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_macros.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/macros/uvm_sequence_defines.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_macros.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/macros/uvm_callback_defines.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_macros.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/macros/uvm_reg_defines.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_macros.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/macros/uvm_deprecated_defines.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_macros.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_pkg.sv'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/dpi/uvm_dpi.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/dpi/uvm_hdl.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/dpi/uvm_dpi.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/dpi/uvm_svcmd_dpi.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/dpi/uvm_dpi.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/dpi/uvm_regex.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/dpi/uvm_dpi.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_pkg.sv'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_version.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_object_globals.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_misc.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_object.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_pool.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_queue.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_factory.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_registry.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_printer.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_comparer.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_packer.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_recorder.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_event_callback.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_event.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_barrier.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_callback.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_macros.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_callback.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_report_catcher.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_report_server.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_report_handler.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_report_object.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_transaction.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_phase.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_domain.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_bottomup_phase.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_topdown_phase.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_task_phase.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_common_phases.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_runtime_phases.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_spell_chkr.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_resource.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_resource_converter.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_resource_specializations.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_resource_db.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_config_db.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_component.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_root.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_component.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_objection.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_heartbeat.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_globals.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_cmdline_processor.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_base.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_pkg.sv'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm_ifs.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_sqr_ifs.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/base/uvm_port_base.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm_imps.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_imps.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_ports.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_exports.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_analysis_port.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm_fifo_base.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm_fifos.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm_req_rsp.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_sqr_connections.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm1/uvm_tlm.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_pkg.sv'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_comps.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_pair.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_comps.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_policies.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_comps.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_in_order_comparator.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_comps.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_algorithmic_comparator.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_comps.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_random_stimulus.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_comps.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_subscriber.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_comps.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_monitor.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_comps.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_driver.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_comps.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_push_driver.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_comps.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_scoreboard.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_comps.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_agent.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_comps.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_env.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_comps.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_test.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/comps/uvm_comps.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_pkg.sv'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_seq.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_sequence_item.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_seq.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_sequencer_base.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_seq.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_sequencer_analysis_fifo.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_seq.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_sequencer_param_base.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_seq.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_sequencer.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_seq.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_push_sequencer.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_seq.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_sequence_base.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_seq.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_sequence.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_seq.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_sequence_library.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_seq.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_sequence_builtin.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/seq/uvm_seq.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_pkg.sv'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2_defines.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2_time.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2_generic_payload.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2_ifs.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2_imps.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2_ports.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2_exports.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2_sockets_base.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2_sockets.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/tlm2/uvm_tlm2.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_pkg.sv'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_item.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_adapter.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_sequence.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_cbs.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_backdoor.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_field.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_vreg_field.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_indirect.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_fifo.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_file.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_mem_mam.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_vreg.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_mem.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_map.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_block.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/sequences/uvm_reg_hw_reset_seq.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/sequences/uvm_reg_bit_bash_seq.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/sequences/uvm_mem_walk_seq.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/sequences/uvm_mem_access_seq.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/sequences/uvm_reg_access_seq.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/sequences/uvm_reg_mem_shared_access_seq.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/sequences/uvm_reg_mem_built_in_seq.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Parsing included file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/sequences/uvm_reg_mem_hdl_paths_seq.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/reg/uvm_reg_model.svh'.
+Back to file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_pkg.sv'.
+Parsing design file 'test.sv'
+Parsing design file '/share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/uvm_pkg.sv'
+Top Level Modules:
+       top
+TimeScale is 1 ns / 1 ns
+Starting vcs inline pass...
+3 modules and 0 UDP read.
+recompiling package uvm_pkg
+recompiling module top
+All of 3 modules done
+make[1]: Entering directory `/share/jinz/Synopsys_Tutorial/vcsmx_example/testbench/sv/uvm/simple/phases/basic/csrc' \
+
+g++ -w  -pipe -m32 -O -I/share/reconfig/synopsys_vcs_mx/include    -c /share/reconfig/synopsys_vcs_mx/etc/uvm-1.1/dpi/uvm_dpi.cc \
+
+if [ -x ../simv ]; then chmod -x ../simv; fi
+g++  -o ../simv -melf_i386 -m32    -Wl,-whole-archive    -Wl,-no-whole-archive  /share/reconfig/synopsys_vcs_mx/linux/lib/vpdlogstub.o \
+uvm_dpi.o  _vcsobj_1_1.o  5NrI_d.o 5NrIB_d.o SIM_l.o    rmapats_mop.o rmapats.o  \
+/share/reconfig/synopsys_vcs_mx/linux/lib/libvirsim.so /share/reconfig/synopsys_vcs_mx/linux/lib/librterrorinf.so \
+/share/reconfig/synopsys_vcs_mx/linux/lib/libsnpsmalloc.so     /share/reconfig/synopsys_vcs_mx/linux/lib/libvcsnew.so \
+/share/reconfig/synopsys_vcs_mx/linux/lib/libuclinative.so         /share/reconfig/synopsys_vcs_mx/linux/lib/vcs_save_restore_new.o \
+/share/reconfig/synopsys_vcs_mx/linux/lib/ctype-stubs_32.a -ldl  -lc -lm -lpthread \
+-ldl 
+../simv up to date
+make[1]: Leaving directory `/share/jinz/Synopsys_Tutorial/vcsmx_example/testbench/sv/uvm/simple/phases/basic/csrc' \
+
+CPU time: 6.544 seconds to compile + .042 seconds to elab + .267 seconds to link

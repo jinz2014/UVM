@@ -1,0 +1,67 @@
+Model Technology ModelSim SE-64 qverilog 10.1 Compiler 2011.12 Dec  5 2011
+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/bin/../linux_x86_64/qverilog +incdir+. simple.sv -R 
+-- Compiling module test
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1 Built-in)
+** Note: (qverilog-2286) Using implicit +incdir+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/../verilog_src/uvm-1.1/src from import uvm_pkg
+
+Top level modules:
+	test
++ /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/vsim -lib work test -c -do run -all; quit -f -appendlog -l qverilog.log -vopt
+# vsim -appendlog -do {run -all; quit -f} -l qverilog.log -lib work -c -vopt test 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  ModelSim SE-64 10.1 Dec  5 2011 Linux 3.13.0-32-generic
+# //
+# //  Copyright 1991-2011 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.test(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/linux_x86_64/uvm_dpi.so
+# run -all 
+# ----------------------------------------------------------------
+# UVM-1.1
+# (C) 2007-2011 Mentor Graphics Corporation
+# (C) 2007-2011 Cadence Design Systems, Inc.
+# (C) 2006-2011 Synopsys, Inc.
+# (C) 2011      Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test simple_test...
+# UVM_INFO @ 0: uvm_test_top [drain] Setting drain time of 10
+# UVM_INFO @ 0: uvm_test_top [doit] Starting doit (0) with delay 35
+# UVM_INFO @ 0: uvm_test_top [doit] Starting doit (1) with delay 25
+# UVM_INFO @ 0: uvm_test_top [doit] Starting doit (2) with delay 50
+# UVM_INFO @ 0: uvm_test_top [doit] Starting doit (3) with delay 15
+# UVM_INFO @ 15: uvm_test_top [doit] Ending doit (3)
+# UVM_INFO @ 15: uvm_test_top [dropped]           1 objection(s) dropped from uvm_test_top, total count is now 3
+# UVM_INFO @ 25: uvm_test_top [doit] Ending doit (1)
+# UVM_INFO @ 25: uvm_test_top [dropped]           1 objection(s) dropped from uvm_test_top, total count is now 2
+# UVM_INFO @ 35: uvm_test_top [doit] Ending doit (0)
+# UVM_INFO @ 35: uvm_test_top [dropped]           1 objection(s) dropped from uvm_test_top, total count is now 1
+# UVM_INFO @ 50: uvm_test_top [doit] Ending doit (2)
+# UVM_INFO @ 50: uvm_test_top [dropped]           1 objection(s) dropped from uvm_test_top, total count is now 0
+# UVM_INFO verilog_src/uvm-1.1/src/base/uvm_objection.svh(1120) @ 60: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   17
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [doit]     8
+# [drain]     1
+# [dropped]     4
+# ** Note: $finish    : /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/../verilog_src/uvm-1.1/src/base/uvm_root.svh(408)
+#    Time: 60 ns  Iteration: 53  Instance: /test

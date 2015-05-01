@@ -1,0 +1,7 @@
+select_coverage -block -expr -toggle -instance tb_apb_subsystem.i_apb_subsystem...
+set_expr_scoring -all
+set_fsm_scoring -hold_transition
+set_covergroup -per_instance_default_one
+
+deselect_coverage -block -module master_mux
+deselect_coverage -block -module slave_mux

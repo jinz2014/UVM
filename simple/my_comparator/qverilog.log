@@ -1,0 +1,154 @@
+Model Technology ModelSim SE-64 qverilog 10.1 Compiler 2011.12 Dec  5 2011
+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/bin/../linux_x86_64/qverilog +incdir+. in_order_builtin_comparator.sv 
+** Note: (qverilog-2286) Using implicit +incdir+/usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/../verilog_src/uvm-1.1/src from import uvm_pkg
+-- Compiling package in_order_builtin_comparator_sv_unit
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1 Built-in)
+-- Compiling module top
+
+Top level modules:
+	top
++ /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/vsim -lib work top -c -do run -all; quit -f -appendlog -l qverilog.log -vopt
+# vsim -appendlog -do {run -all; quit -f} -l qverilog.log -lib work -c -vopt top 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  ModelSim SE-64 10.1 Dec  5 2011 Linux 3.13.0-32-generic
+# //
+# //  Copyright 1991-2011 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.in_order_builtin_comparator_sv_unit(fast)
+# Loading work.top(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /usr/local/3rdparty/mentor/modelsim10.1/modeltech/uvm-1.1/linux_x86_64/uvm_dpi.so
+# run -all 
+# ----------------------------------------------------------------
+# UVM-1.1
+# (C) 2007-2011 Mentor Graphics Corporation
+# (C) 2007-2011 Cadence Design Systems, Inc.
+# (C) 2006-2011 Synopsys, Inc.
+# (C) 2011      Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test test...
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 0 differs from 1
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 1 differs from 2
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 2 differs from 3
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 3 differs from 4
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 4 differs from 5
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 5 differs from 6
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 6 differs from 7
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 7 differs from 8
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 8 differs from 9
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 9 differs from 10
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 10 differs from 11
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 11 differs from 12
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 12 differs from 13
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 13 differs from 14
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 14 differs from 15
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 15 differs from 16
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 16 differs from 17
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 17 differs from 18
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 18 differs from 19
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 19 differs from 20
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 20 differs from 21
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 21 differs from 22
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 22 differs from 23
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 23 differs from 24
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 24 differs from 25
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 25 differs from 26
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 26 differs from 27
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 27 differs from 28
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 28 differs from 29
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 29 differs from 30
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 30 differs from 31
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 31 differs from 32
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 32 differs from 33
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 33 differs from 34
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 34 differs from 35
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 35 differs from 36
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 36 differs from 37
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 37 differs from 38
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 38 differs from 39
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 39 differs from 40
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 40 differs from 41
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 41 differs from 42
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 42 differs from 43
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 43 differs from 44
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 44 differs from 45
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 45 differs from 46
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 46 differs from 47
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 47 differs from 48
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 48 differs from 49
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 49 differs from 50
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 50 differs from 51
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 51 differs from 52
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 52 differs from 53
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 53 differs from 54
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 54 differs from 55
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 55 differs from 56
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 56 differs from 57
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 57 differs from 58
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 58 differs from 59
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 59 differs from 60
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 60 differs from 61
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 61 differs from 62
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 62 differs from 63
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 63 differs from 64
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 64 differs from 65
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 65 differs from 66
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 66 differs from 67
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 67 differs from 68
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 68 differs from 69
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 69 differs from 70
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 70 differs from 71
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 71 differs from 72
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 72 differs from 73
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 73 differs from 74
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 74 differs from 75
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 75 differs from 76
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 76 differs from 77
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 77 differs from 78
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 78 differs from 79
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 79 differs from 80
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 80 differs from 81
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 81 differs from 82
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 82 differs from 83
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 83 differs from 84
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 84 differs from 85
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 85 differs from 86
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 86 differs from 87
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 87 differs from 88
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 88 differs from 89
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 89 differs from 90
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 90 differs from 91
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 91 differs from 92
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 92 differs from 93
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 93 differs from 94
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 94 differs from 95
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 95 differs from 96
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 96 differs from 97
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 97 differs from 98
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 98 differs from 99
+# UVM_WARNING @ 0: uvm_test_top.my_comp3.my_in_order_builtin_comparator [Comparator Mismatch] 99 differs from 100
+# UVM_INFO verilog_src/uvm-1.1/src/base/uvm_objection.svh(1120) @ 0: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    4
+# UVM_WARNING :  100
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Comparator Mismatch]   100
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# ** Note: $finish    : /usr/local/3rdparty/mentor/modelsim10.1/modeltech/linux_x86_64/../verilog_src/uvm-1.1/src/base/uvm_root.svh(408)
+#    Time: 0 ns  Iteration: 224  Instance: /top
